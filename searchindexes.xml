@@ -4,7 +4,7 @@
 编程，开启你的未来可能。
 其他渠道： Github 掘金 知乎 CSDN 公众号：小猿编程秘籍 民族风情园 民族风情园致力于一个汇聚、分享知识的风情园。
 知识如同一座宝库，不断挖掘，方能收获智慧之光。
-风情园各园：编程之路、文化之路、AI之路、生活之路、财富之路、杂货铺之路</content></entry><entry><title>计算机网络：Socket编程-NIO进行优化</title><url>/post/20/</url><categories><category>计算机网络</category></categories><tags><tag>Socket编程</tag></tags><content type="html"><![CDATA[  上篇写了计算机网络：Socket编程-多线程优化和请求响应对象封装，
+风情园各园：编程、读书、AI、生活、财富、杂货</content></entry><entry><title>计算机网络：Socket编程-NIO进行优化</title><url>/post/20/</url><categories><category>计算机网络</category></categories><tags><tag>Socket编程</tag></tags><content type="html"><![CDATA[  上篇写了计算机网络：Socket编程-多线程优化和请求响应对象封装，
 有留心的伙伴就会发现，我先是简单写了一个HTTP服务，然后对这个HTTP服务进行面向对象封装，接着又在封装的基础上进行多线程的优化和请求响应对象的封装，这样一步一步的由简入深。
 这篇也是继续深入优化，之前的代码都是使用ServerSocket这个类，从代码中可以看出，它是每个请求都需要单独的线程进行处理，ServerSocket是基于阻塞I/O模型。那有没有非阻塞模式类？
 有的，Java NIO库中提供了ServerSocketChannel这个类，它是通过Selector来管理多个通道的，一个线程可以处理多个请求。
