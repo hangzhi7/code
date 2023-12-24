@@ -4,7 +4,14 @@
 编程，开启你的未来可能。
 其他渠道： Github 掘金 知乎 CSDN 公众号：小猿编程秘籍 风情园 风情园致力于一个汇聚、分享知识的风情园。
 知识如同一座宝库，不断挖掘，方能收获智慧之光。
-风情园各园：编程、读书、AI、生活、财富、杂货</content></entry><entry><title>计算机网络：同源策略</title><url>/post/24/</url><categories><category>计算机网络</category></categories><tags/><content type="html"><![CDATA[  1、介绍 同源策略：禁止一个源(origin)的脚本和文档和另一个源的脚本和文档交互。 什么是同源：两个URL的协议(protocol)、端口(port)和域名(domain)都相同，这就是同源。 同源策略的目的：防止恶意的网站窃取用户的cookie，或者其他敏感信息。 同源策略的实现：浏览器会在同源的情况下，允许脚本和文档进行交互。 同源策略的限制：不能读取对方的cookie、localStorage、sessionStorage、indexedDB、webSocket、EventSource、XMLHttpRequest、location、history 等等。 2、问题回答 问1：如果两个源产生过多交互会有什么影响？ 影响很大的就是恶意的网站窃取用户的cookie，或者其他敏感信息。这样数据就不安全了，所以同源策略是非常重要的。
+风情园各园：编程、读书、AI、生活、财富、杂货</content></entry><entry><title>计算机网络：面试真题实战</title><url>/post/25/</url><categories><category>计算机网络</category></categories><tags/><content type="html"> 1、面试真题问答 以下问题都是基于之前写的计算机网络系文章做出简单问答
+问1：TCP/IP协议群做了哪些事情？
+1、报文拆分 2、增加协议头 3、数据传输 4、路由和寻址 5、数据重组 问2：TCP协议为什么是3次握手4次挥手？
+3次握手 1.客户端发送SYN，服务端准备好进行连接 2.服务端针对客户端的SYN给ACK，服务端发送SYN 3.客户端准备就绪，客户端发送ACK 4次分手 1.客户端发送断开请求FIN 2.服务端收到请求，发送ACK 3.服务端经过一个等待（数据处理完毕），确定可以关闭连接，发送FIN 4.客户端收到FIN，处理完自己的事情后发送ACK 问3：IPv4和Ipv6的区别？
+地址不同：Ipv4 32位；Ipv6 128位 （地址空间、数目不同）。 地址分配不同：IPv4资源是稀缺的，分配需要竞争；IPv6可以给每个人分配很多地址。 寻址方式不同：IPv4通过子网掩码计算网络地址；IPv6有固定的计算方式划分网络。 地址解析策略不同：IPv4需要ARP；IPv6通过无状态的邻居发现。 DNS不同：IPv4是A记录；IPv6是AAAA记录。 问4：TCP和UDP的区别？
+传输：TCP面向流；UDP面向报文 连接：TCP有会话；UDP无会话 头部开销：TCP开销大；UDP开销小 可靠性：TCP保证数据可靠到达；UDP不保证数据可靠到达 场景：TCP适合保证数据完整到达场景，如：文件传输；UDP适合随时发送数据，不要求数据完整到达场景，如：广播通信 问5：TCP如何确保数据顺序？ 为什么需要保证：TCP拆分封包的时候是顺序拆分的，但是包会无序的到达目的地。 方法1：利用(SEQ, ACK)编号确定封包的唯一性 方法2：利用滑动窗口存放没有排好序的封包，直到窗口中完全有序才发送ACK。如果有包丢失，就会一直不发ACK。 如果窗口大小是4，发送ABCD，如果只有BD到目的地，那么滑动窗口中是_B_D。
+问6：如果网络延迟是30ms，那么Ping一个网站需要多少ms? 如果请求一个HTTPS协议的网站，TTFB至少ms? 问7：LRU是什么？ 缓存置换：缓存满了后，每次创建新的缓存条目，就会删除旧的缓存条目。 问8：什么是https中间人攻击? 问9：NIO有什么优势？
+Reactive模型+非阻塞(减少线程切换） 内核级别拷贝内存到JVM（减少系统调用） …</content></entry><entry><title>计算机网络：同源策略</title><url>/post/24/</url><categories><category>计算机网络</category></categories><tags/><content type="html"><![CDATA[  1、介绍 同源策略：禁止一个源(origin)的脚本和文档和另一个源的脚本和文档交互。 什么是同源：两个URL的协议(protocol)、端口(port)和域名(domain)都相同，这就是同源。 同源策略的目的：防止恶意的网站窃取用户的cookie，或者其他敏感信息。 同源策略的实现：浏览器会在同源的情况下，允许脚本和文档进行交互。 同源策略的限制：不能读取对方的cookie、localStorage、sessionStorage、indexedDB、webSocket、EventSource、XMLHttpRequest、location、history 等等。 2、问题回答 问1：如果两个源产生过多交互会有什么影响？ 影响很大的就是恶意的网站窃取用户的cookie，或者其他敏感信息。这样数据就不安全了，所以同源策略是非常重要的。
 问2：应不应该允许网站提交cookie到不同源的服务器？ 这个是不允许的，但是你自己配置了跨域是可以的。
 问3：为什么不禁用不同源的js？ 因为有些js是第三方提供的，我们引用cdn的js，引用组件。
 问4：应不应该允许不同源的js修改dom？ 这个是允许的，比如百度统计，百度地图等，如果不允许不同源的js修改dom，那么就无法统计用户的地理位置，无法使用百度地图等功能。
