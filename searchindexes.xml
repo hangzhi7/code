@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>关于我</title><url>/about.html</url><categories/><tags/><content type="html"> 编程之路 一枚不起眼有着梦想爱读书的程序猿，记录自己的编程小技巧分享。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>1.Python开发基础工具</title><url>/post/31/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、Python3 安装包 Python3中文文档： https://docs.python.org/zh-cn/3/ Python官网下载： https://www.python.org/downloads Python3安装自行百度 2、Anaconda anaconda官网 ： https://www.anaconda.com/products/individual 简介： Anaconda就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。
+Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。
+Anaconda具有如下特点： 开源 安装过程简单 高性能使用Python和R语言 免费的社区支持 3、PyCharm PyCharm下载： https://www.jetbrains.com/pycharm/download/ 简介： PyCharm是一种Python IDE（集成开发软件），带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，
+比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。
+此外该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</content></entry><entry><title>ASM：深入Java字节码的世界，小白也能轻松掌握</title><url>/post/29/</url><categories><category>Java库</category></categories><tags><tag>字节码</tag></tags><content type="html"><![CDATA[  你是否曾在Java开发中遇到需要对字节码进行操作的需求？
+是否为了实现某个功能而不得不深入研究Java字节码的奥秘？
+如果是的话，那么你可能会感兴趣我要介绍的Java库——ASM。
+ASM是一个强大的Java字节码操作库，它可以帮助我们轻松地读取、修改和生成Java字节码。
+无论你是小白还是有一定基础的开发者，ASM都能为你带来极大的便利。
+一篇关于ASM的入门介绍，让你轻松掌握这个强大的Java库。
+1、ASM简介 ASM是一个用Java编写的库，主要用于分析和操作Java字节码。
+通过ASM我们可以读取Java字节码文件，了解其结构，修改字节码以满足我们的需求，甚至可以生成全新的字节码文件。
+ASM提供了丰富的API，使我们能够以编程的方式操作字节码，极大地提高了我们的工作效率。
+2、ASM的核心组件 ClassReader：用于读取Java字节码文件，并获取其对应的Class对象。 ClassWriter：用于生成Java字节码文件，我们可以通过ClassWriter将修改后的字节码写入到新的文件中。 MethodVisitor：用于访问Java方法，包括方法的参数、返回值、异常等信息。 FieldVisitor：用于访问Java字段，包括字段的类型、修饰符等信息。 AnnotationVisitor：用于访问Java注解。 ConstructorVisitor：用于访问Java构造器。 3、ASM的使用示例 我将通过一个简单的示例，展示如何使用ASM来读取和修改Java字节码。
+1.我们需要添加ASM的依赖。如果你使用Maven，可以在pom.xml文件中添加以下依赖：
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.ow2.asm&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;asm&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 2.创建一个简单的Java类，例如：
+public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } 3.编 …  ]]></content></entry><entry><title>一窥Dozer的Java库：让Java对象映射更轻松</title><url>/post/28/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  尽管各种新兴技术层出不穷，Java仍然稳居开发语言的前沿。
+然而Java的对象映射问题一直让许多新手程序员头疼。
+我要介绍的是拯救诸位于此困扰的利器——Dozer。
+1、Dozer是什么？ Dozer是一个强大、简单易用的Java Bean到Java Bean映射工具，它使用Java反射API进行动态映射。
+不论是同名属性映射，深层对象映射，或者是复制不同类型的对象都处理得游刃有余。
+2、Dozer的优势 1、在源目标与目标类名称和字段名称相同时，能自动将值从一方映射到另一方。
+2、对于字段类型不同的映射，它也能妥善应对。
+3、提供了丰富的API，还支持自定义转换器，让你的映射更加自如。
+3、使用Dozer 保持简洁的原则，我们用一段代码示例来看看如何使用Dozer。
+1、需要在工程中引入Dozer。
+&lt;dependency&gt; &lt;groupId&gt;com.github.dozermapper&lt;/groupId&gt; &lt;artifactId&gt;dozer-core&lt;/artifactId&gt; &lt;version&gt;6.5.0&lt;/version&gt; &lt;/dependency&gt; 2、创建两个Java Bean对象，Person和Employee。
+public class Person { private String name; private int age; //...getter和setter } public class Employee { private String name; private int age; //...getter和setter } 3、实操使用：实现Person对象到Employee对象的映射了。
+// 创建DozerBeanMapper对象 Mapper mapper = DozerBeanMapperBuilder.buildDefault(); Person p = new Person(); p.setName(&#34;小白&#34;); p.setAge(25); Employee e = mapper.map(p, Employee.class); System.out.println(e.getName()); System.out.println(e.getAge()); //以上代码能够成功地输出“小白”和“25”，证明映射工作已经成功地完成了。 ▽ 通过Dozer我们能够更快、更轻松地完成Java对象的映射。
+不论是编程新手，还是在Java道路上已经走过一段距离的朋友，都可以使用一下这个强大的工具更快、更轻松地完成编程任务，可少加班早点下班。
+良好的工具能够提升编程效率，让你有更多时间去处理更重要的事情。
+希望Dozer能够为你的Java之路提供便利，让你的编程任务都能够如你所愿，甚至超出你的预期，让你的人生与代码都无往不利！
+开源地址： https://github.com/DozerMapper/dozer   ]]></content></entry><entry><title>Guava：一款强大的Java库，让你的开发更高效</title><url>/post/27/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  Guava是一款由Google开源的Java库，提供了丰富的工具类和扩展类，帮助我们解决日常开发中遇到的各种问题。
+本文将详细介绍Guava库的特点、常用工具类及其使用方法，让小白读者轻松上手。
+1、Guava简介 Guava是一款由Google开源的Java库，旨在为Java开发者提供一系列便捷的工具类和扩展类，以提高开发效率。
+Guava包含了很多实用的工具类，如集合类（multisets、multimaps、tables等）、数式编程风格（通过supplier、function、predicate、optional等实现）、缓存（CacheLoader和CacheBuilder等）、支持原生的Java类型、事件总线以及并发库扩展等，可以帮助我们轻松应对日常开发中的各种挑战。
+2、Guava的安装与使用 1.添加依赖 要使用Guava库，需要在项目中添加其依赖。如果你使用Maven进行项目管理，可以在pom.xml文件中添加以下依赖：
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.google.guava&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;guava&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;31.0.1-jre&amp;lt;/version&amp;gt; &amp;lt;!-- 请根据实际版本进行替换 --&amp;gt; &amp;lt;/dependency&amp;gt; 如果你使用Gradle，可以在build.gradle文件中添加以下依赖：
+dependencies { implementation &amp;#39;com.google.guava:guava:31.0.1-jre&amp;#39; // 请根据实际版本进行替换 } 2.使用Guava工具类 Guava提供了很多实用的工具类，下面将介绍几个常用的工具类及其使用方法。
+(1).增强java集合功能
+Guava库向我们提供了一些更加丰富的集合类，比如诸如ImmutableSet、ImmutableList、ImmutableSortedSet、ImmutableMap以及更为泛化和强大的Multiset（可以存储相同元素的集合）、BiMap（可以将两个键映射到一个值）、Table（可以将一个键映射到另一个键的值）等。
+(2).字符串处理
+Guava库提供 …  ]]></content></entry><entry><title>关于我</title><url>/about.html</url><categories/><tags/><content type="html"> 编程之路 一枚不起眼有着梦想爱读书的程序猿，记录自己的编程小技巧分享。
 编程之路，探索智慧的无尽旅程。
 在这条路上，小猿编程秘籍解锁创新，磨砺思维，不断超越。
 编程，开启你的未来可能。
