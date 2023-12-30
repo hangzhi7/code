@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>Java开发者必备：一款神器Dozer，让你轻松实现对象属性映射！</title><url>/post/30/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  介绍一款Java领域内广泛使用的数据映射库——Dozer。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>一篇文章带你入门Fastjson2：Java库的“闪电”解析</title><url>/post/59/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  介绍一个Java编程中非常实用的库——Fastjson2。
+Fastjson2是一个由我国阿里巴巴团队开发的高效JSON解析库，它能够让你在处理JSON数据时，体验到飞一般的感觉。
+1、Fastjson2的背景 在互联网开发领域，JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。
+由于其简洁易读的特点，JSON成为了网络数据传输的事实标准。
+当时在Java中处理JSON数据并不总是那么容易。为此Fastjson应运而生，它旨在简化Java开发者处理JSON数据的复杂度，提高处理速度。
+Fastjson2是Fastjson项目的重要升级，与Fastjson1相比，性能有非常大的提升。
+性能远超过其他流行JSON库，包括jackson/gson/org.json，
+性能数据: https://github.com/alibaba/fastjson2/wiki/fastjson_benchmark 2、Fastjson2的特点 速度快：Fastjson2的解析速度非常快，比其他库如Jackson和Gson要快得多。 易使用：Fastjson2的API简单易用，你几乎可以无脑使用它。 功能全：Fastjson2支持各种复杂类型的JSON处理，包括泛型、枚举等。 可扩展：Fastjson2允许你自定义序列化和反序列化规则。 支持JDK新特性 完善的JSONPath支持，支持SQL:2016的JSONPath语法 支持Android 8+，客户端和服务器一套API 支持JSON Schema 3、Fastjson2的使用 1.添加依赖,在你的项目中添加Fastjson2的依赖。如果你使用Maven，可以在pom.xml文件中添加以下代码：
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.alibaba.fastjson2&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;fastjson2&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.44&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 2.JSON字符串转Java对象
+public class Test1 { public static void main(String[] args) …  ]]></content></entry><entry><title>Java开发者必备：一款神器Dozer，让你轻松实现对象属性映射！</title><url>/post/30/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  介绍一款Java领域内广泛使用的数据映射库——Dozer。
 通过本文你将了解到Dozer的基本概念、使用方法和应用场景，更有详细的示例代码助你快速上手！
 1、Dozer简介 Dozer是一个用于Java对象的映射工具，它可以帮助我们轻松地将一个对象的属性映射到另一个对象的对应属性。
 在Java开发过程中，我们经常需要处理对象之间的转换和映射，而手动编写这些转换逻辑既繁琐又容易出错。
@@ -10,11 +19,7 @@ Dozer为我们提供了一种自动化、高效的方式来解决这个问题。
 3、Dozer的使用方法 1.添加依赖，需要在项目的pom.xml文件中添加Dozer的依赖：
 &amp;lt;dependencies&amp;gt; &amp;lt;!-- Dozer依赖 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;net.sf.dozer&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;dozer&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.7.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 2.创建映射器
 创建一个Java类，并继承Dozer的Mapper接口。然后重写接口中的映射方法，实现自定义的映射逻辑。
-import org.dozer.Mapper; import org.dozer Mapping; @Mapper public class MyMapper { @Mapping(source = &amp;#34;name&amp;#34;, target = &amp;#34;name&amp;#34;) public MyObject map(MyObject source) { …  ]]></content></entry><entry><title>1.Python开发基础工具</title><url>/post/31/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、Python3 安装包 Python3中文文档： https://docs.python.org/zh-cn/3/ Python官网下载： https://www.python.org/downloads Python3安装自行百度 2、Anaconda anaconda官网 ： https://www.anaconda.com/products/individual 简介： Anaconda就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。
-Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。
-Anaconda具有如下特点： 开源 安装过程简单 高性能使用Python和R语言 免费的社区支持 3、PyCharm PyCharm下载： https://www.jetbrains.com/pycharm/download/ 简介： PyCharm是一种Python IDE（集成开发软件），带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，
-比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。
-此外该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</content></entry><entry><title>ASM：深入Java字节码的世界，小白也能轻松掌握</title><url>/post/29/</url><categories><category>Java库</category></categories><tags><tag>字节码</tag></tags><content type="html"><![CDATA[  你是否曾在Java开发中遇到需要对字节码进行操作的需求？
+import org.dozer.Mapper; import org.dozer Mapping; @Mapper public class MyMapper { @Mapping(source = &amp;#34;name&amp;#34;, target = &amp;#34;name&amp;#34;) public MyObject map(MyObject source) { …  ]]></content></entry><entry><title>ASM：深入Java字节码的世界，小白也能轻松掌握</title><url>/post/29/</url><categories><category>Java库</category></categories><tags><tag>字节码</tag></tags><content type="html"><![CDATA[  你是否曾在Java开发中遇到需要对字节码进行操作的需求？
 是否为了实现某个功能而不得不深入研究Java字节码的奥秘？
 如果是的话，那么你可能会感兴趣我要介绍的Java库——ASM。
 ASM是一个强大的Java字节码操作库，它可以帮助我们轻松地读取、修改和生成Java字节码。
@@ -26,7 +31,11 @@ ASM提供了丰富的API，使我们能够以编程的方式操作字节码，�
 2、ASM的核心组件 ClassReader：用于读取Java字节码文件，并获取其对应的Class对象。 ClassWriter：用于生成Java字节码文件，我们可以通过ClassWriter将修改后的字节码写入到新的文件中。 MethodVisitor：用于访问Java方法，包括方法的参数、返回值、异常等信息。 FieldVisitor：用于访问Java字段，包括字段的类型、修饰符等信息。 AnnotationVisitor：用于访问Java注解。 ConstructorVisitor：用于访问Java构造器。 3、ASM的使用示例 我将通过一个简单的示例，展示如何使用ASM来读取和修改Java字节码。
 1.我们需要添加ASM的依赖。如果你使用Maven，可以在pom.xml文件中添加以下依赖：
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.ow2.asm&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;asm&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 2.创建一个简单的Java类，例如：
-public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } 3.编 …  ]]></content></entry><entry><title>一窥Dozer的Java库：让Java对象映射更轻松</title><url>/post/28/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  尽管各种新兴技术层出不穷，Java仍然稳居开发语言的前沿。
+public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } 3.编 …  ]]></content></entry><entry><title>1.Python开发基础工具</title><url>/post/31/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、Python3 安装包 Python3中文文档： https://docs.python.org/zh-cn/3/ Python官网下载： https://www.python.org/downloads Python3安装自行百度 2、Anaconda anaconda官网 ： https://www.anaconda.com/products/individual 简介： Anaconda就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。
+Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。
+Anaconda具有如下特点： 开源 安装过程简单 高性能使用Python和R语言 免费的社区支持 3、PyCharm PyCharm下载： https://www.jetbrains.com/pycharm/download/ 简介： PyCharm是一种Python IDE（集成开发软件），带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，
+比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。
+此外该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</content></entry><entry><title>一窥Dozer的Java库：让Java对象映射更轻松</title><url>/post/28/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  尽管各种新兴技术层出不穷，Java仍然稳居开发语言的前沿。
 然而Java的对象映射问题一直让许多新手程序员头疼。
 我要介绍的是拯救诸位于此困扰的利器——Dozer。
 1、Dozer是什么？ Dozer是一个强大、简单易用的Java Bean到Java Bean映射工具，它使用Java反射API进行动态映射。
