@@ -65,9 +65,7 @@ Guava库提供 …  ]]></content></entry><entry><title>关于我</title><url>/ab
 编程之路，探索智慧的无尽旅程。
 在这条路上，小猿编程秘籍解锁创新，磨砺思维，不断超越。
 编程，开启你的未来可能。
-其他渠道： Github 掘金 知乎 CSDN 公众号：小猿编程秘籍 风情园 风情园致力于一个汇聚、分享知识的风情园。
-知识如同一座宝库，不断挖掘，方能收获智慧之光。
-风情园各园：编程、读书、AI、生活、财富、杂货</content></entry><entry><title>计算机网络：面试真题实战</title><url>/post/25/</url><categories><category>计算机网络</category></categories><tags/><content type="html"> 1、面试真题问答 以下问题都是基于之前写的计算机网络系文章做出简单问答
+其他渠道： Github 掘金 知乎 CSDN 公众号：小猿编程秘籍</content></entry><entry><title>计算机网络：面试真题实战</title><url>/post/25/</url><categories><category>计算机网络</category></categories><tags/><content type="html"> 1、面试真题问答 以下问题都是基于之前写的计算机网络系文章做出简单问答
 问1：TCP/IP协议群做了哪些事情？
 1、报文拆分 2、增加协议头 3、数据传输 4、路由和寻址 5、数据重组 问2：TCP协议为什么是3次握手4次挥手？
 3次握手 1.客户端发送SYN，服务端准备好进行连接 2.服务端针对客户端的SYN给ACK，服务端发送SYN 3.客户端准备就绪，客户端发送ACK 4次分手 1.客户端发送断开请求FIN 2.服务端收到请求，发送ACK 3.服务端经过一个等待（数据处理完毕），确定可以关闭连接，发送FIN 4.客户端收到FIN，处理完自己的事情后发送ACK 问3：IPv4和Ipv6的区别？
