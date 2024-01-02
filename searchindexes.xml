@@ -31,11 +31,7 @@ ASM提供了丰富的API，使我们能够以编程的方式操作字节码，�
 2、ASM的核心组件 ClassReader：用于读取Java字节码文件，并获取其对应的Class对象。 ClassWriter：用于生成Java字节码文件，我们可以通过ClassWriter将修改后的字节码写入到新的文件中。 MethodVisitor：用于访问Java方法，包括方法的参数、返回值、异常等信息。 FieldVisitor：用于访问Java字段，包括字段的类型、修饰符等信息。 AnnotationVisitor：用于访问Java注解。 ConstructorVisitor：用于访问Java构造器。 3、ASM的使用示例 我将通过一个简单的示例，展示如何使用ASM来读取和修改Java字节码。
 1.我们需要添加ASM的依赖。如果你使用Maven，可以在pom.xml文件中添加以下依赖：
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.ow2.asm&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;asm&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;9.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 2.创建一个简单的Java类，例如：
-public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } 3.编 …  ]]></content></entry><entry><title>1.Python开发基础工具</title><url>/post/31/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、Python3 安装包 Python3中文文档： https://docs.python.org/zh-cn/3/ Python官网下载： https://www.python.org/downloads Python3安装自行百度 2、Anaconda anaconda官网 ： https://www.anaconda.com/products/individual 简介： Anaconda就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。
-Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。
-Anaconda具有如下特点： 开源 安装过程简单 高性能使用Python和R语言 免费的社区支持 3、PyCharm PyCharm下载： https://www.jetbrains.com/pycharm/download/ 简介： PyCharm是一种Python IDE（集成开发软件），带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，
-比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。
-此外该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</content></entry><entry><title>一窥Dozer的Java库：让Java对象映射更轻松</title><url>/post/28/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  尽管各种新兴技术层出不穷，Java仍然稳居开发语言的前沿。
+public class HelloWorld { public static void main(String[] args) { System.out.println(&amp;#34;Hello, World!&amp;#34;); } } 3.编 …  ]]></content></entry><entry><title>一窥Dozer的Java库：让Java对象映射更轻松</title><url>/post/28/</url><categories><category>Java库</category></categories><tags/><content type="html"><![CDATA[  尽管各种新兴技术层出不穷，Java仍然稳居开发语言的前沿。
 然而Java的对象映射问题一直让许多新手程序员头疼。
 我要介绍的是拯救诸位于此困扰的利器——Dozer。
 1、Dozer是什么？ Dozer是一个强大、简单易用的Java Bean到Java Bean映射工具，它使用Java反射API进行动态映射。
@@ -180,7 +176,21 @@ Last failed login: Tue Dec 29 21:06:17 CST 2020 from 182.78.163.21 on ssh:notty 
 [root@hangzhi .ssh]# chmod 600 authorized_keys 5、打开ssh的密钥登录功能
 [root@hangzhi .ssh]# vim /etc/ssh/sshd_config #PubkeyAuthentication yes #AuthorizedKeysFile .ssh/authorized_keys #将上面2行前面的注释去掉，然后保存 # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service 6、然后使用客户端配置密钥登录，如果成功接着下一步，不成功重复上面步骤
 7、关闭ssh密码登录（注意：只有配置成功后才操作这个步，不然没成功关闭这个会导致不能登录服务器 ）
-[root@hangzhi .ssh]# vim /etc/ssh/sshd_config PasswordAuthentication yes 修改为: PasswordAuthentication no # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service</content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
+[root@hangzhi .ssh]# vim /etc/ssh/sshd_config PasswordAuthentication yes 修改为: PasswordAuthentication no # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service</content></entry><entry><title>2.Python语法基础知识</title><url>/post/32/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、注释 注释是我们自己语言来描述一段代码的实现逻辑，介绍这段代码具体实现的什么功能，方便我们维护和清晰地了解这段代码，增强程序的可读性
+1.1、单行注释 ：用于注释一行文字或者代码，单行注释格式以 # 号开头
+# 打印一行文字 print(&amp;#34;hello world&amp;#34;) # print(&amp;#34;hello world&amp;#34;) 1.2、多行注释 ：用于注释多行文字或者代码块，格式以三个英文单引号（&amp;rsquo;&amp;rsquo;&amp;rsquo;）开头，三个英文单引号（&amp;rsquo;&amp;rsquo;&amp;rsquo;）结束
+&amp;#39;&amp;#39;&amp;#39; 使用多行注释 打印一行文字 &amp;#39;&amp;#39;&amp;#39; print(&amp;#34;hello world!&amp;#34;) 2、关键字与标识符 2.1、关键字
+False、None、True、and、as、assert、break、class、 continue、def、del、elif、else、except、finally、for、 from、global、if、import、in、is、lambda、nonlocal、not、 or、pass、raise、return、try、while、with、yield 2.2、标识符
+开发者自定义的一些符号和名称等称为标识符（如：变量名、函数名、类名等），标识符由字母、数字、下划线组成。
+定义标识符的注意事项：
+不能以数字开头 标识符区分大小写 不能使用Python内置关键字作为标识符名称 为了提高可读性，见名知其意 3、变量 变量就是一个装有不同类型数值的容器
+3.1、变量定义
+#定义姓名变量 name=&amp;#34;张三&amp;#34; #定义年龄变量 age=20 #定义性别变量 sex=&amp;#34;男&amp;#34; #打印信息 print(&amp;#34;姓名: &amp;#34;,name) print(&amp;#34;年龄: &amp;#34;,age) print(&amp;#34;性别: &amp;#34;,sex) 3.2、赋值
+# 如果不是第一次出现，表示给这个变量重新赋值 #定义年龄变量 age=20 print(&amp;#34;年龄: &amp;#34;,age) #年龄增加2岁 age=age+2; print(&amp;#34;重新赋值后的年龄: &amp;#34;,age) 4、数据类型 python提供的标准数据类型：数据 …  ]]></content></entry><entry><title>1.Python开发基础工具</title><url>/post/31/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、Python3 安装包 Python3中文文档： https://docs.python.org/zh-cn/3/ Python官网下载： https://www.python.org/downloads Python3安装自行百度 2、Anaconda anaconda官网 ： https://www.anaconda.com/products/individual 简介： Anaconda就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。
+Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。
+Anaconda具有如下特点： 开源 安装过程简单 高性能使用Python和R语言 免费的社区支持 3、PyCharm PyCharm下载： https://www.jetbrains.com/pycharm/download/ 简介： PyCharm是一种Python IDE（集成开发软件），带有一整套可以帮助用户在使用Python语言开发时提高其效率的工具，
+比如调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制。
+此外该IDE提供了一些高级功能，以用于支持Django框架下的专业Web开发。</content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
 复制的方式可以看之前写的：VirtualBox虚拟机迁移/复制（带快照）
 简单方便的导出方式(推荐)，因为适用其他虚拟机,如:VMWare
 VirtualBox虚拟机磁盘扩展 1.创建磁盘和添加磁盘
