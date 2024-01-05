@@ -187,7 +187,7 @@ Java EE（Java 2 Platform Enterprise Edition）企业版【J2EE】 是为开发�
 三种技术的关系： 3、Java语言的特性 简单性（简洁有效、易学） Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java语言不使用指针，而是引用。并提供了自动的废料收集，使得程序员不必为内存管理而担忧。
 面向对象（强制面向对象） Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制。
 Java语言全面支持动态绑定，而C++语言只对虚函数使用动态绑定。
-分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>Linux</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
+分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>2.Java语法基础知识</title><url>/post/45/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、Java中的关键字 关键字 说明 abstract 表明类或者成员方法具有抽象属性 assert 用来进行程序调试 boolean 基本数据类型之一，布尔类型 break 提前跳出一个块 byte 基本数据类型之一，字节类型 case 用在switch语句之中，表示其中的一个分支 catch 用在异常处理中，用来捕捉异常 char 基本数据类型之一，字符类型 class 类 const 保留关键字，没有具体含义 continue 回到一个块的开始处 default 默认，例如，用在switch语句中，表明一个默认的分支 do 用在do-while循环结构中 double 基本数据类型之一，双精度浮点数类型 else 用在条件语句中，表明当条件不成立时的分支 enum 枚举 extends 表明一个类型是另一个类型的子类型，这里常见的类型有类和接口 final 用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变 finally 用于处理异常情况，用来声明一个基本肯定会被执行到的语句块 float 基本数据类型之一，单精度浮点数类型 for 一种循环结构的引导词 goto 保留关键字，没有具体含义 if 条件语句的引导词 implements 表明一个类实现了给定的接口 import 表明要访问指定的类或包 instanceof 用来测试一个对象是否是指定类型的实例对象 int 基本数据类型之一，整数类型 interface 接口 long 基本数据类型之一，长整数类型 native 用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的 new 用来创建新实例对象 package 包 private 一种访问控制方式：私用模式 protected 一种访问控制方式：保护模式 public 一种访问控制方式：共用模式 return 从成员方法中返回数据 short 基本数据类型之一,短整数类型 static 表明具有静态属性 strictfp 用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 super 表明当前对象的父类型的引用或者父类型的构造方法 switch 分支语句结构的引导词 synchronized 表明一段代码需要同步执行 this 指向当前实例对象 …</content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>Linux</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
 2、frp下载及介绍 (1)、 frp下载：https://github.com/fatedier/frp/releases 下载最新版，根据自己的服务器下载对应版本（我的是linux64系统）
 wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz (2)、解压压缩包
 tar -zxvf frp_0.34.3_linux_amd64.tar.gz mv frp_0.34.3_linux_amd64 frpServer 包结构介绍： 服务器端：
@@ -210,7 +210,8 @@ Last failed login: Tue Dec 29 21:06:17 CST 2020 from 182.78.163.21 on ssh:notty 
 复制的方式可以看之前写的：VirtualBox虚拟机迁移/复制（带快照）
 简单方便的导出方式(推荐)，因为适用其他虚拟机,如:VMWare
 VirtualBox虚拟机磁盘扩展 1.创建磁盘和添加磁盘
-**对于创建时使用哪种磁盘文件，如下图介绍（我自己使用的VMDK）：** 2.查看能不能识别磁盘
+对于创建时使用哪种磁盘文件，如下图介绍（我自己使用的VMDK ：
+2.查看能不能识别磁盘
 3.对磁盘分区
 fdisk /dev/sdb 选N进行分区 两个选项，e为分逻辑分区，p为主分区，（我选择的是p） 选1，说明是创建第一个分区，起始位置默认直接回车 下一个是让你选择究竟要分多大空间给这个分区，直接回车就默认全部分给他，单位按MB来算 选W 保存退出 4.查看分好区的磁盘
 fdisk -l 查看 能看到/dev/sdb1了就ok 5.对分区好磁盘格式化
