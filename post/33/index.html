@@ -1,0 +1,323 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.121.2"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_8.png><link rel=icon type=image/png sizes=32x32 href><link rel=apple-touch-icon sizes=180x180 href><meta itemprop=name content="3.Python容器使用入门"><meta itemprop=description content="介绍Python容器基础入门使用知识"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://code.mzfqy.site/imgs/xybcmj.jpg"><meta itemprop=keywords content="自学记录"><meta property="og:type" content="article"><meta property="og:title" content="3.Python容器使用入门"><meta property="og:description" content="介绍Python容器基础入门使用知识"><meta property="og:image" content="/imgs/xybcmj.jpg"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="https://code.mzfqy.site/post/33/"><meta property="og:site_name" content="编程"><meta property="og:locale" content="zh-CN"><meta property="article:author" content="小猿编程秘籍"><meta property="article:published_time" content="2020-11-21 18:30:02 +0800 +0800"><meta property="article:modified_time" content="2023-12-28 13:03:02 +0800 +0800"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.e273fdf7594e491862485c3be08e53f6950ec405ee0c2cfb386aa00418eb2eaa.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":true,"isHome":false,"isPage":true,"path":"33","permalink":"https://code.mzfqy.site/post/33/","title":"3.Python容器使用入门","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://hm.baidu.com/hm.js?2229fca163ce43264bc704e30d1f7228",e.async="true",document.head.appendChild(e)})</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>3.Python容器使用入门 - 编程</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>编程</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>编程是一种语言，可以讲述无限的故事。</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=https://mzfqy.site class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-archives"><a href=/archives/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>47</span></a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于我</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#1列表>1、列表</a></li><li><a href=#2元组>2、元组</a></li><li><a href=#3字典>3、字典</a></li><li><a href=#4集合>4、集合</a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=小猿编程秘籍 src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcmj.jpg><p class=site-author-name itemprop=name>小猿编程秘籍</p><div class=site-description itemprop=description>砥砺前行，创造无限可能。</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>47</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>5</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>31</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href="https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" title="公众号 → https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" rel=noopener class=hvr-icon-pulse target=_blank><i class="far fa-comment-dots fa-fw hvr-icon"></i>
+公众号
+</a></span><span class=links-of-social-item><a href=https://github.com/hangzhi7 title="Github → https://github.com/hangzhi7" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-github fa-fw hvr-icon"></i>
+Github
+</a></span><span class=links-of-social-item><a href=https://www.zhihu.com/people/hang-zi-43-85/posts title="知乎 → https://www.zhihu.com/people/hang-zi-43-85/posts" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-book fa-fw hvr-icon"></i>
+知乎</a></span></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/cc/small/by_nc_sa.svg alt=共享知识></a></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
+<span>网站资讯</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已运行：</div><div class=item-count id=runTimes data-publishdate=2021-03-18T10:16:00+08:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>总访客数：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>页面浏览：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>总字数：</div><div class=item-count id=wordsCount data-count=71761></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>阅读约：</div><div class=item-count id=readTimes data-times=166></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最后更新于：</div><div class=item-count id=last-push-date data-lastpushdate=2021-01-05T10:26:02+08:00></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-comments class="button goto-comments" title=直达评论><i class="fas fa-comments"></i></div><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><a href=https://github.com/hangzhi7 rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://code.mzfqy.site/post/33/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/xybcmj.jpg"><meta itemprop=name content="小猿编程秘籍"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="小猿编程秘籍"><meta itemprop=description content="砥砺前行，创造无限可能。"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="3.Python容器使用入门"><meta itemprop=description content="介绍Python容器基础入门使用知识"></span><header class=post-header><h1 class=post-title itemprop="name headline">3.Python容器使用入门
+<a href=https://github.com/hangzhi7/myblog-code/blob/main/content/post/33.md rel="noopener external nofollow noreferrer" target=_blank class="exturl post-edit-link" title=编辑><i class="fa fa-pen-nib"></i></a></h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2020-11-21 18:30:02 +0800 +0800" itemprop="dateCreated datePublished" datetime="2020-11-21 18:30:02 +0800 +0800">2020-11-21
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar-check"></i>
+</span><span class=post-meta-item-text title=更新于>更新于：
+</span><time title=修改时间：2023-12-28T13:03:02+08:00 itemprop=dateModified datetime=2023-12-28T13:03:02+08:00>2023-12-28</time>
+</span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/python itemprop=url rel=index><span itemprop=name>Python</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>2808</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>6分钟</span>
+</span><span class=post-meta-item title=浏览><span class=post-meta-item-icon><i class="far fa-eye"></i>
+</span><span class=post-meta-item-text>浏览：
+</span><span id=busuanzi_value_page_pv data-path=/post/33/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class=post-body itemprop=articleBody><h3 id=1列表>1、列表
+<a class=header-anchor href=#1%e5%88%97%e8%a1%a8></a></h3><p>1.1、<strong>列表定义</strong></p><p>列表用来顺序存储相同或者不同类型数据的集合，列表内存储的元素是有序的，列表使用一对[ ]表示，列表中存储的每个值叫元素，元素之间使用逗号隔开</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 存储相同数据类型</span>
+</span></span><span style=display:flex><span>name_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;李四&#34;</span>,<span style=color:#e6db74>&#34;王五&#34;</span>]
+</span></span><span style=display:flex><span><span style=color:#75715e># 打印数据类型</span>
+</span></span><span style=display:flex><span>print(type(name_list))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(name_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#存储不同数据类型</span>
+</span></span><span style=display:flex><span>info<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span>print(info)
+</span></span></code></pre></div><p>1.2、<strong>向列表添加元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[[<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#ae81ff>20</span>],[<span style=color:#e6db74>&#34;王五&#34;</span>,<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#ae81ff>16</span>]]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 1.append()方法</span>
+</span></span><span style=display:flex><span>new_info<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;李四&#34;</span>,<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#ae81ff>18</span>]
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>append(new_info)
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 2.insert()方法</span>
+</span></span><span style=display:flex><span>new_info<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>18</span>]
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>insert(<span style=color:#ae81ff>1</span>,new_info)
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 3.extend()方法</span>
+</span></span><span style=display:flex><span>new_infos<span style=color:#f92672>=</span>[[<span style=color:#e6db74>&#34;马六&#34;</span>,<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#ae81ff>18</span>],[<span style=color:#e6db74>&#34;小黑&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>18</span>]]
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>extend(new_infos)
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 4.使用+号拼接</span>
+</span></span><span style=display:flex><span>str_list1<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>]
+</span></span><span style=display:flex><span>str_list2<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;e&#34;</span>,<span style=color:#e6db74>&#34;f&#34;</span>,<span style=color:#e6db74>&#34;g&#34;</span>]
+</span></span><span style=display:flex><span>str_list3<span style=color:#f92672>=</span>str_list1<span style=color:#f92672>+</span>str_list2
+</span></span><span style=display:flex><span>print(str_list3)
+</span></span></code></pre></div><p>1.3、<strong>修改列表中元素值</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 索引修改元素值</span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span><span style=color:#75715e>#年龄涨一岁</span>
+</span></span><span style=display:flex><span>info_list[<span style=color:#ae81ff>2</span>]<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>print(info_list)
+</span></span></code></pre></div><p>1.4、<strong>查询列表中元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 根据索引查询</span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span>name<span style=color:#f92672>=</span>info_list[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>sex<span style=color:#f92672>=</span>info_list[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_list[<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,性别:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,年龄:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(name,sex,age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># for循环遍历</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>,len(info_list))
+</span></span><span style=display:flex><span>   print(info_list[i]) <span style=color:#75715e># 索引查询值</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> info_list
+</span></span><span style=display:flex><span>   print(item) <span style=color:#75715e>#直接遍历元素</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># while循环遍历</span>
+</span></span><span style=display:flex><span>i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> i <span style=color:#f92672>&lt;</span> len(info_list):
+</span></span><span style=display:flex><span>   print(info_list[i])
+</span></span><span style=display:flex><span>   i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><p>1.5、<strong>删除列表中元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># del删除指定下标的元素</span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>del</span> info_list[<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#75715e># remove()方法</span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#34;女&#34;</span>)
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># pop()方法</span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>]
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>pop(<span style=color:#ae81ff>1</span>) <span style=color:#75715e># 根据指定索引删除</span>
+</span></span><span style=display:flex><span>print(info_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>info_list<span style=color:#f92672>.</span>pop() <span style=color:#75715e># 默认从列表的末尾删除一个元素</span>
+</span></span><span style=display:flex><span>print(info_list)
+</span></span></code></pre></div><p>1.6、<strong>列表切片</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#e6db74>&#39;&#39;&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>语法格式 list[start:end:step]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>start：开始索引
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>end：结束索引
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>step：步长，默认是1
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>注：切片的截取范围是左闭右开
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#39;&#39;&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>str_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>,<span style=color:#e6db74>&#34;d&#34;</span>,<span style=color:#e6db74>&#34;e&#34;</span>,<span style=color:#e6db74>&#34;f&#34;</span>]
+</span></span><span style=display:flex><span>print(str_list[:<span style=color:#ae81ff>3</span>]) <span style=color:#75715e>#截取前三个</span>
+</span></span><span style=display:flex><span>print(str_list[<span style=color:#ae81ff>3</span>:]) <span style=color:#75715e>#截取后三个</span>
+</span></span><span style=display:flex><span>print(str_lsit[<span style=color:#ae81ff>1</span>::<span style=color:#ae81ff>2</span>]) <span style=color:#75715e>#从下标是1开始截取，步长是2</span>
+</span></span></code></pre></div><p>1.7、<strong>列表元素排序</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>num_list<span style=color:#f92672>=</span>[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>9</span>,<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>8</span>,<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>num_list<span style=color:#f92672>.</span>sort() <span style=color:#75715e>#升序</span>
+</span></span><span style=display:flex><span>print(num_list)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>num_list<span style=color:#f92672>.</span>sort(reverse<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>) <span style=color:#75715e>#降序</span>
+</span></span><span style=display:flex><span>print(num_list)
+</span></span></code></pre></div><h3 id=2元组>2、元组
+<a class=header-anchor href=#2%e5%85%83%e7%bb%84></a></h3><p>2.1、<strong>元组使用一对小括号表示</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#定义元组</span>
+</span></span><span style=display:flex><span>tp<span style=color:#f92672>=</span>(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>#定义空元组</span>
+</span></span><span style=display:flex><span>tp_none<span style=color:#f92672>=</span>()
+</span></span></code></pre></div><p>2.2、<strong>元组与列表区别</strong></p><ul><li>相同点：都是可以顺序存储相同数据类型或者不同数据类型的元素</li><li>不同点：元组被定义后不能修改其中元素，元组不支持添加，修改，删除元素操作</li></ul><p>2.3、<strong>查询元组中元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_tp<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#34;小美&#34;</span>,<span style=color:#e6db74>&#34;女&#34;</span>,<span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 索引查询</span>
+</span></span><span style=display:flex><span>name<span style=color:#f92672>=</span>info_tp[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>sex<span style=color:#f92672>=</span>info_tp[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_tp[<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,性别:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,年龄:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(name,sex,age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># for循环遍历</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> info_tp
+</span></span><span style=display:flex><span>   print(item) <span style=color:#75715e>#元素直接遍历</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># while循环遍历</span>
+</span></span><span style=display:flex><span>i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> i <span style=color:#f92672>&lt;</span> len(info_tp):
+</span></span><span style=display:flex><span>   print(info_tp[i])
+</span></span><span style=display:flex><span>   i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h3 id=3字典>3、字典
+<a class=header-anchor href=#3%e5%ad%97%e5%85%b8></a></h3><p>3.1、<strong>字典定义</strong></p><p>字典主要用于存储key-value键值对形式的数据，字典使用一对{ }表示，一个元素就是一个键值对，多个元素之间使用逗号隔开。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#定义字典</span>
+</span></span><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>print(info_dict)
+</span></span></code></pre></div><p>3.2、<strong>向字典中添加键值对</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>info_dict[<span style=color:#e6db74>&#34;tel&#34;</span>]<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;13056785678&#34;</span>
+</span></span><span style=display:flex><span>print(info_dict)
+</span></span></code></pre></div><p>3.3、<strong>修改字典中键值对</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_dict<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;age&#34;</span>,<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;原age:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>info_dict[<span style=color:#e6db74>&#34;age&#34;</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>18</span>
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_dict<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;age&#34;</span>,<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;修改后age:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(age))
+</span></span></code></pre></div><p>3.4、<strong>查询字典中键值对</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 根据key查询值（不存在的key会报错）</span>
+</span></span><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_dict[<span style=color:#e6db74>&#34;age&#34;</span>]
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;age:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 根据get()函数查询</span>
+</span></span><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span>info_dict<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;age&#34;</span>) <span style=color:#75715e>#key存在</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;age:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tel<span style=color:#f92672>=</span>info_dict<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;tel&#34;</span>) <span style=color:#75715e>#key不存在</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;tel:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(tel))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>tel<span style=color:#f92672>=</span>info_dict<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;tel&#34;</span>,<span style=color:#e6db74>&#34;10000&#34;</span>) <span style=color:#75715e>#key不存在,给默认值</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;tel:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(tel))
+</span></span></code></pre></div><p>3.5、<strong>删除字典中键值对</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>del</span> info_dict[<span style=color:#e6db74>&#34;age&#34;</span>]
+</span></span><span style=display:flex><span>print(info_list)
+</span></span></code></pre></div><p>3.6、<strong>遍历字典</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>info_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;张三&#34;</span>,<span style=color:#e6db74>&#34;sex&#34;</span>:<span style=color:#e6db74>&#34;男&#34;</span>,<span style=color:#e6db74>&#34;age&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 根据key遍历</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> key <span style=color:#f92672>in</span> info_list<span style=color:#f92672>.</span>keys():
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(key,info_list[key]))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 根据value遍历</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> value <span style=color:#f92672>in</span> info_list<span style=color:#f92672>.</span>values():
+</span></span><span style=display:flex><span>   print(value)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 根据键值对</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> info_list<span style=color:#f92672>.</span>items():
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;item:&#34;</span>,item)
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;key:&#34;</span>,item[<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;value:&#34;</span>,item[<span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> key,value <span style=color:#f92672>in</span> info_list<span style=color:#f92672>.</span>items():
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(key,value)
+</span></span></code></pre></div><h3 id=4集合>4、集合
+<a class=header-anchor href=#4%e9%9b%86%e5%90%88></a></h3><p>4.1、<strong>集合定义</strong></p><p>集合使用类型set，集合用于无序存储相同或者不同数据类型的元素，集合使用一对{ }表示，与字典不同集合内的值不是键值对，是单独的数值。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>  <span style=color:#75715e>#集合定义</span>
+</span></span><span style=display:flex><span>  id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;1&#34;</span>,<span style=color:#e6db74>&#34;2&#34;</span>,<span style=color:#e6db74>&#34;3&#34;</span>}
+</span></span><span style=display:flex><span>  <span style=color:#75715e>#打印类型</span>
+</span></span><span style=display:flex><span>  print(type(id_set))
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  print(id_set)
+</span></span></code></pre></div><p>4.2、<strong>set函数创建集合</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#列表或者元组使用set()创建集合</span>
+</span></span><span style=display:flex><span>id_list<span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>,<span style=color:#e6db74>&#34;a&#34;</span>]
+</span></span><span style=display:flex><span>id_list_set<span style=color:#f92672>=</span>set(id_list)
+</span></span><span style=display:flex><span>print(id_list_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>id_tuple<span style=color:#f92672>=</span>(<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>,<span style=color:#e6db74>&#34;a&#34;</span>)
+</span></span><span style=display:flex><span>id_tuple_set<span style=color:#f92672>=</span>set(id_tuple)
+</span></span><span style=display:flex><span>print(id_tuple_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#字符串</span>
+</span></span><span style=display:flex><span>str_set<span style=color:#f92672>=</span>set(<span style=color:#e6db74>&#34;hello&#34;</span>)
+</span></span><span style=display:flex><span>print(str_set) <span style=color:#75715e>#按字母拆分并去重</span>
+</span></span></code></pre></div><p>4.3、<strong>集合中使用in和not in</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># in</span>
+</span></span><span style=display:flex><span>id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;c&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> id <span style=color:#f92672>in</span> id_set:
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>存在&#34;</span><span style=color:#f92672>.</span>format(id))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># not in</span>
+</span></span><span style=display:flex><span>id<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;f&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> id <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> id_set:
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>不存在&#34;</span><span style=color:#f92672>.</span>format(id))
+</span></span></code></pre></div><p>4.4、<strong>向集合中添加元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># add()方法</span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>add(<span style=color:#e6db74>&#34;d&#34;</span>)
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># update()方法</span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>update([<span style=color:#e6db74>&#34;d&#34;</span>,<span style=color:#e6db74>&#34;d&#34;</span>]) <span style=color:#75715e>#列表</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>update((<span style=color:#e6db74>&#34;e&#34;</span>,<span style=color:#e6db74>&#34;f&#34;</span>)) <span style=color:#75715e>#元组</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>new_id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;aa&#34;</span>,<span style=color:#e6db74>&#34;bb&#34;</span>}
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>update(new_id_set) <span style=color:#75715e>#添加集合</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>update([<span style=color:#e6db74>&#34;cc&#34;</span>,<span style=color:#e6db74>&#34;dd&#34;</span>],[<span style=color:#e6db74>&#34;ff&#34;</span>,<span style=color:#e6db74>&#34;ee&#34;</span>]) <span style=color:#75715e>#多个列表</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>update(<span style=color:#e6db74>&#34;aaaaaaa&#34;</span>) <span style=color:#75715e># 字符串,拆分,去重</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span></code></pre></div><p>4.5、<strong>删除集合中的元素</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># remove()方法</span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>}
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#34;a&#34;</span>) <span style=color:#75715e>#存在a删除不报错</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#34;a&#34;</span>) <span style=color:#75715e>#不存在a删除报错</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># discard()方法</span>
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;a&#34;</span>,<span style=color:#e6db74>&#34;b&#34;</span>,<span style=color:#e6db74>&#34;c&#34;</span>}
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>discard(<span style=color:#e6db74>&#34;a&#34;</span>) <span style=color:#75715e>#存在a删除不报错</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>id_set<span style=color:#f92672>.</span>discard(<span style=color:#e6db74>&#34;a&#34;</span>) <span style=color:#75715e>#不存在a删除不报错</span>
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># pop()方法</span>
+</span></span><span style=display:flex><span>id<span style=color:#f92672>=</span>id_set<span style=color:#f92672>.</span>pop()
+</span></span><span style=display:flex><span>print(id_set)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;被删除元素:&#34;</span>,id)
+</span></span></code></pre></div><p>4.6、<strong>集合中的交集、并集、差集操作</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 交集(&amp;、intersection() )</span>
+</span></span><span style=display:flex><span>num_set1<span style=color:#f92672>=</span>{<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>}
+</span></span><span style=display:flex><span>num_set2<span style=color:#f92672>=</span>{<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>}
+</span></span><span style=display:flex><span>num_set3<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>&amp;</span>num_set2 <span style=color:#75715e># 使用&amp;运算求交集</span>
+</span></span><span style=display:flex><span>num_set4<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>.</span>intersection(num_set2) <span style=color:#75715e># 使用intersection方法求交集</span>
+</span></span><span style=display:flex><span>print(num_set3)
+</span></span><span style=display:flex><span>print(num_set4)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 并集(|、union() )</span>
+</span></span><span style=display:flex><span>num_set1<span style=color:#f92672>=</span>{<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>}
+</span></span><span style=display:flex><span>num_set2<span style=color:#f92672>=</span>{<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>}
+</span></span><span style=display:flex><span>num_set3<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>|</span>num_set2 <span style=color:#75715e># 使用|运算求并集</span>
+</span></span><span style=display:flex><span>num_set4<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>.</span>union(num_set2) <span style=color:#75715e># 使用union方法求并集</span>
+</span></span><span style=display:flex><span>print(num_set3)
+</span></span><span style=display:flex><span>print(num_set4)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 差集(-、difference() )</span>
+</span></span><span style=display:flex><span>num_set1<span style=color:#f92672>=</span>{<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>}
+</span></span><span style=display:flex><span>num_set2<span style=color:#f92672>=</span>{<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>}
+</span></span><span style=display:flex><span>num_set3<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>-</span>num_set2 <span style=color:#75715e># 使用-运算求差集</span>
+</span></span><span style=display:flex><span>num_set4<span style=color:#f92672>=</span>num_set1<span style=color:#f92672>.</span>difference(num_set2) <span style=color:#75715e># 使用difference方法求差集</span>
+</span></span><span style=display:flex><span>print(num_set3)
+</span></span><span style=display:flex><span>print(num_set4)
+</span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%e8%87%aa%e5%ad%a6%e8%ae%b0%e5%bd%95>自学记录</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请关注我吧 ヾ(^▽^*)))</div><button>
+关注</button><div class="post-reward active"><div class=post-reward-item><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcgzh.jpg alt=公众号：小猿读书>
+<span>公众号：小猿读书</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+3.Python容器使用入门</li><li class=post-copyright-author><strong>本文作者： </strong>小猿编程秘籍</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://code.mzfqy.site/post/33/ title=3.Python容器使用入门>https://code.mzfqy.site/post/33/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=followme><span>欢迎关注我的其它发布渠道</span><div class=social-list><div class=social-item><a target=_blank class=social-link href=https://github.com/hangzhi7><span class=icon><i class="fab fa-github"></i>
+</span><span class=label>Github</span></a></div><div class=social-item><a target=_blank class=social-link href=https://www.zhihu.com/people/hang-zi-43-85/posts><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>知乎</span></a></div><div class=social-item><a target=_blank class=social-link href=https://blog.csdn.net/Yuan_Hang723><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>CSDN</span></a></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/2/ rel=next title=启动和停止shell脚本><i class="fa fa-chevron-left"></i> 启动和停止shell脚本</a></div><div class="post-nav-prev post-nav-item"><a href=/post/32/ rel=prev title=2.Python语法基础知识>2.Python语法基础知识
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div id=comments class=post-comments><div class=comment-head><div class=comment-headline><i class="fas fa-comments fa-fw"></i>
+<span>评论交流</span></div></div><div class=comment-wrap><div><div class=comment-loading><i class="fa fa-sync fa-spin"></i></div><div class=giscus-container></div></div></div></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2023 - 2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>小猿编程秘籍</span></div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":false,"giscus":{"cfg":{"category":"Announcements","categoryid":"DIC_kwDOKyZK3M4CbR9Y","emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"hangzhi7/comments","repoid":"R_kgDOKyZK3A","theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://code.mzfqy.site","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":true,"plugin":"busuanzi"}},"root":"/","scheme":"Muse","sidebar":{"display":"post","offset":12,"padding":18,"position":"right","width":320},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.8f5e35d041911f1772ddf1c9c9e0f4924ed2221b0caa219a4bc58560f72e5b11.js defer></script></body></html>

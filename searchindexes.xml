@@ -165,18 +165,30 @@ ssh -p 9999 B机器的用户@192.168.56.2 注：只是自己测试玩一玩的�
 负责将数据从一个实体（服务器或者应用）传输到另一个实体，但不负责数据传输的方式。 能力： 数据分隔重组：将数据拆分后按顺序重组 纠错：在数据传输过程中出现问题后采取方式进行纠正 管理连接：处理数据的频繁交换 流量控制：控制传输数据的速率 端口寻址：标明参与传输的实体的端口号 网络层
 负责把一个封包从一个IP地址传输到另一个IP地址 思考：一个节点接收到一个封包之后，它怎么把这个封包传递到下个节点？ 路由算法 数据链路层
 确保两个临近设备间数据的传输，并隐藏底层实现 帧同步：两个设备之间传输时的协商速率问题 数据纠错 物理层
-封装和隐藏具体的传输手段，并且提供稳定的传输接口 比如：电缆、光纤、蓝牙等 3、OSI的问题 分层设计较为臃肿，并非每一层都为必要的，所以有了 应用层、表示层、会话层合为应用层</content></entry><entry><title>rsync数据同步备份工具</title><url>/post/5/</url><categories><category>Linux</category></categories><tags><tag>rsync</tag><tag>数据同步备份</tag></tags><content type="html"><![CDATA[  介绍rsync工具 rsync是什么：一款开源的，快速的，多功能的，可以实现全量和增量的本地或远程数据同步备份工具。
-使用范围 : unix,linux,windows等多种操作系统
-优点： 1、具有本地和远程两台主机之间数据快速复制同步，备份功能 2、能实现增量备份，具有独特的quick check算法
-工作方式： 1、单个本机之间数据传输，类似于cp命令。 2、借助rcp,ssh通道传输数据，类似于scp。 3、以守护进程（socket）方式传输数据。
-实践 示例：以虚拟机与本地机器（自己实体电脑）数据备份为例
-简单说明：自己电脑内安装VirtualBox虚拟机通过共享文件的方式把虚拟机内产生的数据备份到自己电脑的磁盘上
-环境：台式机一台，安装VirtualBox虚拟机
-准备脚本(databak.sh)
-/usr/bin/rsync --timeout=60 --progress --log-file=&#39;/opt/logs/rsync.log&#39; --log-file-format=&#39;%t %f %b&#39; -azvP /opt/all_data /media/sf_2/ 脚本命令解释：该命令使用rsync工具将/opt/all_data目录及其内容同步到/media/sf_2/目录。
+封装和隐藏具体的传输手段，并且提供稳定的传输接口 比如：电缆、光纤、蓝牙等 3、OSI的问题 分层设计较为臃肿，并非每一层都为必要的，所以有了 应用层、表示层、会话层合为应用层</content></entry><entry><title>rsync数据同步备份工具</title><url>/post/5/</url><categories><category>Linux</category></categories><tags><tag>rsync</tag><tag>数据同步备份</tag></tags><content type="html"><![CDATA[  1、介绍rsync工具 1.1 rsync是什么：
+一款开源的，快速的，多功能的，可以实现全量和增量的本地或远程数据同步备份工具。
+1.2 使用范围 :
+unix,linux,windows等多种操作系统
+1.3 优点：
+1.具有本地和远程两台主机之间数据快速复制同步，备份功能
+2.能实现增量备份，具有独特的quick check算法
+1.4 工作方式：
+1.单个本机之间数据传输，类似于cp命令。
+2.借助rcp,ssh通道传输数据，类似于scp。
+3.以守护进程（socket）方式传输数据。
+2、实践 示例：以虚拟机与本地机器（自己实体电脑）数据备份为例
+2.1 简单说明：
+自己电脑内安装VirtualBox虚拟机通过共享文件的方式把虚拟机内产生的数据备份到自己电脑的磁盘上
+2.2 环境：
+台式机一台，安装VirtualBox虚拟机
+2.3 准备脚本(databak.sh)
+/usr/bin/rsync --timeout=60 --progress --log-file=&#39;/opt/logs/rsync.log&#39; --log-file-format=&#39;%t %f %b&#39; -azvP /opt/all_data /media/sf_2/ 2.4 脚本命令解释：
+该命令使用rsync工具将/opt/all_data目录及其内容同步到/media/sf_2/目录。
 具体参数解释如下：
-&ndash;timeout=60：设置连接超时时间为60秒。 &ndash;progress：显示进度条。 &ndash;log-file=&rsquo;/opt/logs/rsync.log&rsquo;：将rsync的日志记录到/opt/logs/rsync.log文件中。 &ndash;log-file-format=&rsquo;%t %f %b&rsquo;：日志文件的格式为时间、文件名和字节大小。 -a 以递归方式传输文件，并保持所有文件的属性 -z 传输时进行压缩以提高传输效率 -v 详细模式输出 -P 显示同步的过程及传输时的进度等信息 crontab简单操作命令
-crontab -l 查看 crontab -e 编辑 service crond restart 重启 crontab定时任务，数据备份命令 0 3 * * * /usr/bin/sh /opt/databak.sh &gt; /dev/null 2&gt;&amp;1 cron表达式解释：表示每天凌晨0点用shell执行/opt/databak.sh脚本，并将输出重定向到/null。
+&ndash;timeout=60：设置连接超时时间为60秒。 &ndash;progress：显示进度条。 &ndash;log-file=&rsquo;/opt/logs/rsync.log&rsquo;：将rsync的日志记录到/opt/logs/rsync.log文件中。 &ndash;log-file-format=&rsquo;%t %f %b&rsquo;：日志文件的格式为时间、文件名和字节大小。 -a 以递归方式传输文件，并保持所有文件的属性 -z 传输时进行压缩以提高传输效率 -v 详细模式输出 -P 显示同步的过程及传输时的进度等信息 2.5 crontab简单操作命令：
+crontab -l 查看 crontab -e 编辑 service crond restart 重启 2.6 crontab定时任务，数据备份命令：
+0 3 * * * /usr/bin/sh /opt/databak.sh &gt; /dev/null 2&gt;&amp;1 2.7 cron表达式解释：
+表示每天凌晨0点用shell执行/opt/databak.sh脚本，并将输出重定向到/null。
 具体解释如下：
 0：表示分钟数，即0分。 3：表示小时数，即0-23小时之间的第3个小时。 *：表示日期（月份、星期等）的通配符，表示每小时执行。 *：表示日期（月份、星期等）的通配符，表示每天执行。 &gt; /dev/null：将标准输出重定向到/null，即不输出任何结果。 2&gt;&amp;1：将错误输出重定向到标准输出，即仍然保留错误输出，只是不输出正常输出。   ]]></content></entry><entry><title>Linux下安装jupyter</title><url>/post/1/</url><categories><category>Linux</category></categories><tags><tag>jupyter</tag><tag>Linux</tag></tags><content type="html"><![CDATA[  1.安装jupyter # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install jupyter 2.生成jupyter配置文件 # root用户： jupyter notebook –generate-config –allow-root # 非root用户 jupyter notebook –generate-config #输出信息：Writing default config to: /root/.jupyter/jupyter_notebook_config.py # 配置文件地址： /root/.jupyter/jupyter_notebook_config.py 3.打开ipython,生成密码 [root@hangzhi ~]# ipython In [1]: from notebook.auth import passwd In [2]: passwd() Enter password: #此处输入密码 Verify password: #此处输入之前输入的密码 Out[2]: &#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; #这个秘钥要copy备用 4.修改配置文件 [root@hangzhi ~]# vi /root/.jupyter/jupyter_notebook_config.py # notebook服务会监听的IP地址 c.NotebookApp.ip = &#39;&#39; #工作目录，自己选定 c.NotebookApp.notebook_dir = &#39;/opt/jupyter/jupyter_work&#39; c.NotebookApp.open_browser = False c.NotebookApp.port = 8888 #上面生成的秘钥 c.NotebookApp.password = u&#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; 5.启动jupyter # root用户 jupyter notebook –allow-root # 非root用户 jupyter notebook 后台启动脚本 # root用户 nohup jupyter notebook --allow-root &gt; /opt/logs/jupyter.log 2&gt;&amp;1 &amp; 停止脚本 #!/bin/bash #停止服务名称 SERVER_NAME=jupyter-notebook PIDS=`ps -ef | grep jupyter |awk &#39;{print $2}&#39;` if [ -z &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The $SERVER_NAME does not started!&#34; exit 1 fi echo -e &#34;&gt;&gt;&gt; Stopping the $SERVER_NAME ...\c&#34; for PID in $PIDS ; do kill $PID &gt; /dev/null 2&gt;&amp;1 done COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=1 for PID in $PIDS ; do PID_EXIST=`ps -f -p $PID | grep jupyter` if [ -n &#34;$PID_EXIST&#34; ]; then COUNT=0 break fi done done echo &#34;OK! --&gt;&gt;&gt; PID: $PIDS&#34; 6.浏览器访问 ip:8888 即可访问了，需输入密码就可以   ]]></content></entry><entry><title>1.Java基础概述</title><url>/post/44/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、简介 Java 是由 Sun Microsystems 公司于 1995 年 5 月推出的 Java 面向对象程序设计语言和 Java 平台的总称。由 James Gosling和同事们共同研发，并在 1995 年正式推出。
 后来 Sun 公司被 Oracle （甲骨文）公司收购，Java 也随之成为 Oracle 公司的产品。
@@ -187,26 +199,52 @@ Java EE（Java 2 Platform Enterprise Edition）企业版【J2EE】 是为开发�
 三种技术的关系： 3、Java语言的特性 简单性（简洁有效、易学） Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java语言不使用指针，而是引用。并提供了自动的废料收集，使得程序员不必为内存管理而担忧。
 面向对象（强制面向对象） Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制。
 Java语言全面支持动态绑定，而C++语言只对虚函数使用动态绑定。
-分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>2.Java语法基础知识</title><url>/post/45/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、Java中的关键字 关键字 说明 abstract 表明类或者成员方法具有抽象属性 assert 用来进行程序调试 boolean 基本数据类型之一，布尔类型 break 提前跳出一个块 byte 基本数据类型之一，字节类型 case 用在switch语句之中，表示其中的一个分支 catch 用在异常处理中，用来捕捉异常 char 基本数据类型之一，字符类型 class 类 const 保留关键字，没有具体含义 continue 回到一个块的开始处 default 默认，例如，用在switch语句中，表明一个默认的分支 do 用在do-while循环结构中 double 基本数据类型之一，双精度浮点数类型 else 用在条件语句中，表明当条件不成立时的分支 enum 枚举 extends 表明一个类型是另一个类型的子类型，这里常见的类型有类和接口 final 用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变 finally 用于处理异常情况，用来声明一个基本肯定会被执行到的语句块 float 基本数据类型之一，单精度浮点数类型 for 一种循环结构的引导词 goto 保留关键字，没有具体含义 if 条件语句的引导词 implements 表明一个类实现了给定的接口 import 表明要访问指定的类或包 instanceof 用来测试一个对象是否是指定类型的实例对象 int 基本数据类型之一，整数类型 interface 接口 long 基本数据类型之一，长整数类型 native 用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的 new 用来创建新实例对象 package 包 private 一种访问控制方式：私用模式 protected 一种访问控制方式：保护模式 public 一种访问控制方式：共用模式 return 从成员方法中返回数据 short 基本数据类型之一,短整数类型 static 表明具有静态属性 strictfp 用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 super 表明当前对象的父类型的引用或者父类型的构造方法 switch 分支语句结构的引导词 synchronized 表明一段代码需要同步执行 this 指向当前实例对象 …</content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>Linux</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
-2、frp下载及介绍 (1)、 frp下载：https://github.com/fatedier/frp/releases 下载最新版，根据自己的服务器下载对应版本（我的是linux64系统）
-wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz (2)、解压压缩包
-tar -zxvf frp_0.34.3_linux_amd64.tar.gz mv frp_0.34.3_linux_amd64 frpServer 包结构介绍： 服务器端：
+分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>2.Java基础知识：语法</title><url>/post/45/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、Java中的关键字 关键字 说明 abstract 表明类或者成员方法具有抽象属性 assert 用来进行程序调试 boolean 基本数据类型之一，布尔类型 break 提前跳出一个块 byte 基本数据类型之一，字节类型 case 用在switch语句之中，表示其中的一个分支 catch 用在异常处理中，用来捕捉异常 char 基本数据类型之一，字符类型 class 类 const 保留关键字，没有具体含义 continue 回到一个块的开始处 default 默认，例如，用在switch语句中，表明一个默认的分支 do 用在do-while循环结构中 double 基本数据类型之一，双精度浮点数类型 else 用在条件语句中，表明当条件不成立时的分支 enum 枚举 extends 表明一个类型是另一个类型的子类型，这里常见的类型有类和接口 final 用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变 finally 用于处理异常情况，用来声明一个基本肯定会被执行到的语句块 float 基本数据类型之一，单精度浮点数类型 for 一种循环结构的引导词 goto 保留关键字，没有具体含义 if 条件语句的引导词 implements 表明一个类实现了给定的接口 import 表明要访问指定的类或包 instanceof 用来测试一个对象是否是指定类型的实例对象 int 基本数据类型之一，整数类型 interface 接口 long 基本数据类型之一，长整数类型 native 用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的 new 用来创建新实例对象 package 包 private 一种访问控制方式：私用模式 protected 一种访问控制方式：保护模式 public 一种访问控制方式：共用模式 return 从成员方法中返回数据 short 基本数据类型之一,短整数类型 static 表明具有静态属性 strictfp 用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 super 表明当前对象的父类型的引用或者父类型的构造方法 switch 分支语句结构的引导词 synchronized 表明一段代码需要同步执行 this 指向当前实例对象 …</content></entry><entry><title>13.Python处理高级数据结构和数据分析常用扩展库：Pandas</title><url>/post/43/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、Pandas介绍 Pandas是一个用于处理高级数据结构和数据分析的Python库。基于Numpy构建的一种工具，纳入了大量模块和库一些标准的数据模型，提高python处理大数据的性能。广泛应用于金融、经济、数据分析、统计等商业领域，为从业者提供了便捷。
+特点：
+支持Dataframe格式，自定义索引，Dataframe是一种高效快速的数据结构对象 可以将不同格式的数据文件加载到内存中 可处理时间序列或非时间序列数据 可基于标签来切片索引，获得大数据集子集 可进行高性能数据分组、聚合、添加、删除 未对齐及索引方式不同的数据可按轴自动对齐 灵活处理数据缺失、重组、空格 2、Pandas安装 # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install pandas 3、Series数据结构 Series类似一维数组，数组由数据与其索引标签组成，索引在左侧，值在右侧。
+3.1、创建Series数组
+import pandas as pd import numpy as np # 创建Series数组 s1 = pd.Series([1,2,3,4]) print(&amp;#34;s1:&amp;#34;,s1) # 创建Series数组并设置index参数 s2 = pd.Series([1,2,3,4],index=[&amp;#39;一&amp;#39;,&amp;#39;二&amp;#39;,&amp;#39;三&amp;#39;,&amp;#39;四&amp;#39;]) print(&amp;#34;s2:&amp;#34;,s2) 3.2、Series的索引和切片
+通过Series的value和index属性可以获取Series中的索引和数值
+# Series索引和切片 print(&amp;#39;s2的索引：&amp;#39;,s2.index) print(&amp;#39;s2的值：&amp;#39;,s2.values) # 通过索引获取值或者修改（索引是不可以修改的） # 单索引 print(&amp;#39;s2中二对应的值&amp;#39;,s2[&amp;#39;二&amp;#39;]) s2[&amp;#39;二&amp;#39;] = 5 print(&amp;#39;s2中二对应的值&amp;#39;,s2[&amp;#39;二&amp;#39;]) # 多索引 print(&amp;#39;s2中二、四对应的值&amp;#39;,s2[[&amp;#39;二&amp;#39;,&amp;#39; …  ]]></content></entry><entry><title>12.Python科学计算和数据分析的常用扩展库：Numpy</title><url>/post/42/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、Numpy介绍 Numpy (Numerical Python) 是python中的一个基础工具包，用以进行科学计算及数据分析， Numpy中单一数据类型的多维数组以ndarray的形式存储，可进行快速矢量算术运算， Numpy还可用于磁盘数据的读写以及内存映射文件的操作，实现数据的快速读写与输出， Numpy也是数据分析必不可少的工具，可以进行数据清洗、数据转换等矢量化数组运算。 2、Numpy安装 # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install numpy 3、创建ndarray数组 ndarray：数组中的所有对象必须是相同类型的，创建ndarray数组可以使用array函数传入python序列对象实现
+3.1、一维数组
+import numpy as np # 创建一维数组 a = [1, 2, 3, 4, 5] arr1 = np.array(a) print(&amp;#34;创建一维数组：\n&amp;#34;, arr1) 3.2、多维数组
+# 创建多维数组 b = [[1, 2, 3], [4, 5, 6]] arr2 = np.array(b) print(&amp;#34;创建多维数组：\n&amp;#34;, arr2) 3.3、shape函数
+shape函数是查看每个数组各维度的大小，返回值是一个元组对象，数组是一维数组，返回值是(n,)，
+n表示数组的长度，数组是二维数组，返回值是(n1,n2) ，n1表示行数，n2表示列数，
+对于三维数组就是包含多少个二维数组，后两个数字表示二维数组的行与列 返回值是(n1,n2,n3)， n1表示几个二维数组，n2表示二维数组的行，n3表示二维数组列
+# shape print(&amp;#34;arr1 shape: &amp;#34;, arr1.shape) print(&amp;#34;arr2 shape: &amp;#34;, arr2.shape) 3.4、reshape函数
+reshape函数可以更改数组的结构，原数组的shape仍然保持不变，原数组与新数组是共享同一数据储存内存区域，
+所以对其中一个数组元素修改，都会同时引起另一个数组内容的改变
+# reshape arr2_reshape = arr2.reshape(3,2) …  ]]></content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>Linux</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
+2、frp下载及介绍 (1) frp下载：https://github.com/fatedier/frp/releases 下载最新版，根据自己的服务器下载对应版本（我的是linux64系统）
+wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz (2) 解压压缩包
+tar -zxvf frp_0.34.3_linux_amd64.tar.gz mv frp_0.34.3_linux_amd64 frpServer 包结构介绍：
+服务器端：
 frps： 服务器端服务启动文件 frps_full.ini： 启动配置文件（全版） frps.ini ：启动配置文件（简版） 客户端（Linux版）：
-frpc ：客户端服务启动文件 frpc_full.ini ：启动配置文件（全版） frpc.ini ：启动配置文件（简版） 3、进入解压文件夹 cd frpServer 服务端配置及运行 1、修改端口，frps.ini文件
-[common] bind_port = 9999 # bind_port是服务器的端口，我们最好不要使用默认端口 2、运行服务
-直接运行： # frp解压文件夹目录下运行，也可以使用全路径 # 相对路径 ./frps -c frps.ini # 绝对路径 /opt/frp/frpServer/frps -c /opt/frp/frpServer/frps.ini 后台运行： nohup ./frpc -c ./frpc.ini &amp;amp;amp; 3、配置系统启动时自动启动
-在/lib/systemd/system文件夹下创建frps.service文件 编辑frps.service文件，输入以下内容(注：ExecStart 使用绝对路径 )： [Unit] Description=frp service After=network.target [Service] TimeoutStartSec=30 ExecStart=/opt/frp/frpServer/frps -c /opt/frp/frpServer/frps.ini ExecStop=/bin/kill …</content></entry><entry><title>解决自己的云服务器经常被登录问题</title><url>/post/6/</url><categories><category>Linux</category></categories><tags><tag>SSH</tag></tags><content type="html"> 解决过程 环境：腾讯centos云服务器
-原因：每次登录云服务器时系统都会提示，这是被各种尝试登录导致的（简单说就是你的服务器被攻击了）
-Last failed login: Tue Dec 29 21:06:17 CST 2020 from 182.78.163.21 on ssh:notty There were 6751 failed login attempts since the last successful login. Last login: Sat Dec 26 01:17:59 2020 from 120.230.83.193 解决办法：使用密钥登录可以解决
-步骤如下：
-1、生成ssh密钥
-[root@hangzhi ~]# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/root/.ssh/id_rsa): #此处直接回车就可以 Enter passphrase (empty for no passphrase): #设置解密钥密码 Enter same passphrase again: #再此输入一样密码确认 Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is: SHA256:9vRVtZ9uUUinLq+0byUMYDo8XZpZQ/t2iDbrGjcjMNc root@hangzhi The key&amp;#39;s randomart image is: +---[RSA 2048]----+ | .. . o| | o +o +o| | . + B..o.o| | = =..+ o+| | Soo Eo*oo| | . * o B+.o| | + B .= | | * =o | | ..+o. | +----[SHA256]-----+ 2、查看生成的密钥
-[root@hangzhi ~]# cd /root/.ssh/ [root@hangzhi .ssh]# ll total 12 -rw-r--r--. 1 root root 0 Mar 7 2018 authorized_keys -rw------- 1 root root 1766 Dec 29 21:13 id_rsa #私钥 -rw-r--r-- 1 root root 394 Dec 29 21:13 id_rsa.pub #公钥 -rw-r--r-- 1 root root 176 Jan 6 2019 known_hosts 3、将公钥追加到authorized_keys文件中
-[root@hangzhi .ssh]# cat id_rsa.pub &amp;gt;&amp;gt; /root/.ssh/authorized_keys 4、将权限改为只有当前用户可读可写，保证安全
-[root@hangzhi .ssh]# chmod 600 authorized_keys 5、打开ssh的密钥登录功能
-[root@hangzhi .ssh]# vim /etc/ssh/sshd_config #PubkeyAuthentication yes #AuthorizedKeysFile .ssh/authorized_keys #将上面2行前面的注释去掉，然后保存 # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service 6、然后使用客户端配置密钥登录，如果成功接着下一步，不成功重复上面步骤
-7、关闭ssh密码登录（注意：只有配置成功后才操作这个步，不然没成功关闭这个会导致不能登录服务器 ）
-[root@hangzhi .ssh]# vim /etc/ssh/sshd_config PasswordAuthentication yes 修改为: PasswordAuthentication no # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service</content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
+frpc ：客户端服务启动文件 frpc_full.ini ：启动配置文件（全版） frpc.ini ：启动配置文件（简版） 3、进入解压文件夹 cd frpServer 4、服务端配置及运行 4.1 修改端口，frps.ini文件
+[common] bind_port = 9999 # bind_port是服务器的端口，我们最好不要使用默认端口 4.2 运行服务
+直接运行： # frp解压文件夹目录下运行，也可以使用全路径 # 相对路径 ./frps -c frps.ini # 绝对路径 /opt/frp/frpServer/frps -c /opt/frp/frpServer/frps.ini 后台运行： nohup ./frpc -c ./frpc.ini &amp;amp;amp; 4.3 配置系统启动时自动启动
+在/lib/systemd/system文件夹下创建frps.service文件
+编辑frps.service文件，输入以下内容(注：ExecStart 使用绝对路径 )：
+[Unit] Description=frp service After=network.target [Service] TimeoutStartSec=30 ExecStart=/opt/frp/frpServer/frps -c /opt/frp/frpServer/frps.ini …</content></entry><entry><title>解决自己的云服务器经常被登录问题</title><url>/post/6/</url><categories><category>Linux</category></categories><tags><tag>SSH</tag></tags><content type="html"> 1、解决过程 1.1 环境：
+腾讯centos云服务器
+1.2 原因：
+每次登录云服务器时系统都会提示，这是被各种尝试登录导致的（简单说就是你的服务器被攻击了）
+Last failed login: Tue Dec 29 21:06:17 CST 2020 from 182.78.163.21 on ssh:notty There were 6751 failed login attempts since the last successful login. Last login: Sat Dec 26 01:17:59 2020 from 120.230.83.193 1.3 解决办法：
+使用密钥登录可以解决
+1.4 步骤如下：
+1.生成ssh密钥： [root@hangzhi ~]# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/root/.ssh/id_rsa): #此处直接回车就可以 Enter passphrase (empty for no passphrase): #设置解密钥密码 Enter same passphrase again: #再此输入一样密码确认 Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is: SHA256:9vRVtZ9uUUinLq+0byUMYDo8XZpZQ/t2iDbrGjcjMNc root@hangzhi The key&amp;#39;s randomart image is: +---[RSA 2048]----+ | .. . o| | o +o +o| | . + B..o.o| | = =..+ o+| | Soo Eo*oo| | . * o B+.o| | + B .= | | * =o | | ..+o. | +----[SHA256]-----+ 2.查看生成的密钥： [root@hangzhi ~]# cd /root/.ssh/ [root@hangzhi .ssh]# ll total 12 -rw-r--r--. 1 root root 0 Mar 7 2018 authorized_keys -rw------- 1 root root 1766 Dec 29 21:13 id_rsa #私钥 -rw-r--r-- 1 root root 394 Dec 29 21:13 id_rsa.pub #公钥 -rw-r--r-- 1 root root 176 Jan 6 2019 known_hosts 3.将公钥追加到authorized_keys文件中： [root@hangzhi .ssh]# cat id_rsa.pub &amp;gt;&amp;gt; /root/.ssh/authorized_keys 4.将权限改为只有当前用户可读可写，保证安全： [root@hangzhi .ssh]# chmod 600 authorized_keys 5.打开ssh的密钥登录功能： [root@hangzhi .ssh]# vim /etc/ssh/sshd_config #PubkeyAuthentication yes #AuthorizedKeysFile .ssh/authorized_keys #将上面2行前面的注释去掉，然后保存 # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service 6.然后使用客户端配置密钥登录，如果成功接着下一步，不成功重复上面步骤
+7.关闭ssh密码登录（注意：只有配置成功后才操作这个步，不然没成功关闭这个会导致不能登录服务器 ）
+[root@hangzhi .ssh]# vim /etc/ssh/sshd_config PasswordAuthentication yes 修改为: PasswordAuthentication no # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service</content></entry><entry><title>11.Python爬虫必学的网络编程知识</title><url>/post/41/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、基础知识 HTTP：（HyperText Transport Protocol）是超文本传输协议缩写
+URL：（Uniform Resource Locator）是统一资源定位符的缩写
+HTTP请求方式
+对比项 GET POST 提交方式 提交的参数数据放在URL之后，使用?与URL进行分割，多个参数之间使用&amp;amp;分隔 提交的参数数据不放在URL中提交，模拟提交表单数据 提交数据长度 受限 无限制 安全性 安全性低，提交的数据与URL混合在一起提交，很容易被发现 安全性高 状态码：常见的状态码
+200:表示请求成功，成功返回请求资源 404:表示请求的资源不存在 500:服务器错误 2、urllib库 urllib库内置模块：
+模块 说明 urllib.request HTTP请求模块，在程序中模拟浏览器发送HTTP请求 urllib.error 异常模块，捕获由于HTTP请求问题产生的异常，并进行处理 urllib.parse URL解析模块，提供了处理URL的工具函数 urllib.robotparser robots.txt解析模块，网站通过robots.txt文件设置爬虫可爬取的网页 2.1、urllib.request.urlopen函数
+常用参数：
+url：目标URL访问地址 data：默认是None，表示GET方式发送请求，data有值，表示POST方式发送请求 timeout：访问超时时间 2.1.1、GET请求
+import urllib.request #data没值是GET res = urllib.request.urlopen(&amp;#34;http://www.baidu.com&amp;#34;) print(res.read().decode(&amp;#34;utf8&amp;#34;)) 2.1.2、POST请求
+import urllib.request # 请求数据 param_dict = {&amp;#34;key&amp;#34;:&amp;#34;hello world&amp;#34;} # 调用urlencode函数将字典类型数据转成字符串 param_str = urllib.parse.urlencode(param_dict) #将传输数据封装成一个bytes …  ]]></content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
 复制的方式可以看之前写的：VirtualBox虚拟机迁移/复制（带快照）
 简单方便的导出方式(推荐)，因为适用其他虚拟机,如:VMWare
 VirtualBox虚拟机磁盘扩展 1.创建磁盘和添加磁盘
@@ -219,20 +257,70 @@ mkfs.ext4 /dev/sdb1 对这个分区进行格式化 格式化成ext4格式，如�
 mkdir /mnt/sdb1 （这个是要将硬盘挂载的地方，位置随意） 7.将挂载文件夹与磁盘关联
 mount /dev/sdb1 /mnt/sdb1 （挂载这个硬盘到这个位置上） df -h就能看到硬盘了 8.设置开机自动挂载磁盘
 vi /etc/fstab 让系统可以开机后自动将硬盘挂载上去 最后一行添加：/dev/sdb1 /mnt/sdb1 ext4 defaults 0 0 然后保存退出</content></entry><entry><title>VirtualBox虚拟机迁移/复制（带快照）</title><url>/post/3/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag></tags><content type="html"> 本次虚拟机迁移是基于VirtualBox虚拟机，如果要尝试安装和创建虚拟机可以去搜索：virtualbox的安装与使用、安装镜像创建虚拟机
-一、VirtualBox的结构介绍 xxx.vdi : 这个文件是磁盘映像，创建虚拟机的时候创建的
+1、VirtualBox的结构介绍 xxx.vdi : 这个文件是磁盘映像，创建虚拟机的时候创建的
 xxx.vbox 和 xxx.vbox-prev：这个两文件虚拟机的配置文件，记录了所以配置信息，如快照，虚拟磁盘等，核心文件是.vbox文件
 xxx.vmdk : 这个文件是虚拟机磁盘，是用来扩展机器存储空间，创建虚拟机一般是没有次文件的
 {UUID}.vdi ：磁盘映像文件的快照
 {UUID}.vmdk : 虚拟机磁盘文件的快照
 注：迁移有风险，迁移时要多细心
-二、不带快照 1、迁移到不同机器 迁移的时候只需要将.vdi、.vbox、.vbox-prev文件迁移到不同机器，由于是在不同的机器上进行迁移，是不涉及到镜像文件的UUID相同情况，因此比较简单，只需要打开虚拟机的配置文件.vbox文件，修改里面的关于路径的几个配置项，一般是在文件的开头位置，如下图：
-在新机器上的VirtualBox软件中注册刚修改的文件，有.vmdk 文件也需要注册，否则不注册。如下图：
+2、不带快照 2.1 迁移到不同机器
+（1）迁移的时候只需要将.vdi、.vbox、.vbox-prev文件迁移到不同机器，由于是在不同的机器上进行迁移，是不涉及到镜像文件的UUID相同情况，因此比较简单，只需要打开虚拟机的配置文件.vbox文件，修改里面的关于路径的几个配置项，一般是在文件的开头位置，如下图：
+（2）在新机器上的VirtualBox软件中注册刚修改的文件，有.vmdk 文件也需要注册，否则不注册。如下图：
 新机的迁移就这么简单完成了。
-2、迁移到本机机器不同目录 迁移的时候只需要将.vdi、.vbox、.vbox-prev文件迁移到本机机器不同目录，由于是在本机机器上进行迁移，涉及到镜像文件的UUID相同情况，因此需要分两步走：一是修改文件路径，二是修改文件UUID
+2.2 迁移到本机机器不同目录
+（1）迁移的时候只需要将.vdi、.vbox、.vbox-prev文件迁移到本机机器不同目录，由于是在本机机器上进行迁移，涉及到镜像文件的UUID相同情况，因此需要分两步走：一是修改文件路径，二是修改文件UUID
 修改文件路径：打开虚拟机的配置文件.vbox文件，修改里面的关于路径的几个配置项，一般是在文件的开头位置，如下图：
 修改文件UUID：将.vdi、.vmdk(没有这个文件，可以忽略)文件重新生成UUID
 VirtualBox软件安装目录下执行如下命令重新生成UUID
-// 重新生成centos7(two).vdi的UUID VBoxManage internalcommands sethduuid &amp;amp;#34;F:\VirtualBox\centos7(two)\centos7(two).vdi&amp;amp;#34; // 重新生成sda7.vmdk的UUID VBoxManage internalcommands sethduuid …</content></entry><entry><title>启动和停止shell脚本</title><url>/post/2/</url><categories><category>Linux</category></categories><tags><tag>shell脚本</tag></tags><content type="html"><![CDATA[  start.sh 定义变量: 服务名/部署路径/服务输出日志路径/启动文件路径 检查是否启动: 使用 ps /grep/awk命令 配合 | 一起使用 没启动继续下面的 设置JVM参数: JAVA_OPTS 后台启动应用: nohup java -jar 命令 再次检查是否启动 shell脚本示例: #!/bin/bash #启动服务名称 SERVER_NAME=test #服务部署路径 DEPLOY_DIR=/opt/app/test # 服务日志输出路径 STDOUT_FILE=${DEPLOY_DIR}/logs/test.log #服务启动的jar或war WAR_FILE=${DEPLOY_DIR}/test.jar PIDS=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; |awk &#39;{print $2}&#39;` if [ -n &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The ${SERVER_NAME} already started!&#34; echo &#34;&gt;&gt;&gt; PID: $PIDS&#34; exit 1 fi #jvm参数配置 JAVA_OPTS=&#34;-server -Xmx2g -Xms2g &#34; echo -e &#34;&gt;&gt;&gt; Starting the ${SERVER_NAME} ...\c&#34; nohup java $JAVA_OPTS -jar ${WAR_FILE} &gt; $STDOUT_FILE 2&gt;&amp;1 &amp; COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; | awk &#39;{print $2}&#39; | wc -l` if [ $COUNT -gt 0 ]; then break fi done PIDS=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; | awk &#39;{print $2}&#39;` echo &#34;OK ! --&gt;&gt;&gt; PID: $PIDS --&gt;&gt;&gt; STDOUT: $STDOUT_FILE &#34; stop.sh 定义变量: 部署服务路径/停止服务名称 检查是否启动: 使用 ps /grep/awk命令 配合 | 一起使用 启动继续下面的 kill掉进程 再次检查进程是否存在 shell脚本示例: #!/bin/bash #服务部署路径 DEPLOY_DIR=/opt/app/test #停止服务名称 SERVER_NAME=test PIDS=`ps -ef | grep java | grep &#34;${DEPLOY_DIR}&#34; |awk &#39;{print $2}&#39;` if [ -z &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The $SERVER_NAME does not started!&#34; exit 1 fi echo -e &#34;&gt;&gt;&gt; Stopping the $SERVER_NAME ...\c&#34; for PID in $PIDS ; do kill $PID &gt; /dev/null 2&gt;&amp;1 done COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=1 for PID in $PIDS ; do PID_EXIST=`ps -f -p $PID | grep java` if [ -n &#34;$PID_EXIST&#34; ]; then COUNT=0 break fi done done echo &#34;OK! --&gt;&gt;&gt; PID: $PIDS&#34;   ]]></content></entry><entry><title>2.Python语法基础知识</title><url>/post/32/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、注释 注释是我们自己语言来描述一段代码的实现逻辑，介绍这段代码具体实现的什么功能，方便我们维护和清晰地了解这段代码，增强程序的可读性
+// 重新生成centos7(two).vdi的UUID VBoxManage internalcommands sethduuid &amp;amp;#34;F:\VirtualBox\centos7(two)\centos7(two).vdi&amp;amp;#34; // 重新生成sda7.vmdk的UUID VBoxManage internalcommands sethduuid …</content></entry><entry><title>10.Python的一大利器：正则表达式</title><url>/post/40/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、re模块 re模块中封装了很多正则表达式相关的函数，非常方便的使用正则表达式对字符串进行各种规则匹配检查，常用一个函数是match函数
+match(patten,string)函数：用于对字符串进行正则匹配，patten表示正则表达式，string表示待匹配字符串，匹配成功返回Match对象，否则返回None # match 函数 （从左开始匹配，没匹配成功，不会向后面匹配，匹配失败） import re str1 = &amp;#34;hello python&amp;#34; str2 = &amp;#34;python hello python&amp;#34; rs1 = re.match(&amp;#34;python&amp;#34;,str1) rs2 = re.match(&amp;#34;python&amp;#34;,str2) print(rs1) # None print(rs2) # &amp;lt;re.Match object; span=(0, 6), match=&amp;#39;python&amp;#39;&amp;gt; #取值 print(rs2.group()) #python 2、单字符匹配 常用单字符匹配符号：
+符号 说明 . 匹配除\n之外的任意字符 \d 匹配0到9之间的一个数字，等价于[0~9] \D 匹配一个非数字字符，等价于[^0~9] \s 匹配任意空白字符，如：空格、制表符\t、换行\n等 \S 匹配任意非空白字符 \w 匹配单词字符，包括字母、数字、下划线 \W 匹配非单词字符 [] 匹配[]中列举的字符 # 单字符匹配 import re rs = re.match(&amp;#39;.&amp;#39;,&amp;#39;1&amp;#39;) # 匹配一个包含数字的字符串 print(rs.group()) rs = re.match(&amp;#39;.&amp;#39;,&amp;#39;a&amp;#39;) # 匹配一个包含单字符的字符串 print(rs.group()) rs = re.match(&amp;#39;.&amp;#39;,&amp;#39;abc&amp;#39;) # 匹配一个包含多字符的字符串 print(rs.group()) # 多字符匹配 rs = re.match(&amp;#39;...&amp;#39;,&amp;#39;abc&amp;#39;) # 匹配一个包含多字符的字符串 print(rs.group()) #匹配任意空白字符 rs = …  ]]></content></entry><entry><title>9.Python必学的文件处理知识</title><url>/post/39/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、读写文件 1.1、打开文件
+open函数打开文件，返回文件对象。open 函数打开文件三种常用模式：
+只读模式，使用r表示，用于读取文件内容，不能向文件中写入数据 只写模式，使用w表示，用于将数据覆盖写入文件中 追加模式，使用a表示，用于将数据追加写入文件的末尾 注：打开一个不存在的文件时，只读模式会报不存在文件异常，只写和追加模式都会创建一个写文件
+# 打开不存在的文件 f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;r&amp;#39;) # 报错：FileNotFoundError: [Errno 2] No such file or directory: &amp;#39;test.txt&amp;#39; f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;w&amp;#39;) #创建文件 f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;a&amp;#39;) #创建文件 1.2、写文件
+write()方法：写入文件的内容不会自动换行，且调用一次只能将一个字符串写入文件 # 写入数据到文件 # 第一次 f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;w&amp;#39;) f.write(&amp;#39;hello&amp;#39;) f.write(&amp;#39;world&amp;#39;) f.write(&amp;#39;!&amp;#39;) # 第二次（覆盖第一次写入数据） f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;w&amp;#39;) f.write(&amp;#39;你&amp;#39;) f.write(&amp;#39;好&amp;#39;) # 使用追加 f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;a&amp;#39;) f.write(&amp;#39;你&amp;#39;) f.write(&amp;#39;好&amp;#39;) # 写入换行,使用换行符 f = open(&amp;#39;test.txt&amp;#39;,&amp;#39;w&amp;#39;) f.write(&amp;#39;hello\n&amp;#39;) f.write(&amp;#39;world\n&amp;#39;) f.write(&amp;#39;!\n&amp;#39;) writelines()方法：可以将一个序列中的多个字符串一次写入文件中 # 使用writelines()函数,调一次写入 f = …  ]]></content></entry><entry><title>8.Python常用的时间和日期模块</title><url>/post/38/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"> 1、time模块 1.1、time函数
+调用time函数，返回当前的时间戳，返回的时间戳是以秒为单位的浮点数
+import time print(time.time()) #获取当前时间戳 1.2、localtime函数
+可传入一个可选参数，以秒为单位的时间戳
+传入参数，将时间戳格式化为本地时间，返回一个struct_time元组
+不传入参数，将当前时间戳格式化为本地时间，返回一个struct_time元组
+struct_time属性描述：
+属性 含义 值 tm_year 年份 4位数字表示： 2020 tm_mon 月份 1-12数字表示：12 tm_mday 日期 1-31数字表示：5 tm_hour 小时 0-23数字表示：12 tm_min 分钟 0-59数字表示：30 tm_sec 秒 0-60数字表示：30 tm_wday 一周的第几天 0-6数字表示，0表示周一：5 tm_yday 一年的第几天 1-366数字表示：300 tm_isdst 是否是夏令时 默认值为-1，0表示不是，1表示是 import time date_time1 = time.localtime() print(date_time1) ts=time.time() date_time2=time.localtime(ts) print(date_time2) 1.3、strftime函数
+strftime(fmt[,struct_time])函数是可以按照自定义的格式化参数将时间格式化，fmt是函数入参的自定义格式化参数，struct_time可选，不传表示当前时间格式化
+时间格式化符号： 格式化符号 含义 %y 两位数的年份表示 %Y 四位数的年份表示 %m 月份 %d 日期 %H 24小时制小时数 %I 12小时制小时数 %M 分钟数 %S 秒 %a 本地简化星期名称 %A 本地完整星期名称 %b 本地简化的月份名称 %B 本地完整的月份名称 %c 本地相应的日期表示和时间表示 %j 一年内的第几天 %p 显示本地时间的AM或PM %U 一年中的第几周 %w 星期（0-6）0表示星期日 %W 一年中的星期数：星期一是一个星期的开始 %x 本地日期表示 20/12/5 %X 本地时间表示：10:10:10 %Z 当前时区的名称 import time # …</content></entry><entry><title>7.Python如何处理异常</title><url>/post/37/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、异常捕获 1.1、语法格式
+# 单个异常 try: 可能产生异常的代码 except 异常类型名称 as 对异常类型名称重新命名: 异常处理 # 多个异常 try: 可能产生异常的代码 except (异常类型名称1,异常类型名称2,...) as 对异常类型名称重新命名: 异常处理 1.2、捕获单个异常
+# 处理打开一个文件产生的有可能产生异常 try: open(&amp;#39;test.txt&amp;#39;) print(&amp;#39;打开文件成功！&amp;#39;) except FileNotFoundError as error: print(&amp;#39;捕获到异常&amp;#39;,error) print(&amp;#39;结束&amp;#39;) 1.3、捕获多个异常
+# 处理打开一个文件产生的有可能产生异常和打印一个不存在变量异常 try: # 打开文件 open(&amp;#39;test.txt&amp;#39;) #打印不存在变量 print(file) except (FileNotFoundError,NameError) as error: print(&amp;#39;捕获到异常&amp;#39;,error) print(&amp;#39;结束&amp;#39;) 1.4、捕获全部异常
+# 处理打开一个文件产生的有可能产生异常和打印一个不存在变量异常 try: # 打开文件 open(&amp;#39;test.txt&amp;#39;) #打印不存在变量 print(file) except NameError as error: # 只捕获了NameError异常，没捕获FileNotFoundError异常 print(&amp;#39;捕获到部分异常&amp;#39;,error) except Exception as e: print(&amp;#39;捕获到全部异常&amp;#39;,e) print(&amp;#39;结束&amp;#39;) 2、finally语句 如果某段代码必须要执行，不管是否有异常产生都要执行，那就需要使用finally语句了
+#有异常 try: # 打开文件 f = open(&amp;#39;test.txt&amp;#39;) print(&amp;#39;打开文件成功！&amp;#39;) except FileNotFoundError as error: print(&amp;#39;捕获到异常&amp;#39;,error) finally: print(&amp;#39;关闭打开文 …  ]]></content></entry><entry><title>6.Python面向对象编程</title><url>/post/36/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、面向对象编程 面向对象编程（Object Oriented Programming，简称：OOP ）是一种解决软件复用的设计和编程方法，就是根据现实社会中的事物，抽象出事物的属性和功能，
+后然将抽象出来的属性和功能封装成对象的属性和方法，在软件中通过复用对象实例提高软件的开发效率 ，很多高级编程语言都遵循面向对象的编程方法。
+2、类和对象 2.1、类：是一类事物的抽象，定义了一类事物的属性和行为
+类的构成：类名、属性、方法 定义： class 类名: def 方法名(self[,参数列表]): 方法体 ...... 注意事项： 1.定义类时，使用class关键字声明这是一个类
+2.类名的命名规则：通常按照约定的“大驼峰”命名法。例：class ElectricCar 电动车类
+3.定义方法时，方法的第一个参数默认为self，表示对象自身
+4.通过对象调用方法时，不需要在方法中传入self参数，python解释器会自动传入
+class Cat: def eat(self): print(&amp;#34;吃鱼。。。&amp;#34;) def drink(self): print(&amp;#34;喝水。。。&amp;#34;) def run(self): print(&amp;#34;跳舞。。。&amp;#34;) 2.2、对象：是通过类创建的一个具体事物，具有状态和行为，可以做具体事情。
+创建对象的过程：是在内存中开辟一块区域存储这个对象，这块内存区域有它的对应内存地址，通过内存地址就能找到这块区域存储的这个对象。
+对象的引用：就是把存储这个对象的内存地址告诉了变量，这个变量就指向了内存中的这个对象，通过这个变量就可以找到它所指的这个对象，所以这个变量叫这个对象的引用。
+# 根据Cat类创建对象 xiaohe=Cat() #调用对象的方法 xiaohe.eat() xiaohe.drink() xiaohe.run() #对比一个类创建多对象是否相同 xiaobai=Cat() #id(对象)可以获取对象的内存地址 print(&amp;#34;xiaohe的id：{}&amp;#34;.format(id(xiaohe))) print(&amp;#34;xiaobai的id：{}&amp;#34;.format(id(xiaobai))) 2.3、类与对象的关系：类相当于创建对象的基础条件，根据类可以创建多个对象。 …  ]]></content></entry><entry><title>5.Python模块认识</title><url>/post/35/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、包 在Python中一个包内要创建__init__.py文件，来区分是包还是普通文件夹。一个项目中可以有多个包，每个包都可以含有子包或者多个模块，如图：
+2、模块 在Python中一个以.py结尾的文件就是一个模块，不同包下可以用相同名称的模块，模块之间使用包名.模块名来区分。
+引入模块的方法： 描述 引入方法 引入单个模块 Import 模块名称 引入多个模块 Import 模块名称1,模块名称1,&hellip; 引入模块中的指定函数或者类等 from 模块名称1 import func,&hellip;
+from 模块名称1 import class,&hellip; 3、__init__.py 模块 使用Pycharm创建包时会自动创建一个__init__.py模块
+__init__.py作用：模块内可以是空白用识别一个包，还可以在模块内定义关于包和模块相关的一些初始化操作
+4、__name__ 变量 Python 内部定义了一个__name__变量（name前后分别是两个下划线），Python源码文件使用决定了__name__变量的取值
+当Python源码文件直接运行时，__name__变量的值等于&quot;__main__&quot; 当Python源码文件作为模块在其他地方被引入时，__name__变量的值等于被引入模块名称 5、Python主入口解释 Python属于脚本语言，Python程序在执行时与其他语言不同，Python程序没有编译过程，不需要将程序编译成二进制再运行。
+而是Python解释器根据Python代码文件从第一行开始由上到下逐行运行，整个程序没有统一的主入口
+  ]]></content></entry><entry><title>4.Python函数使用</title><url>/post/34/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、函数定义和调用 1.1、定义函数的语法格式
+def 函数名称(参数): 函数体代码 return 返回值 #定义函数 def user_info(): print(&amp;#34;姓名：张三&amp;#34;) print(&amp;#34;性别：男&amp;#34;) print(&amp;#34;年龄：18&amp;#34;) #函数调用 user_info() 2、函数参数 2.1、缺省参数：函数定义时，设置带有默认值的参数，调用时，缺省参数可以不传入，没传使用默认值，传了实参就使用实参
+def sum(y,x=10): rs=x+y print(&amp;#34;{}+{}={}&amp;#34;.format(x,y,rs)) # 只传入一个参数y的值 sum(10) # 传入缺省参数的实参20 sum(10,20) 2.2、命名参数：指在调用带有参函数时，通过指定参数名称传入参数的值，并且可以不按照函数定义的参数顺序传入实参
+def sum(y,x): rs=x+y print(&amp;#34;{}+{}={}&amp;#34;.format(x,y,rs)) # 不按照参数定义的顺序，通过指定参数名称传入，指定参数名称必须与定义的形参名称相同 sum(x=10,y=20) sum(y=20,x=10) 2.3、带参函数：函数定义时，可以在小括号内设置函数需要的参数，调用时安装顺序和个数传入
+def user_info(name,sex,age): print(&amp;#34;姓名：&amp;#34;,name) print(&amp;#34;性别：&amp;#34;,sex) print(&amp;#34;年龄：&amp;#34;,age) # 调用 name=&amp;#34;张三&amp;#34; sex=&amp;#34;男&amp;#34; age=18 user_info(name,sex,age) 2.4、不定长参数
+2.4.1、带有一个*的不定长参数 # 计算多个数字和 def any_num_sum(*args): print(&amp;#34;args参数值：&amp;#34;,args) print(&amp;#34;args参数类型：&amp;#34;,type(args)) rs=0 if len(args)&amp;gt;0: for arg in args: rs += arg print(&amp;#34;总和：&amp;#34;，rs) # 调用 any_num_sum(10,20) …  ]]></content></entry><entry><title>启动和停止shell脚本</title><url>/post/2/</url><categories><category>Linux</category></categories><tags><tag>shell脚本</tag></tags><content type="html"><![CDATA[  start.sh 定义变量: 服务名/部署路径/服务输出日志路径/启动文件路径 检查是否启动: 使用 ps /grep/awk命令 配合 | 一起使用 没启动继续下面的 设置JVM参数: JAVA_OPTS 后台启动应用: nohup java -jar 命令 再次检查是否启动 shell脚本示例: #!/bin/bash #启动服务名称 SERVER_NAME=test #服务部署路径 DEPLOY_DIR=/opt/app/test # 服务日志输出路径 STDOUT_FILE=${DEPLOY_DIR}/logs/test.log #服务启动的jar或war WAR_FILE=${DEPLOY_DIR}/test.jar PIDS=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; |awk &#39;{print $2}&#39;` if [ -n &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The ${SERVER_NAME} already started!&#34; echo &#34;&gt;&gt;&gt; PID: $PIDS&#34; exit 1 fi #jvm参数配置 JAVA_OPTS=&#34;-server -Xmx2g -Xms2g &#34; echo -e &#34;&gt;&gt;&gt; Starting the ${SERVER_NAME} ...\c&#34; nohup java $JAVA_OPTS -jar ${WAR_FILE} &gt; $STDOUT_FILE 2&gt;&amp;1 &amp; COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; | awk &#39;{print $2}&#39; | wc -l` if [ $COUNT -gt 0 ]; then break fi done PIDS=`ps -f | grep java | grep &#34;${DEPLOY_DIR}&#34; | awk &#39;{print $2}&#39;` echo &#34;OK ! --&gt;&gt;&gt; PID: $PIDS --&gt;&gt;&gt; STDOUT: $STDOUT_FILE &#34; stop.sh 定义变量: 部署服务路径/停止服务名称 检查是否启动: 使用 ps /grep/awk命令 配合 | 一起使用 启动继续下面的 kill掉进程 再次检查进程是否存在 shell脚本示例: #!/bin/bash #服务部署路径 DEPLOY_DIR=/opt/app/test #停止服务名称 SERVER_NAME=test PIDS=`ps -ef | grep java | grep &#34;${DEPLOY_DIR}&#34; |awk &#39;{print $2}&#39;` if [ -z &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The $SERVER_NAME does not started!&#34; exit 1 fi echo -e &#34;&gt;&gt;&gt; Stopping the $SERVER_NAME ...\c&#34; for PID in $PIDS ; do kill $PID &gt; /dev/null 2&gt;&amp;1 done COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=1 for PID in $PIDS ; do PID_EXIST=`ps -f -p $PID | grep java` if [ -n &#34;$PID_EXIST&#34; ]; then COUNT=0 break fi done done echo &#34;OK! --&gt;&gt;&gt; PID: $PIDS&#34;   ]]></content></entry><entry><title>3.Python容器使用入门</title><url>/post/33/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、列表 1.1、列表定义
+列表用来顺序存储相同或者不同类型数据的集合，列表内存储的元素是有序的，列表使用一对[ ]表示，列表中存储的每个值叫元素，元素之间使用逗号隔开
+# 存储相同数据类型 name_list=[&amp;#34;张三&amp;#34;,&amp;#34;李四&amp;#34;,&amp;#34;王五&amp;#34;] # 打印数据类型 print(type(name_list)) print(name_list) #存储不同数据类型 info=[&amp;#34;张三&amp;#34;,&amp;#34;男&amp;#34;,20] print(info) 1.2、向列表添加元素
+info_list=[[&amp;#34;张三&amp;#34;,&amp;#34;男&amp;#34;,20],[&amp;#34;王五&amp;#34;,&amp;#34;男&amp;#34;,16]] # 1.append()方法 new_info=[&amp;#34;李四&amp;#34;,&amp;#34;男&amp;#34;,18] info_list.append(new_info) print(info_list) # 2.insert()方法 new_info=[&amp;#34;小美&amp;#34;,&amp;#34;女&amp;#34;,18] info_list.insert(1,new_info) print(info_list) # 3.extend()方法 new_infos=[[&amp;#34;马六&amp;#34;,&amp;#34;男&amp;#34;,18],[&amp;#34;小黑&amp;#34;,&amp;#34;女&amp;#34;,18]] info_list.extend(new_infos) print(info_list) # 4.使用+号拼接 str_list1=[&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;,&amp;#34;c&amp;#34;] str_list2=[&amp;#34;e&amp;#34;,&amp;#34;f&amp;#34;,&amp;#34;g&amp;#34;] str_list3=str_list1+str_list2 print(str_list3) 1.3、修改列表中元素值
+# 索引修改元素值 info_list=[&amp;#34;小美&amp;#34;,&amp;#34;女&amp;#34;,20] #年龄涨一岁 info_list[2]+=1 print(info_list) 1.4、查询列表中元素
+# 根据索引查询 info_list=[&amp;#34;小美&amp;#34;,&amp;#34;女&amp;#34;,20] …  ]]></content></entry><entry><title>2.Python语法基础知识</title><url>/post/32/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、注释 注释是我们自己语言来描述一段代码的实现逻辑，介绍这段代码具体实现的什么功能，方便我们维护和清晰地了解这段代码，增强程序的可读性
 1.1、单行注释 ：用于注释一行文字或者代码，单行注释格式以 # 号开头
 # 打印一行文字 print(&amp;#34;hello world&amp;#34;) # print(&amp;#34;hello world&amp;#34;) 1.2、多行注释 ：用于注释多行文字或者代码块，格式以三个英文单引号（&amp;rsquo;&amp;rsquo;&amp;rsquo;）开头，三个英文单引号（&amp;rsquo;&amp;rsquo;&amp;rsquo;）结束
 &amp;#39;&amp;#39;&amp;#39; 使用多行注释 打印一行文字 &amp;#39;&amp;#39;&amp;#39; print(&amp;#34;hello world!&amp;#34;) 2、关键字与标识符 2.1、关键字

@@ -1,0 +1,278 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.121.2"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_8.png><link rel=icon type=image/png sizes=32x32 href><link rel=apple-touch-icon sizes=180x180 href><meta itemprop=name content="4.Python函数使用"><meta itemprop=description content="Python函数基础使用入门"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://code.mzfqy.site/imgs/xybcmj.jpg"><meta itemprop=keywords content="自学记录"><meta property="og:type" content="article"><meta property="og:title" content="4.Python函数使用"><meta property="og:description" content="Python函数基础使用入门"><meta property="og:image" content="/imgs/xybcmj.jpg"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="https://code.mzfqy.site/post/34/"><meta property="og:site_name" content="编程"><meta property="og:locale" content="zh-CN"><meta property="article:author" content="小猿编程秘籍"><meta property="article:published_time" content="2020-11-24 18:30:02 +0800 +0800"><meta property="article:modified_time" content="2023-12-29 16:13:12 +0800 +0800"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.e273fdf7594e491862485c3be08e53f6950ec405ee0c2cfb386aa00418eb2eaa.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":true,"isHome":false,"isPage":true,"path":"34","permalink":"https://code.mzfqy.site/post/34/","title":"4.Python函数使用","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://hm.baidu.com/hm.js?2229fca163ce43264bc704e30d1f7228",e.async="true",document.head.appendChild(e)})</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>4.Python函数使用 - 编程</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>编程</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>编程是一种语言，可以讲述无限的故事。</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=https://mzfqy.site class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-archives"><a href=/archives/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>47</span></a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于我</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#1函数定义和调用>1、函数定义和调用</a></li><li><a href=#2函数参数>2、函数参数</a></li><li><a href=#3函数返回值>3、函数返回值</a></li><li><a href=#4变量作用域>4、变量作用域</a></li><li><a href=#5递归函数>5、递归函数</a></li><li><a href=#6匿名函数>6、匿名函数</a></li><li><a href=#7闭包>7、闭包</a></li><li><a href=#8装饰器>8、装饰器</a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=小猿编程秘籍 src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcmj.jpg><p class=site-author-name itemprop=name>小猿编程秘籍</p><div class=site-description itemprop=description>砥砺前行，创造无限可能。</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>47</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>5</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>31</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href="https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" title="公众号 → https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" rel=noopener class=hvr-icon-pulse target=_blank><i class="far fa-comment-dots fa-fw hvr-icon"></i>
+公众号
+</a></span><span class=links-of-social-item><a href=https://github.com/hangzhi7 title="Github → https://github.com/hangzhi7" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-github fa-fw hvr-icon"></i>
+Github
+</a></span><span class=links-of-social-item><a href=https://www.zhihu.com/people/hang-zi-43-85/posts title="知乎 → https://www.zhihu.com/people/hang-zi-43-85/posts" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-book fa-fw hvr-icon"></i>
+知乎</a></span></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/cc/small/by_nc_sa.svg alt=共享知识></a></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
+<span>网站资讯</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已运行：</div><div class=item-count id=runTimes data-publishdate=2021-03-18T10:16:00+08:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>总访客数：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>页面浏览：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>总字数：</div><div class=item-count id=wordsCount data-count=71761></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>阅读约：</div><div class=item-count id=readTimes data-times=166></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最后更新于：</div><div class=item-count id=last-push-date data-lastpushdate=2021-01-05T10:26:02+08:00></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-comments class="button goto-comments" title=直达评论><i class="fas fa-comments"></i></div><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><a href=https://github.com/hangzhi7 rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://code.mzfqy.site/post/34/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/xybcmj.jpg"><meta itemprop=name content="小猿编程秘籍"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="小猿编程秘籍"><meta itemprop=description content="砥砺前行，创造无限可能。"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="4.Python函数使用"><meta itemprop=description content="Python函数基础使用入门"></span><header class=post-header><h1 class=post-title itemprop="name headline">4.Python函数使用
+<a href=https://github.com/hangzhi7/myblog-code/blob/main/content/post/34.md rel="noopener external nofollow noreferrer" target=_blank class="exturl post-edit-link" title=编辑><i class="fa fa-pen-nib"></i></a></h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2020-11-24 18:30:02 +0800 +0800" itemprop="dateCreated datePublished" datetime="2020-11-24 18:30:02 +0800 +0800">2020-11-24
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar-check"></i>
+</span><span class=post-meta-item-text title=更新于>更新于：
+</span><time title=修改时间：2023-12-29T16:13:12+08:00 itemprop=dateModified datetime=2023-12-29T16:13:12+08:00>2023-12-29</time>
+</span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/python itemprop=url rel=index><span itemprop=name>Python</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>2228</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>5分钟</span>
+</span><span class=post-meta-item title=浏览><span class=post-meta-item-icon><i class="far fa-eye"></i>
+</span><span class=post-meta-item-text>浏览：
+</span><span id=busuanzi_value_page_pv data-path=/post/34/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class=post-body itemprop=articleBody><h3 id=1函数定义和调用>1、函数定义和调用
+<a class=header-anchor href=#1%e5%87%bd%e6%95%b0%e5%ae%9a%e4%b9%89%e5%92%8c%e8%b0%83%e7%94%a8></a></h3><p>1.1、<strong>定义函数的语法格式</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>函数名称</span>(参数):
+</span></span><span style=display:flex><span>函数体代码
+</span></span><span style=display:flex><span><span style=color:#66d9ef>return</span> 返回值
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#定义函数</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>user_info</span>():
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名：张三&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;性别：男&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;年龄：18&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>#函数调用</span>
+</span></span><span style=display:flex><span>user_info()
+</span></span></code></pre></div><h3 id=2函数参数>2、函数参数
+<a class=header-anchor href=#2%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0></a></h3><p>2.1、<strong>缺省参数</strong>：函数定义时，设置带有默认值的参数，调用时，缺省参数可以不传入，没传使用默认值，传了实参就使用实参</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum</span>(y,x<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>):
+</span></span><span style=display:flex><span>rs<span style=color:#f92672>=</span>x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>+</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y,rs))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 只传入一个参数y的值</span>
+</span></span><span style=display:flex><span>sum(<span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e># 传入缺省参数的实参20</span>
+</span></span><span style=display:flex><span>sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>)
+</span></span></code></pre></div><p>2.2、<strong>命名参数</strong>：指在调用带有参函数时，通过指定参数名称传入参数的值，并且可以不按照函数定义的参数顺序传入实参</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum</span>(y,x):
+</span></span><span style=display:flex><span>rs<span style=color:#f92672>=</span>x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>+</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y,rs))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 不按照参数定义的顺序，通过指定参数名称传入，指定参数名称必须与定义的形参名称相同</span>
+</span></span><span style=display:flex><span>sum(x<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>,y<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>sum(y<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span>,x<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>)
+</span></span></code></pre></div><p>2.3、<strong>带参函数</strong>：函数定义时，可以在小括号内设置函数需要的参数，调用时安装顺序和个数传入</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>user_info</span>(name,sex,age):
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名：&#34;</span>,name)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;性别：&#34;</span>,sex)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;年龄：&#34;</span>,age)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 调用  </span>
+</span></span><span style=display:flex><span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;张三&#34;</span>
+</span></span><span style=display:flex><span>sex<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;男&#34;</span>
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span><span style=color:#ae81ff>18</span>
+</span></span><span style=display:flex><span>user_info(name,sex,age)
+</span></span></code></pre></div><p>2.4、<strong>不定长参数</strong></p><ul><li>2.4.1、<strong>带有一个*的不定长参数</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 计算多个数字和</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>any_num_sum</span>(<span style=color:#f92672>*</span>args):
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;args参数值：&#34;</span>,args)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;args参数类型：&#34;</span>,type(args))
+</span></span><span style=display:flex><span>rs<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> len(args)<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> arg <span style=color:#f92672>in</span> args:
+</span></span><span style=display:flex><span>    rs <span style=color:#f92672>+=</span> arg
+</span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;总和：&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>rs)
+</span></span><span style=display:flex><span>   
+</span></span><span style=display:flex><span><span style=color:#75715e># 调用</span>
+</span></span><span style=display:flex><span>any_num_sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>any_num_sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>,<span style=color:#ae81ff>30</span>,<span style=color:#ae81ff>40</span>)
+</span></span></code></pre></div><p>注：<code>*args</code>接受的任意参数会封装到元组中</p><ul><li>2.4.2、<strong>带有两个*的不定长参数</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>su</span>(base,<span style=color:#f92672>**</span>kvargs):
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;kvargs参数值：&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>kvargs)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;kvargs参数类型：&#34;</span>,type(kvargs))
+</span></span><span style=display:flex><span>x<span style=color:#f92672>=</span>kvargs<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;x&#34;</span>)
+</span></span><span style=display:flex><span>y<span style=color:#f92672>=</span>kvargs<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;y&#34;</span>)
+</span></span><span style=display:flex><span>su<span style=color:#f92672>=</span>base<span style=color:#f92672>-</span>x<span style=color:#f92672>-</span>y
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;计算值：&#34;</span><span style=color:#960050;background-color:#1e0010>，</span>su)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span><span style=color:#75715e># 调用</span>
+</span></span><span style=display:flex><span>su(<span style=color:#ae81ff>10</span>,x<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>,y<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span>)
+</span></span></code></pre></div><p>注：<code>**kvargs</code> 接受的参数将封装到字典中</p><ul><li>2.4.3、<strong>拆包</strong></li></ul><p>使用场景：当一个函数设置了不定长参数，想把已存在的元组、列表、字典传入到函数中，并且能够被不定长参数识别，就需要拆包</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 求数字列表中所有元素和</span>
+</span></span><span style=display:flex><span>num_list<span style=color:#f92672>=</span>[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>]
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用any_num_sum函数</span>
+</span></span><span style=display:flex><span>any_num_sum(<span style=color:#f92672>*</span>num_list)
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#75715e># 求字典中数字计算</span>
+</span></span><span style=display:flex><span>su_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;x&#34;</span>:<span style=color:#ae81ff>20</span>,<span style=color:#e6db74>&#34;y&#34;</span>:<span style=color:#ae81ff>30</span>}
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#75715e>#调su函数</span>
+</span></span><span style=display:flex><span>su(<span style=color:#ae81ff>100</span>,<span style=color:#f92672>**</span>su_dict)
+</span></span></code></pre></div><h3 id=3函数返回值>3、函数返回值
+<a class=header-anchor href=#3%e5%87%bd%e6%95%b0%e8%bf%94%e5%9b%9e%e5%80%bc></a></h3><ul><li><strong>带返回值函数</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>x_num</span>(base,<span style=color:#f92672>**</span>kvargs):
+</span></span><span style=display:flex><span>  x1<span style=color:#f92672>=</span>kvargs<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;x1&#34;</span>)
+</span></span><span style=display:flex><span>  x2<span style=color:#f92672>=</span>kvargs<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;x2&#34;</span>)
+</span></span><span style=display:flex><span>  x_num<span style=color:#f92672>=</span>base<span style=color:#f92672>*</span>x1<span style=color:#f92672>+</span>base<span style=color:#f92672>*</span>x2
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> x_num
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>y_num</span>(yy):
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> yy <span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>and</span> yy <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>10</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>elif</span> yy <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>elif</span> yy <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>10</span> <span style=color:#f92672>and</span> yy <span style=color:#f92672>&lt;</span><span style=color:#ae81ff>100</span> :
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>su</span>(base):
+</span></span><span style=display:flex><span>  su_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;x1&#34;</span>:<span style=color:#ae81ff>10</span>,<span style=color:#e6db74>&#34;x2&#34;</span>:<span style=color:#ae81ff>20</span>}
+</span></span><span style=display:flex><span>  x<span style=color:#f92672>=</span>x_num(base,<span style=color:#f92672>**</span>su_dict)
+</span></span><span style=display:flex><span>  yy<span style=color:#f92672>=</span>base<span style=color:#f92672>+</span>x
+</span></span><span style=display:flex><span>  y<span style=color:#f92672>=</span>y_num(yy)
+</span></span><span style=display:flex><span>  su<span style=color:#f92672>=</span>base<span style=color:#f92672>+</span>x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;计算值：su=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,x=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,y=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(su,x,y))
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>su(<span style=color:#ae81ff>60</span>)
+</span></span></code></pre></div><h3 id=4变量作用域>4、变量作用域
+<a class=header-anchor href=#4%e5%8f%98%e9%87%8f%e4%bd%9c%e7%94%a8%e5%9f%9f></a></h3><p>4.1、<strong>局部变量</strong>：只能在某个特定的范围内使用</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>info1</span>():
+</span></span><span style=display:flex><span><span style=color:#75715e>#局部变量</span>
+</span></span><span style=display:flex><span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;张三&#34;</span>
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,年龄:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(name<span style=color:#f92672>.</span>age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>info2</span>():
+</span></span><span style=display:flex><span><span style=color:#75715e>#局部变量</span>
+</span></span><span style=display:flex><span>name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;李四&#34;</span>
+</span></span><span style=display:flex><span>age<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;姓名:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,年龄:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(name<span style=color:#f92672>.</span>age))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>info1()
+</span></span><span style=display:flex><span>info2()
+</span></span></code></pre></div><p>4.2、<strong>全局变量</strong>：可以在全局范围内使用</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#全局变量</span>
+</span></span><span style=display:flex><span>base<span style=color:#f92672>=</span><span style=color:#ae81ff>100</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum1</span>(x):
+</span></span><span style=display:flex><span>rs<span style=color:#f92672>=</span>base<span style=color:#f92672>+</span>x
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>与</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>的和</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,base,rs))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum2</span>(y):
+</span></span><span style=display:flex><span>rs<span style=color:#f92672>=</span>base<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>与</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>的和</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(y,base,rs))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>sum1(<span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>sum2(<span style=color:#ae81ff>20</span>)
+</span></span></code></pre></div><h3 id=5递归函数>5、递归函数
+<a class=header-anchor href=#5%e9%80%92%e5%bd%92%e5%87%bd%e6%95%b0></a></h3><p>说明：一个函数在其函数体内调用函数自身，这样的函数就是递归函数</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 计算3的阶乘</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>factorial</span>(num):
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> num <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> num<span style=color:#f92672>*</span>factorial(num<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> num
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>factorial(<span style=color:#ae81ff>3</span>)
+</span></span></code></pre></div><h3 id=6匿名函数>6、匿名函数
+<a class=header-anchor href=#6%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0></a></h3><p>6.1、<strong>匿名函数语法格式</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>lambda</span> 参数列表:表达式
+</span></span></code></pre></div><p>6.2、<strong>匿名函数作为普通函数的参数</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>sum<span style=color:#f92672>=</span><span style=color:#66d9ef>lambda</span> x,y:x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>print(sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>))
+</span></span></code></pre></div><p>6.3、<strong>将匿名函数赋值给变量，通过变量名调用匿名函数</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>x_y_compute</span>(x,y,func):
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;x=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>,y=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y))
+</span></span><span style=display:flex><span>result<span style=color:#f92672>=</span>func(x,y)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;result=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(result))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>x_y_compute(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>,<span style=color:#66d9ef>lambda</span> x,y:x<span style=color:#f92672>+</span>y)
+</span></span><span style=display:flex><span>x_y_compute(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>,<span style=color:#66d9ef>lambda</span> x,y:x<span style=color:#f92672>*</span>y)
+</span></span></code></pre></div><h3 id=7闭包>7、闭包
+<a class=header-anchor href=#7%e9%97%ad%e5%8c%85></a></h3><p>说明：所谓闭包就是指当一个嵌套函数的内部函数引用了外部函数的变量，外部函数的返回值是内部函数的引用，这种函数的表达方式就是闭包</p><p>7.1、<strong>闭包求和</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 普通函数，求和</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum</span>(x,y):
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 闭包求和</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 1.外部函数</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum_closure</span>(x):
+</span></span><span style=display:flex><span>  <span style=color:#75715e>#2.内部函数</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum_inner</span>(y):
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#3.调用外部函数的变量x</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> x<span style=color:#f92672>+</span>y
+</span></span><span style=display:flex><span>  <span style=color:#75715e>#4.外部函数返回值是内部函数的引用</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> sum_inner
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>rs_func<span style=color:#f92672>=</span>sum_closure(<span style=color:#ae81ff>10</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;rs_func: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(rs_func))
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;rs_func类型: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(type(rs_func)))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#闭包使用</span>
+</span></span><span style=display:flex><span>print(rs_func(<span style=color:#ae81ff>2</span>))
+</span></span></code></pre></div><p>7.2、<strong>闭包计数器</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 闭包计数器</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>counter_w</span>(base<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>  cnt_base<span style=color:#f92672>=</span>[base]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>counter</span>(step<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>    cnt_base[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>+=</span>step
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> cnt_base[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> counter
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>counter<span style=color:#f92672>=</span>counter_w()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;当前计数器值:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(counter()))
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;当前计数器值:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(counter()))
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;当前计数器值:</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(counter()))
+</span></span></code></pre></div><h3 id=8装饰器>8、装饰器
+<a class=header-anchor href=#8%e8%a3%85%e9%a5%b0%e5%99%a8></a></h3><p>8.1、<strong>装饰器介绍</strong></p><p>就是用于拓展原来函数功能的一种函数，目的是在不改变原函数名(或类名)的情况下，给函数增加新的功能。</p><p>这个函数的特殊之处在于它的返回值也是一个函数，这个函数是内嵌原函数的函数。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span>语法<span style=color:#960050;background-color:#1e0010>：</span>在被装饰函数前面加 <span style=color:#960050;background-color:#1e0010>“</span><span style=color:#a6e22e>@装饰器名称</span><span style=color:#960050;background-color:#1e0010>”</span>
+</span></span></code></pre></div><p>8.2、<strong>初步使用</strong></p><ul><li>8.2.1、<strong>有参函数添加装饰器</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 计算程序执行耗时</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>time</span>(func):
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>counter</span>(x,y):
+</span></span><span style=display:flex><span>start_time<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;开始时间:&#34;</span>,start_time)
+</span></span><span style=display:flex><span>func(x,y)
+</span></span><span style=display:flex><span>end_time<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;结束时间:&#34;</span>,end_time)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;程序运行耗时时间:&#34;</span>,end_time<span style=color:#f92672>-</span>start_time)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>return</span> counter
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@time</span> <span style=color:#75715e># 装饰器</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum</span>(x,y):
+</span></span><span style=display:flex><span>time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>+</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y,x<span style=color:#f92672>+</span>y))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>sum(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>)
+</span></span></code></pre></div><ul><li>8.2.2、<strong>不定长参数函数添加装饰器</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 计算程序执行耗时</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>time</span>(func):
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>counter</span>(<span style=color:#f92672>*</span>args):
+</span></span><span style=display:flex><span>start_time<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;开始时间:&#34;</span>,start_time)
+</span></span><span style=display:flex><span>func(<span style=color:#f92672>*</span>args)
+</span></span><span style=display:flex><span>end_time<span style=color:#f92672>=</span>time<span style=color:#f92672>.</span>time()
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;结束时间:&#34;</span>,end_time)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;程序运行耗时时间:&#34;</span>,end_time<span style=color:#f92672>-</span>start_time)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>return</span> counter
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@time</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sum</span>(x,y):
+</span></span><span style=display:flex><span>time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>+</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y,x<span style=color:#f92672>+</span>y))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@time</span>  
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>multi</span>(x,y,z):
+</span></span><span style=display:flex><span>time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>*</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>*</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>=</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(x,y,z,x<span style=color:#f92672>*</span>y<span style=color:#f92672>*</span>z))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#调用</span>
+</span></span><span style=display:flex><span>sum(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>multi(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>20</span>,<span style=color:#ae81ff>30</span>)
+</span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%e8%87%aa%e5%ad%a6%e8%ae%b0%e5%bd%95>自学记录</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请关注我吧 ヾ(^▽^*)))</div><button>
+关注</button><div class="post-reward active"><div class=post-reward-item><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcgzh.jpg alt=公众号：小猿读书>
+<span>公众号：小猿读书</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+4.Python函数使用</li><li class=post-copyright-author><strong>本文作者： </strong>小猿编程秘籍</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://code.mzfqy.site/post/34/ title=4.Python函数使用>https://code.mzfqy.site/post/34/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=followme><span>欢迎关注我的其它发布渠道</span><div class=social-list><div class=social-item><a target=_blank class=social-link href=https://github.com/hangzhi7><span class=icon><i class="fab fa-github"></i>
+</span><span class=label>Github</span></a></div><div class=social-item><a target=_blank class=social-link href=https://www.zhihu.com/people/hang-zi-43-85/posts><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>知乎</span></a></div><div class=social-item><a target=_blank class=social-link href=https://blog.csdn.net/Yuan_Hang723><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>CSDN</span></a></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/35/ rel=next title=5.Python模块认识><i class="fa fa-chevron-left"></i> 5.Python模块认识</a></div><div class="post-nav-prev post-nav-item"><a href=/post/2/ rel=prev title=启动和停止shell脚本>启动和停止shell脚本
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div id=comments class=post-comments><div class=comment-head><div class=comment-headline><i class="fas fa-comments fa-fw"></i>
+<span>评论交流</span></div></div><div class=comment-wrap><div><div class=comment-loading><i class="fa fa-sync fa-spin"></i></div><div class=giscus-container></div></div></div></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2023 - 2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>小猿编程秘籍</span></div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":false,"giscus":{"cfg":{"category":"Announcements","categoryid":"DIC_kwDOKyZK3M4CbR9Y","emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"hangzhi7/comments","repoid":"R_kgDOKyZK3A","theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://code.mzfqy.site","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":true,"plugin":"busuanzi"}},"root":"/","scheme":"Muse","sidebar":{"display":"post","offset":12,"padding":18,"position":"right","width":320},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.8f5e35d041911f1772ddf1c9c9e0f4924ed2221b0caa219a4bc58560f72e5b11.js defer></script></body></html>
