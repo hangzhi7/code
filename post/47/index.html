@@ -1,0 +1,398 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.121.2"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_8.png><link rel=icon type=image/png sizes=32x32 href><link rel=apple-touch-icon sizes=180x180 href><meta itemprop=name content="4.Java基础知识：数组"><meta itemprop=description content="介绍Java中数组的基础知识及使用方法。"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://code.mzfqy.site/imgs/xybcmj.jpg"><meta itemprop=keywords content="Java基础,数组"><meta property="og:type" content="article"><meta property="og:title" content="4.Java基础知识：数组"><meta property="og:description" content="介绍Java中数组的基础知识及使用方法。"><meta property="og:image" content="/imgs/xybcmj.jpg"><meta property="og:image:width" content="312"><meta property="og:image:height" content="312"><meta property="og:image:type" content="image/jpeg/png/svg/jpg"><meta property="og:url" content="https://code.mzfqy.site/post/47/"><meta property="og:site_name" content="编程"><meta property="og:locale" content="zh-CN"><meta property="article:author" content="小猿编程秘籍"><meta property="article:published_time" content="2021-03-18 18:30:02 +0800 +0800"><meta property="article:modified_time" content="2024-01-05 19:13:22 +0800 +0800"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.aa2af2588cb7035f94f6c1660cc1afece30cec3adc0ae51791c4be282bad99cf.css><style type=text/css>.post-footer,.flinks-list-footer hr:after{content:"~ 我可是有底线的哟 ~"}</style><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":true,"isHome":false,"isPage":true,"path":"47","permalink":"https://code.mzfqy.site/post/47/","title":"4.Java基础知识：数组","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://hm.baidu.com/hm.js?2229fca163ce43264bc704e30d1f7228",e.async="true",document.head.appendChild(e)})</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>4.Java基础知识：数组 - 编程</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>编程</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>编程是一种语言，可以讲述无限的故事。</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=https://mzfqy.site class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-archives"><a href=/archives/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>68</span></a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于我</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#1数组>1、数组</a></li><li><a href=#2查表法>2、查表法</a></li><li><a href=#3选择排序>3、选择排序</a></li><li><a href=#4冒泡排序>4、冒泡排序</a></li><li><a href=#5查找元素>5、查找元素</a></li><li><a href=#6获取插入点>6、获取插入点</a></li><li><a href=#7数组反转>7、数组反转</a></li><li><a href=#8二维数组>8、二维数组</a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=小猿编程秘籍 src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcmj.jpg><p class=site-author-name itemprop=name>小猿编程秘籍</p><div class=site-description itemprop=description>砥砺前行，创造无限可能。</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>68</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>8</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>47</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href="https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" title="公众号 → https://mp.weixin.qq.com/s?__biz=Mzk0MzYwOTAxMA==&amp;mid=2247483682&amp;idx=1&amp;sn=176d813f36ed707b8d5179fb60a50e2a&amp;chksm=c33004fff4478de9a57ea41c16309a76e8a0c470399441a07c1b642249db69cdc568a898a5a7&amp;token=1625087213&amp;lang=zh_CN#rd" rel=noopener class=hvr-icon-pulse target=_blank><i class="far fa-comment-dots fa-fw hvr-icon"></i>
+公众号
+</a></span><span class=links-of-social-item><a href=https://github.com/hangzhi7 title="Github → https://github.com/hangzhi7" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-github fa-fw hvr-icon"></i>
+Github
+</a></span><span class=links-of-social-item><a href=https://www.zhihu.com/people/hang-zi-43-85/posts title="知乎 → https://www.zhihu.com/people/hang-zi-43-85/posts" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-book fa-fw hvr-icon"></i>
+知乎</a></span></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/cc/small/by_nc_sa.svg alt=共享知识></a></div></div></div></div><div id=siteinfo-card-widget class=sidebar-card-widget><div class=item-headline><i class="fas fa-chart-line"></i>
+<span>网站资讯</span></div><div class=siteinfo><div class=siteinfo-item><div class=item-name><i class="fa-solid fa-calendar-check"></i>已运行：</div><div class=item-count id=runTimes data-publishdate=2021-03-18T10:16:00+08:00></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-user"></i>总访客数：</div><div class=item-count id=busuanzi_value_site_uv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fas fa fa-eye"></i>页面浏览：</div><div class=item-count id=busuanzi_value_site_pv><i class="fa fa-sync fa-spin"></i></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-font"></i>总字数：</div><div class=item-count id=wordsCount data-count=102737></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-mug-hot"></i>阅读约：</div><div class=item-count id=readTimes data-times=236></div></div><div class=siteinfo-item><div class=item-name><i class="fa fa-clock-rotate-left"></i>最后更新于：</div><div class=item-count id=last-push-date data-lastpushdate=2021-03-20T19:30:02+08:00></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-comments class="button goto-comments" title=直达评论><i class="fas fa-comments"></i></div><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><a href=https://github.com/hangzhi7 rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://code.mzfqy.site/post/47/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/xybcmj.jpg"><meta itemprop=name content="小猿编程秘籍"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="小猿编程秘籍"><meta itemprop=description content="砥砺前行，创造无限可能。"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="4.Java基础知识：数组"><meta itemprop=description content="介绍Java中数组的基础知识及使用方法。"></span><header class=post-header><h1 class=post-title itemprop="name headline">4.Java基础知识：数组
+<a href=https://github.com/hangzhi7/myblog-code/blob/main/content/post/47.md rel="noopener external nofollow noreferrer" target=_blank class="exturl post-edit-link" title=编辑><i class="fa fa-pen-nib"></i></a></h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2021-03-18 18:30:02 +0800 +0800" itemprop="dateCreated datePublished" datetime="2021-03-18 18:30:02 +0800 +0800">2021-03-18
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar-check"></i>
+</span><span class=post-meta-item-text title=更新于>更新于：
+</span><time title=修改时间：2024-01-05T19:13:22+08:00 itemprop=dateModified datetime=2024-01-05T19:13:22+08:00>2024-01-05</time>
+</span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/java itemprop=url rel=index><span itemprop=name>Java</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>3332</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>7分钟</span>
+</span><span class=post-meta-item title=浏览><span class=post-meta-item-icon><i class="far fa-eye"></i>
+</span><span class=post-meta-item-text>浏览：
+</span><span id=busuanzi_value_page_pv data-path=/post/47/><i class="fa fa-sync fa-spin"></i></span></span></div></div></header><div class=post-body itemprop=articleBody><h3 id=1数组>1、数组
+<a class=header-anchor href=#1%e6%95%b0%e7%bb%84></a></h3><p>1.1 <strong>介绍</strong>：</p><p>把具有相同类型的若干变量按有序的形式组织起来,这些按序排列的同类数据元素的集合称为数组。</p><p>1.2 <strong>格式一</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span>元素类型<span style=color:#f92672>[]</span> 数组名 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> 元素类型<span style=color:#f92672>[</span>元素个数或数组长度<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>示例 : <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>5<span style=color:#f92672>]</span>;
+</span></span></code></pre></div><ul><li><strong>如何存储数据到数组之中</strong>：</li></ul><p>语法 :<code>数组名[元素的下标] = 数据;</code></p><ul><li><strong>如何去取存储在数组之中的数据</strong>：</li></ul><p>语法 : <code>数组名[元素的下标];</code></p><ul><li><strong>如何遍历数组的元素</strong>:</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 1. 元素类型[] 数组名 = new 元素类型[元素个数或数组长度];</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>5<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//存数据</span>
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 98;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 88;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 100;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>3<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 80;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>4<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 99;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//取数据</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[0]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[1]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[2]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[3]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>3<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[4]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>4<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr.length=&#34;</span> <span style=color:#f92672>+</span> arr.<span style=color:#a6e22e>length</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//遍历</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> arr.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(arr<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>1.3 <strong>格式二</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span>元素类型<span style=color:#f92672>[]</span> 数组名 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> 元素类型<span style=color:#f92672>[]</span> {元素, 元素, ......};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>示例 :
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{1, 3, 5, 7, 9};
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {1, 3, 5, 7, 9};
+</span></span></code></pre></div><p>1.4 <strong>总结</strong></p><ul><li><strong>数组是用来干嘛的？</strong></li></ul><p>数组是用来存储多个相同类型的数据。</p><ul><li><strong>什么时候使用数组？</strong></li></ul><p>当有一组数据， 并且这组数据的意义是相同的， 意义相同，肯定类型就是一样的。</p><ul><li><strong>如何创建数组？</strong></li></ul><p>两种创建数组的格式。</p><ul><li><strong>几个术语</strong>：</li></ul><p>数组名, 数组元素, 数组下标, 数组长度。</p><ul><li><strong>如何往数组中存储数据？</strong></li></ul><p>通过元素的下标进行数据的存储。</p><ul><li><strong>如果取出数组中的数据？</strong></li></ul><p>通过元素的下标进行数据的获取。</p><ul><li><strong>如果遍历数组中的数据？</strong></li></ul><p>通过 <code>数组名.length</code> 获取数组的长度，再使用for循环遍历即可。</p><ul><li><strong>关于值传递与引用传递的区别</strong>：</li></ul><p>1.数值传递称为值传递,仅仅是将数值拷贝了一份,(副本) 在函数内部修改数值对源数据不会有任何影响.</p><p>2.引用传递,表示访问这个地址指向空间的值,直接对源数据进行操作.</p><h3 id=2查表法>2、查表法
+<a class=header-anchor href=#2%e6%9f%a5%e8%a1%a8%e6%b3%95></a></h3><p>数组空间中的值和数组的下标一一对应。因此我们可以将数组空间中值和下标的关系，当做一个表来看待,简称为查表法.</p><ul><li><strong>打印星期</strong>
+<img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/code/44/img44_4_1.webp alt=查表法></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        String result <span style=color:#f92672>=</span> getWeek(6);
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;result=&#34;</span> <span style=color:#f92672>+</span> result);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    定义一个功能,根据给定的数据获取对应的星期.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    查表法 : 数据之间存在对应的关系. 通过关系中的一方来查询另一方.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>getWeek</span>(<span style=color:#66d9ef>int</span> num) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 0. 先判断, 用户传入的数据是否合法</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (num <span style=color:#f92672>&gt;</span> 7 <span style=color:#f92672>||</span> num <span style=color:#f92672>&lt;</span> 1) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> num <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;没有对应的星期&#34;</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义一个数组,存储固定的星期,这个称之为一个存储了对应关系的表</span>
+</span></span><span style=display:flex><span>        String<span style=color:#f92672>[]</span> weeks <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#e6db74>&#34;星期一&#34;</span>, <span style=color:#e6db74>&#34;星期二&#34;</span>, <span style=color:#e6db74>&#34;星期三&#34;</span>, <span style=color:#e6db74>&#34;星期四&#34;</span>, <span style=color:#e6db74>&#34;星期五&#34;</span>, <span style=color:#e6db74>&#34;星期六&#34;</span>, <span style=color:#e6db74>&#34;星期日&#34;</span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2. 根据用户存储的数值,作为索引,返回对应表中的数据即可.</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> weeks<span style=color:#f92672>[</span>num<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=3选择排序>3、选择排序
+<a class=header-anchor href=#3%e9%80%89%e6%8b%a9%e6%8e%92%e5%ba%8f></a></h3><p>选择排序的基本思想是 :每一趟从待排序的数据元素中选出最小（或最大）的一个元素，顺序放在已排好序的数列的最后，直到全部待排序的数据元素排完。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {70, 80, 31, 37, 10, 1, 48, 60, 33, 80};
+</span></span><span style=display:flex><span>        selectionSort(arr);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 功能: 将一组无序的数组进行有序的排列</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 选择排序 (直接在内层循环中交换数值)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>selectionSort</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 大圈套小圈</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 外圈 i -&gt; 行 循环了总共的 `轮数`</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 内圈 j -&gt; 列 拿到当前的 `轮数` 与之后的所有数进行比较</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> i <span style=color:#f92672>+</span> 1; j <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span>; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 判断两个数值的大小,如果i下标的元素值比j下标的元素值大,需要交换对应下标的数值</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>&gt;</span> array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#75715e>// 条件成立,交换数值</span>
+</span></span><span style=display:flex><span>                    array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>^</span> array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                    array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>^</span> array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                    array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>^</span> array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=4冒泡排序>4、冒泡排序
+<a class=header-anchor href=#4%e5%86%92%e6%b3%a1%e6%8e%92%e5%ba%8f></a></h3><p>冒泡排序的基本思想是 : 每次比较两个相邻的元素,如果它们的顺序错误,就把它们交换过来。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {12, 35, 99, 18, 76};
+</span></span><span style=display:flex><span>        bubbleSort(arr);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 冒泡排序</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>bubbleSort</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> 0; j <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1 <span style=color:#f92672>-</span> i; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 判断</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span> <span style=color:#f92672>&gt;</span> array<span style=color:#f92672>[</span>j <span style=color:#f92672>+</span> 1<span style=color:#f92672>]</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#75715e>// 交互数值</span>
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>int</span> temp <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                    array<span style=color:#f92672>[</span>j<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>j <span style=color:#f92672>+</span> 1<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>                    array<span style=color:#f92672>[</span>j <span style=color:#f92672>+</span> 1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> temp;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=5查找元素>5、查找元素
+<a class=header-anchor href=#5%e6%9f%a5%e6%89%be%e5%85%83%e7%b4%a0></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>无序 - 普通查找方式： 逐一遍历,进行元素的对比.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {11, 73, 54, 70, 18};
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> result <span style=color:#f92672>=</span> searchKey(arr, 18);
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;result=&#34;</span> <span style=color:#f92672>+</span> result); <span style=color:#75715e>// result=4</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 需求 : 查找一个元素在数组中的第一次出现的位置</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>searchKey</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array, <span style=color:#66d9ef>int</span> key) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>==</span> key) {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> i;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span>1; <span style=color:#75715e>// -1 表示不存在该key. 没有找到.</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>折半查找 (有序数组)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {10, 20, 30, 40, 50, 60, 70, 80, 90};
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> result <span style=color:#f92672>=</span> binarySearch(arr, 50);
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;result=&#34;</span> <span style=color:#f92672>+</span> result);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 折半查找</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>binarySearch</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array, <span style=color:#66d9ef>int</span> key) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义两个变量,用来表示最小和最大查找下标</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> min <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> max <span style=color:#f92672>=</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1; <span style=color:#75715e>// 下标最大数 = 数值长度 - 1;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> (min <span style=color:#f92672>&lt;=</span> max) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> mid <span style=color:#f92672>=</span> (min <span style=color:#f92672>+</span> max) <span style=color:#f92672>/</span> 2; <span style=color:#75715e>// int mid = (min + max) &gt;&gt; 1;</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>mid<span style=color:#f92672>]</span> <span style=color:#f92672>&gt;</span> key) <span style=color:#75715e>// 如果中间值大于key,就往左边找 (大了)</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                max <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> 1;
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>mid<span style=color:#f92672>]</span> <span style=color:#f92672>&lt;</span> key) <span style=color:#75715e>// 如果中间值小于key,就往右边找 (小了)</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                min <span style=color:#f92672>=</span> mid <span style=color:#f92672>+</span> 1;
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> <span style=color:#75715e>// 相等就是找到了,直接返回</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> mid;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span>1; <span style=color:#75715e>// 循环条件结束,来到这里表示没有找到.</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=6获取插入点>6、获取插入点
+<a class=header-anchor href=#6%e8%8e%b7%e5%8f%96%e6%8f%92%e5%85%a5%e7%82%b9></a></h3><p>寻找在有序数组中插入新元素下标的位置 (原理: 折半查找)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义了一个整型数组</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> arr<span style=color:#f92672>[]</span> <span style=color:#f92672>=</span> {9, 12, 15, 24, 36, 41, 59, 68};  
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2. 寻找在有序数组中,插入新元素的下标位置</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> index <span style=color:#f92672>=</span> getIndexOfNewElement(arr, 41);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3. 输出查看结果</span>
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;index=&#34;</span> <span style=color:#f92672>+</span> index);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 功能 : 寻找在有序数组中,插入新元素的下标位置 (二分查找)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getIndexOfNewElement</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array, <span style=color:#66d9ef>int</span> key) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义两个变量,用于存储查找的最小下标和最大下标</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> min <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> max <span style=color:#f92672>=</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2. 循环查找和对比</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> (min <span style=color:#f92672>&lt;=</span> max) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> mid <span style=color:#f92672>=</span> (min <span style=color:#f92672>+</span> max) <span style=color:#f92672>&gt;&gt;</span> 1;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>mid<span style=color:#f92672>]</span> <span style=color:#f92672>&lt;</span> key) <span style=color:#75715e>// 小了</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                min <span style=color:#f92672>=</span> mid <span style=color:#f92672>+</span> 1;
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (array<span style=color:#f92672>[</span>mid<span style=color:#f92672>]</span> <span style=color:#f92672>&gt;</span> key) <span style=color:#75715e>// 大了</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                max <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> 1;
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> <span style=color:#75715e>// 找到了</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> mid;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3. 循环结束后,都未返回,此时应该返回min表示的下标.</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> min;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=7数组反转>7、数组反转
+<a class=header-anchor href=#7%e6%95%b0%e7%bb%84%e5%8f%8d%e8%bd%ac></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 对一个给定的数组进行反转</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 如 : {12, 23, 34, 45, 56} -&gt; {56, 45, 34, 23, 12}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义一个整型数组</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> arr <span style=color:#f92672>=</span> {12, 23, 34, 45, 56};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2. 调用自定义函数实现数组的反转</span>
+</span></span><span style=display:flex><span>        reverse(arr);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3. 调用自定义函数将数组转成字符串</span>
+</span></span><span style=display:flex><span>        String result <span style=color:#f92672>=</span> arrayToString(arr);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 4. 输出查看</span>
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(result);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 功能: 将数组转成字符串</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>arrayToString</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        String temp <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;[&#34;</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (i <span style=color:#f92672>==</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1) {
+</span></span><span style=display:flex><span>                temp <span style=color:#f92672>=</span> temp <span style=color:#f92672>+</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;]&#34;</span>;
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                temp <span style=color:#f92672>=</span> temp <span style=color:#f92672>+</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;, &#34;</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> temp;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 功能: 实现数组的反转</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>reverse</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> start <span style=color:#f92672>=</span> 0, end <span style=color:#f92672>=</span> array.<span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1; start <span style=color:#f92672>&lt;</span> end; start<span style=color:#f92672>++</span>, end<span style=color:#f92672>--</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 调用自定义函数实现两个整型数值的交换</span>
+</span></span><span style=display:flex><span>            swap(array, start, end);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 功能: 实现两个整数数值的交换</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>swap</span>(<span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array, <span style=color:#66d9ef>int</span> idx1, <span style=color:#66d9ef>int</span> idx2) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 交换</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> temp <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>idx1<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        array<span style=color:#f92672>[</span>idx1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> array<span style=color:#f92672>[</span>idx2<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        array<span style=color:#f92672>[</span>idx2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> temp;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=8二维数组>8、二维数组
+<a class=header-anchor href=#8%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84></a></h3><p>8.1 <strong>格式一</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][</span>2<span style=color:#f92672>]</span>;
+</span></span></code></pre></div><ul><li><strong>代码</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 一维数组 : 相同类型数据的一个集合.数组名存储的是数组在堆区中的首地址.</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 定义格式一:</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> array <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>5<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>    array<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 80;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 遍历一维数组</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> array.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;array[&#34;</span> <span style=color:#f92672>+</span> i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;]=&#34;</span> <span style=color:#f92672>+</span> array<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;\n&#34;</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 二维数组 : 数组中的数组</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 二维数组定义格式一 : </span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 表示定义了一个长度为3的二维数组,二维数组中存储的都是一维数组.</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 每一个一维数组的长度都是2.</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> scores <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][</span>2<span style=color:#f92672>]</span>; <span style=color:#75715e>// 指定了所有一维数组的长度</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 需求: 给第二个二维数组下标为1的元素赋值 99</span>
+</span></span><span style=display:flex><span>    scores<span style=color:#f92672>[</span>1<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 99;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 定义二维数组的时候,不指定一维数组的长度.</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][]</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>2<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 要先验证一下二维数组和每一位一位数组的长度,观察是否和我们上面指定的是一致的.</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr.length=&#34;</span> <span style=color:#f92672>+</span> arr.<span style=color:#a6e22e>length</span>); <span style=color:#75715e>// 二维数组的长度</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[0].length=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>); <span style=color:#75715e>// 二维数组中第0个一维数组的长度</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[1].length=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>); <span style=color:#75715e>// 二维数组中第1个一维数组的长度</span>
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[2].length=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>); <span style=color:#75715e>// 二维数组中第2个一维数组的长度</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 给二维数组中一维数组的元素进行赋值</span>
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>0<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 88;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>1<span style=color:#f92672>][</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 44;
+</span></span><span style=display:flex><span>    arr<span style=color:#f92672>[</span>2<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> 99; <span style=color:#75715e>// arr[2][2] = 99; 数组角标越界</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[0][0]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>0<span style=color:#f92672>][</span>0<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[0][1]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>0<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[0][2]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>0<span style=color:#f92672>][</span>2<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[1][0]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>1<span style=color:#f92672>][</span>0<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[2][0]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>2<span style=color:#f92672>][</span>0<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[2][1]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>2<span style=color:#f92672>][</span>1<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;\n&#34;</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 观察发现,我们可以通过二维数组和一维数组的长度,最终来完成二维数组的遍历</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> arr.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> 0; j <span style=color:#f92672>&lt;</span> arr<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;arr[&#34;</span> <span style=color:#f92672>+</span> i <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;][&#34;</span> <span style=color:#f92672>+</span> j <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;]=&#34;</span> <span style=color:#f92672>+</span> arr<span style=color:#f92672>[</span>i<span style=color:#f92672>][</span>j<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>8.2 <strong>格式二</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][]</span>;
+</span></span></code></pre></div><ul><li><strong>请将下列表格使用二维数组完成定义</strong></li></ul><table><thead><tr><th></th><th>组员1</th><th>组员2</th><th>组员3</th><th>组员4</th></tr></thead><tbody><tr><td>第一小组</td><td>11</td><td>12</td><td></td><td></td></tr><tr><td>第二小组</td><td>21</td><td>22</td><td>23</td><td></td></tr><tr><td>第三小组</td><td>31</td><td>32</td><td>33</td><td>34</td></tr></tbody></table><ul><li><strong>代码</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 定义一个长度为3的二维数组</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>][]</span>;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 为数组的元素赋值</span>
+</span></span><span style=display:flex><span>        arr<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{11, 12};
+</span></span><span style=display:flex><span>        arr<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{21, 22, 23};
+</span></span><span style=display:flex><span>        arr<span style=color:#f92672>[</span>2<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span>{31, 32, 33, 34};
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>8.3 <strong>格式三</strong>：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> {{11, 12}, {21, 22, 23}, {31, 32, 33, 34}};
+</span></span></code></pre></div><ul><li><strong>例如要统计一个公司三个销售小组中每个小组的总销售额以及整个公司的销售额</strong></li></ul><table><thead><tr><th></th><th>组员1</th><th>组员2</th><th>组员3</th><th>组员4</th></tr></thead><tbody><tr><td>第一小组</td><td>11</td><td>12</td><td></td><td></td></tr><tr><td>第二小组</td><td>21</td><td>22</td><td>23</td><td></td></tr><tr><td>第三小组</td><td>31</td><td>32</td><td>33</td><td>34</td></tr></tbody></table><ul><li><strong>代码</strong></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Demo</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) {
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 1. 定义一个二维数组,并完成初始化</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[][]</span> arr <span style=color:#f92672>=</span> {{11, 12}, {21, 22, 23}, {31, 32, 33, 34}};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 2. 需要两个变量,一个用于统计每个小组的总销售额,另外一个用于统计整个公司的总销售额.</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> sum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> groupSum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 3. 遍历二维数组</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> arr.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 每组的总销售额需要在外层循环中进行清空</span>
+</span></span><span style=display:flex><span>            groupSum <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> 0; j <span style=color:#f92672>&lt;</span> arr<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span>.<span style=color:#a6e22e>length</span>; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// 在内层循环中累加该小组每位成员的个人销售额</span>
+</span></span><span style=display:flex><span>                groupSum <span style=color:#f92672>+=</span> arr<span style=color:#f92672>[</span>i<span style=color:#f92672>][</span>j<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 在外层循环中累加小组的总销售额</span>
+</span></span><span style=display:flex><span>            sum <span style=color:#f92672>+=</span> groupSum;
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// 打印输出查看每个小组的总销售额</span>
+</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;第&#34;</span> <span style=color:#f92672>+</span> (i <span style=color:#f92672>+</span> 1) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;个小组的总销售额为:&#34;</span> <span style=color:#f92672>+</span> groupSum);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 4. 循环结束之后,sum存储的就是公司总销售额</span>
+</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;公司总销售额为:&#34;</span> <span style=color:#f92672>+</span> sum);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/java%e5%9f%ba%e7%a1%80>Java基础
+</a><a href=/tags/%e6%95%b0%e7%bb%84>数组</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请关注我吧 ヾ(^▽^*)))</div><button>
+关注</button><div class="post-reward active"><div class=post-reward-item><img src=https://jsd.cdn.zzko.cn/gh/hangzhi7/site_img@master/imgs/img-lazy-loading.gif data-src=/imgs/xybcgzh.jpg alt=公众号：小猿读书>
+<span>公众号：小猿读书</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+4.Java基础知识：数组</li><li class=post-copyright-author><strong>本文作者： </strong>小猿编程秘籍</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://code.mzfqy.site/post/47/ title=4.Java基础知识：数组>https://code.mzfqy.site/post/47/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=followme><span>欢迎关注我的其它发布渠道</span><div class=social-list><div class=social-item><a target=_blank class=social-link href=https://github.com/hangzhi7><span class=icon><i class="fab fa-github"></i>
+</span><span class=label>Github</span></a></div><div class=social-item><a target=_blank class=social-link href=https://www.zhihu.com/people/hang-zi-43-85/posts><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>知乎</span></a></div><div class=social-item><a target=_blank class=social-link href=https://blog.csdn.net/Yuan_Hang723><span class=icon><i class="fa fa-book"></i>
+</span><span class=label>CSDN</span></a></div></div></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/71/ rel=next title=docker安装Redis（单机版）><i class="fa fa-chevron-left"></i> docker安装Redis（单机版）</a></div><div class="post-nav-prev post-nav-item"><a href=/post/1/ rel=prev title=Linux下安装jupyter>Linux下安装jupyter
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div><div id=comments class=post-comments><div class=comment-head><div class=comment-headline><i class="fas fa-comments fa-fw"></i>
+<span>评论交流</span></div></div><div class=comment-wrap><div><div class=comment-loading><i class="fa fa-sync fa-spin"></i></div><div class=giscus-container></div></div></div></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2023 - 2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>小猿编程秘籍</span></div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":false,"giscus":{"cfg":{"category":"Announcements","categoryid":"DIC_kwDOKyZK3M4CbR9Y","emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"hangzhi7/comments","repoid":"R_kgDOKyZK3A","theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://code.mzfqy.site","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":true,"plugin":"busuanzi"}},"root":"/","scheme":"Muse","sidebar":{"display":"post","offset":12,"padding":18,"position":"right","width":320},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.8f5e35d041911f1772ddf1c9c9e0f4924ed2221b0caa219a4bc58560f72e5b11.js defer></script></body></html>

@@ -239,7 +239,7 @@ service docker stop 3、设置开机启动 systemctl enable docker 4、重启lin
 依赖倒置原则 依赖倒置原则：高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象。其核心思想是：要面向接口编程，不要面向实现编程。
 单一职责原则 单一职责原则：核心就是控制类的粒度大小、将对象解耦、提高其内聚性。
 接口隔离原则 接口隔离原则： 是为了约束接口、降低类对接口的依赖性，提高类的内聚性、降低它们之间的耦合性
-迪米特法则 迪米特法则：如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。其目的是降低类之间的耦合度，提 …</content></entry><entry><title>rsync数据同步备份工具</title><url>/post/5/</url><categories><category>Linux</category></categories><tags><tag>rsync</tag><tag>数据同步备份</tag></tags><content type="html"><![CDATA[  1、介绍rsync工具 1.1 rsync是什么：
+迪米特法则 迪米特法则：如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。其目的是降低类之间的耦合度，提 …</content></entry><entry><title>rsync数据同步备份工具</title><url>/post/5/</url><categories><category>工具</category></categories><tags><tag>rsync</tag><tag>数据同步备份</tag></tags><content type="html"><![CDATA[  1、介绍rsync工具 1.1 rsync是什么：
 一款开源的，快速的，多功能的，可以实现全量和增量的本地或远程数据同步备份工具。
 1.2 使用范围 :
 unix,linux,windows等多种操作系统
@@ -264,9 +264,232 @@ crontab -l 查看 crontab -e 编辑 service crond restart 重启 2.6 crontab定�
 0 3 * * * /usr/bin/sh /opt/databak.sh &gt; /dev/null 2&gt;&amp;1 2.7 cron表达式解释：
 表示每天凌晨0点用shell执行/opt/databak.sh脚本，并将输出重定向到/null。
 具体解释如下：
-0：表示分钟数，即0分。 3：表示小时数，即0-23小时之间的第3个小时。 *：表示日期（月份、星期等）的通配符，表示每小时执行。 *：表示日期（月份、星期等）的通配符，表示每天执行。 &gt; /dev/null：将标准输出重定向到/null，即不输出任何结果。 2&gt;&amp;1：将错误输出重定向到标准输出，即仍然保留错误输出，只是不输出正常输出。   ]]></content></entry><entry><title>轻量级Docker图形页面管理之Portainer搭建</title><url>/post/64/</url><categories><category>Linux</category></categories><tags><tag>Docker</tag><tag>Portainer搭建</tag></tags><content type="html"> 1、docker搜索 [root@hangzhi ~]# docker search portainer 2、选择 docker.io/portainer/portainer 下载最新版 [root@hangzhi ~]# docker pull docker.io/portainer/portainer 3、新建挂载目录 [root@hangzhi ~]# mkdir -p /opt/all_data/portainer/data 4、启动容器命令 docker run -d -p 19000:9000 --restart=always \ --name portainer \ -v /var/run/docker.sock:/var/run/docker.sock \ -v /opt/all_data/portainer/data:/data \ --hostname portainer portainer/portainer:latest 参数说明：
+0：表示分钟数，即0分。 3：表示小时数，即0-23小时之间的第3个小时。 *：表示日期（月份、星期等）的通配符，表示每小时执行。 *：表示日期（月份、星期等）的通配符，表示每天执行。 &gt; /dev/null：将标准输出重定向到/null，即不输出任何结果。 2&gt;&amp;1：将错误输出重定向到标准输出，即仍然保留错误输出，只是不输出正常输出。   ]]></content></entry><entry><title>Git之merge和rebase命令</title><url>/post/70/</url><categories><category>工具</category></categories><tags><tag>Git</tag></tags><content type="html"><![CDATA[  开发一个新的功能(拉分支开发)为例介绍merge和rebase
+1、merge 1、A分支拉取test分支开发
+2、新建test分支：git checkout -b test
+3、test分支开发完成，合并test分支到A分支
+4、切到A分支：git checkout A
+5、合并test分支 ：git merge test
+6、查看一下分支提交历史，会看到一个分叉的分支
+* | \ * * | | | / * 2、rebase 1、A分支拉取test分支开发
+2、新建test分支 ：git checkout -b test
+3、在test分支上执行: git rebase A(以A为基础，将test分支上的修改增加到A分支上，并生成新的版本。)
+4、有冲突，先解决冲突，再git rebase --continue
+5、再查看一下提交历史,(HEAD-&gt;test)提交记录已经是一条完美的直线。
+* (HEAD-&gt;test) | * | * 6、切到A分支：git checkout A
+7、合并test分支： git merge test
+8、再查看一下提交历史,(HEAD-&gt;A,test)
+* (HEAD-&gt;A,test) | * | * 9、收尾，删除test分支：git branch -d test
+  ]]></content></entry><entry><title>使用git将本地项目推送到码云仓库</title><url>/post/69/</url><categories><category>工具</category></categories><tags><tag>Git</tag></tags><content type="html"><![CDATA[  1、步骤 以下命令我是基于mac的终端执行的，也可在windows上的CMD窗口或者git的客户端git bash窗口中执行。
+（1）打开Git Bash, 生成公钥
+ssh-keygen -t rsa -C &#34;码云注册邮箱&#34; （2）添加到本地公钥
+ssh-agent bash ssh-add ~/.ssh/id_rsa （3）查看公钥内容
+cat ~/.ssh/id_rsa.pub （4）复制公钥内容并配置到码云上
+（5）在码云上创建新的项目，设置为私有或公有
+（6）进入本地项目文件，打开命令窗口
+git init （7）等初始化完成后将项目添加到本地仓库中
+git add . （8）查看一下git状态，看是否添加成功
+git status （9）commit到本地仓库
+git commit -am &#34;提交时描述信息&#34; （10）连接到远程码云仓库
+git remote add origin 仓库地址 # 注：仓库地址可以从码云项目中的克隆/下载找到，选择SSH （11）如果是第一次执行，可以先需要pull一下
+git pull （12）将本地代码push到码云的master主分支上
+git push -u -f origin master   ]]></content></entry><entry><title>12.Java中的字符串缓冲区和正则表达式</title><url>/post/55/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>缓冲区</tag><tag>正则表达式</tag></tags><content type="html"> 1、字符串缓冲区 1.1 概念：
+就是用来保存临时的字符数据的空间；
+1.2 Java的字符串缓冲区类：
+StringBuffer：是线程安全的，效率相对比较低；如果在多线程环境下，对线程安全有要求，就要使用StringBuffer；
+StringBuilder：是线程不安全的，效率相对比较高；如果在单线程环境下，或者对线程安全没有要求，就可以使用StringBuilder；
+1.3 操作：缓冲区是一个容器，对容器的数据操作，一般都有四种操作
+增：表示向容器中添加数据 删：表示从容器中移除数据 改：表示修改容器中的数据 查：表示从容器中获取数据 对于字符串缓冲区来说，开发中常用到的方法主要就是toString、append、insert、revers、substring和setLength这几个方法；
+其他的用到的时候知道怎么查API文档就行了
+2、正则表达式 2.1 概念：
+就是使用一些特殊符号组成的一种匹配规则，可以用来对字符串进行匹配的；
+2.2 正则的写法：
+一般字符： 表示匹配自身；如：a,表示匹配的字符传的值只能是a；所有普通字符串，都可以看作是一个正则表达式，匹配的是它自身； 字符类： 使用中括号[]和里面的内容组成，表示一个字符的取值范围；如：[a-z]：表示被匹配的字符的值可以是所有的小写字母； 预定义字符： 使用特殊符号或转义字符组成的表示特殊匹配范围的规则，如：. 表示匹配所有字符；\d表示匹配0-9的所有数字； 边界符： 表示匹配一些字符串的边界，如：^：表示匹配一行的开始；$：表示匹配一行的结束； 数量词： 前面必须跟一个规则，表示这个规则可以重复的次数；如：\d+：表示最少有一个数字；.?：表示最多有一个任意字符； 运算符: 组
+有的时候，希望可以调用前面已经定义好的规则，让调用的地方匹配的内容和前面一致，就可以使用组
+概念：就是使用小括号括起来的一段规则；后面调用是使用组出现的顺序的序号来调用的； 调用的格式是：\\组号 在同一个语句中，后面的正则表达式也可以引用前面正则表达式中定义的规则，使用的格式是：$组号 2.3 常见应用
+匹配字符串 /** 需求：验证手机号码是否合法： 手机号码的规则： 1、号码是11位数字； 2、号码只能以1开头； 3、号码的第二位可以是：3，4，5，7，8； 4、从第三位开始后面的数字都可以是0到9的任意数 …</content></entry><entry><title>ssh免密码登录</title><url>/post/67/</url><categories><category>Linux</category></categories><tags><tag>SSH</tag></tags><content type="html"> 示例：两台linux主机，主机A要免密码登录到主机B
+1、准备工作 两台linux主机A、B(也可以是虚拟机) 2、密钥文件生成 生成A，B两机器的各自密钥文件，生成方法如下：
+[root@hangzhi ~]# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/root/.ssh/id_rsa): #按回车键跳过 Created directory &amp;#39;/root/.ssh&amp;#39;. Enter passphrase (empty for no passphrase): #按回车键跳过 Enter same passphrase again: #按回车键跳过 Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is: SHA256:AAH7q02rnbC3EFBrwhoBQuPzQ1NPRM9fnw3aQAnl/PU root@hangzhi The key&amp;#39;s randomart image is: +---[RSA 2048]----+ |*oo.ooo+ .oo. | |+o.o..o o +. | |+++o .. o +.. .| |.=+.. . . .=.o+| |. .o. S .. ooE| | ... | | o o | | O.o | | +o*. | +----[SHA256]-----+ 3、配置密钥文件 示例是主机A要免密码登录到主机B，所以要在主机B的认证文件中配置主机A的密钥
+在主机B上编辑/root/.ssh/authorized_keys文件， 将主机A的/root/.ssh/id_rsa.pub的密钥粘贴进去即可</content></entry><entry><title>11.Java中的String类讲解</title><url>/post/54/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 使用面向对象的方式写程序，很多时候都是在直接使用别人写好的类；
+JDK中提供了大量类供我们使用，不过我们不需要去学习所有的类，只需要掌握开发中常用的几个类就行了；
+要用其他类只要会查API文档就行了；
+1、简介 在Java中，我们使用最多的数据，除了基本类型，就是字符串了；字符串使用String类描述，
+1、使用String类，不需要手动导包；
+2、String类直接继承Object类；
+3、String类使用final关键字修饰，不能被子类继承；
+4、java中，所有字符串，都是String类的对象；
+5、String对象创建之后，里面的数据不能改变；
+6、如果需要经常修改字符串，应该使用字符串缓冲区；
+7、相同字面值（指的就是一个字符串中双引号括起来的字符）的字符串对象，内存中只会保存一份，多个相同字面值的字符串，内存中实际是共享的；
+2、String对象的内存图解 3、String类的简单问题 String str1 = “abc”； 在常量池中创建了一个字符串对象，然后将这个对象的内存地址赋值给变量str1
+String str2 = new String(“abc”); 在堆内存中也创建一个对象，然后这个对象里面是常量池中字符串对象的内存地址，然后将堆内存中的对象的内存地址赋值给变量str2
+String str3 = “abc”; 这个没有创建对象，直接将常量池中已经创建的对象的内存地址赋值给变量str3
+问：执行这几行代码总共会创建几个对象？ 两个对象
+问：str1 == str2输出什么？ false
+问：str1 == str3 输出什么？ true
+4、String的常用方法 4.1 获取方法
+int length(); //获取字符串的长度 char charAt( int index ) //根据指定的下标获取对应的字符数据 int indexOf( int ch ) //获取指定的字符在字符串中从前往后第一次出现的下标 int indexOf( int ch ， int fromIndex ) //获取指定的字符在字符串中从指定的位置往后第一次出现的下标 int indexOf( String str ) //获取指定的字符串在字符串中从前往后第一次出现的下标 int indexOf( String str ，int fromIndex ) …</content></entry><entry><title>10.Java中如何处理异常</title><url>/post/53/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>异常类</tag></tags><content type="html"> 1、介绍 1.1 概念：
+异常，就是不正常情况；程序中出现不符合预期的情况就是异常；
+1.2 作用：
+可以针对程序中出现的问题作出相应处理，提高程序健壮性； 在程序中发生异常的地方通过日志技术将问题记录下来，帮助开发者快速排查错误； 2、异常体系&amp;amp;amp;分类 2.1 体系
+Throwable：java异常体系的最高父类；java中所有可被抛出、捕获或声明的异常类，都要继承这个类或它的子类； Error：错误，表示程序中严重的不能被JVM处理的问题；遇到这种问题，JVM都会停止运行； Exception：异常，表示程序中可以被JVM处理的问题；如果程序中抛出该类或它的子类的异常，编译时就会检查有没有书写处理的代码；如果没有写，就会报错； RuntimeException：表示运行时异常；该类和它的子类表示的异常，在编译期不会检查； 非RuntimeException：表示编译期异常； 2.2 分类
+编译期异常 概念：指的是Exception及其子类（不包括RuntimeException和它的子类）表示的异常； 特点：如果在程序中使用throw关键字显示的抛出这类异常，编译时编译器会检查有没有书写处理代码，如果没有就会报错；（也就是说，程序中如果抛出这类异常，必须处理） 运行期异常： 概念：指的是RuntimeException和它的子类表示的异常； 特点：如果程序中使用throw关键字显示的抛出这类异常，不管书写处理代码没有，编译时编译器都不管； 编译期异常和运行期异常，指的是编译的时候，是否检查书写了处理代码；
+2.3 图解： 3、自定义异常 因为JDK中提供的异常类太多，不方便记忆和使用，所以需要自定义异常
+Error表示 程序中严重的不应该处理的问题；
+Exception表示程序中应该自己能够处理的问题；
+所以，一般自定义异常，可以继承Exception，而不要去继承Error；
+3.1 自定义异常的步骤:
+1.定义一个类，让它继承Exception或RuntimeException；
+2.创建一个构造函数，接收一个表示异常信息的参数；
+3.调用父类的有参构造函数，将接收的异常信息传递给父类的构造函数；
+4.示例：
+//需求：创建一个描述人的信息的类，需要对年龄的合法性进行判断； class WrongAgeException extends …</content></entry><entry><title>8.Java基础知识：面向对象04</title><url>/post/51/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>面向对象</tag></tags><content type="html"> 1、抽象类 1.1 概念：将abstract关键字写在class前面的类叫抽象类
+抽象函数格式:
+抽象函数没有函数体,连大括号都没有
+抽象函数用abstract关键字修饰,写在返回值类型前面
+如果一个函数描述不清，不知道具体该如何实现，就要定义为抽象函数；
+如果一个类中存在抽象函数，这个类就是描述不清的，也要定义为抽象类
+1.2 特点:
+1.抽象类不能实例化(不能创建对象),只能由子类继承
+2.子类继承抽象类,必须实现父类的抽象函数;否则子类也是抽象的
+3.抽象函数不能直接使用,必须通过子类的继承使用
+1.3 部分问题
+1.抽象类一定是父类吗?
+是的；
+因为抽象类本来就是多个不同子类不断向上抽取，最终发现无法具体实现而得到的；
+如果要使用抽象类，必须有子类继承它，然后实现所有抽象函数；
+2.抽象类可以书写那些成员?
+任意成员
+3.抽象类中可以不书写抽象方法吗？
+可以
+4.抽象关键字abstract不能和哪些关键字共存？
+private；final：因为抽象函数必须被子类重写； 而private和final修饰的函数都不能被重写；
+static：因为static修饰的函数是静态的，不需要对象就可以直接使用；
+如果抽象函数是静态的，也就可以直接通过类名调用；而调用一个抽象函数没有意义
+5.一个类什么时候需要定义为抽象类？
+1、类中存在抽象函数；
+2、如果一个类中没有抽象函数，但是不希望被实例化，也需要定义为抽象类；
+3、如果一个类不希望创建对象，就可以定义为一个抽象类；
+6.抽象类可以继承非抽象类吗?
+可以
+2、多态 2.1 概念：
+指的就是同一个事物可以有多种不同的表示形态；
+2.2 java中的多态：
+父类引用指向子类对象；（接口类型引用指向实现类对象）
+2.3 使用前提：
+两个类型之间必须有继承关系（或者存在接口的实现关系）
+2.4 类型转换：
+自动向上转型： 可以直接将子类型引用赋值给父类型变量，可以自动进行，叫做自动向上转型；
+class Fu{} class Zi extends Fu{} Zi zi = new Zi(); Fu f = zi;//这行代码就发生了自动向上转型 强制向下转型： java中允许将父类型引用赋值给子类型变量，叫做向下转型；但是这种转型不能自动实现，需要强制进行，所以叫做强制向下转型；
+class Fu{} class Zi …</content></entry><entry><title>9.Java基础知识：面向对象05</title><url>/post/52/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>面向对象</tag></tags><content type="html"> 1、内部类 1.1 概念：
+就是一个类定义在其他类里面的类；包含其他类的类，叫做外部类；被外部类包含的类，叫做内部类；
+1.2 分类（根据书写位置分）
+1.2.1 成员内部类（根据修饰符的不同分）
+静态成员内部类： 使用static修饰的内部类就是静态成员内部类；
+静态成员内部类，也和外部类的对象无关；
+静态成员内部类中可以书写任何成员；
+在外部类以外的类中使用静态成员内部类，和使用普通类一样，只需要在类名前添加外部类的类名；
+在外部类中，不管是静态函数还是非静态函数，使用静态成员内部类的静态成员，都是直接通过类名使用；
+使用静态成员内部类的非静态成员，都是通过内部类的对象使用；
+创建内部类的对象，都可以直接创建，因为和外部类的对象无关；
+非静态成员内部类： 不使用static关键字修饰的成员内部类就叫做非静态成员内部类；
+非静态成员内部类，必须依赖外部类的对象存在
+非静态成员内部类中，只能书写非静态成员和常量变量，不能书写静态成员（除非是常量变量）
+私有成员内部类： 使用private关键字修饰的成员内部类就是私有成员内部类；
+这里私有只是限制这个成员内部类不能在外部类之外的地方使用，其它的用法和前面讲的静态成员内部类和非静态成员内部类的用法一样；
+1.2.2 局部内部类
+概念：定义在局部位置（函数里面）的内部类就叫做局部内部类；
+局部内部类中可以书写的成员，和非静态成员内部类一样，只能书写非静态成员，不能书写静态成员，除非是常量变量；
+在外部类的静态函数中定义的局部内部类，可以直接使用外部类的静态成员，不能直接使用外部类的非静态成员，需要通过外部类的对象使用；
+在外部类的非静态函数中定义的局部内部类，可以直接使用外部类的静态和非静态成员；
+2、匿名内部类 2.1 匿名内部类，就是一种格式：
+class A{}//表示定义一个A类 new A()//表示创建A类的一个对象 new A(){}//表示创建A类的一个匿名子类的对象，后面大括号中的内容，就是匿名子类中的内容； interface Inter{}//表示创建了一个接口Inter new Inter(){} //表示创建了接口Inter的一个匿名实现类的对象，后面大括号中的内容，就是匿名实现类中的内容； 2.2 示例
+interface Inter{ public void show(); } class …</content></entry><entry><title>7.Java基础知识：面向对象03</title><url>/post/50/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>面向对象</tag></tags><content type="html"> 1、代码块 1.1 概念：就是使用大括号括起来的一段代码；
+1.2 格式
+{ 代码； } 1.3 分类（代码块的按照书写位置）：
+局部代码块 书写在一个类的局部位置（函数里面的）的代码块就是局部代码块；
+局部代码块，因为定义在函数里面，所以不能直接使用，而是通过调用它所在的函数来执行；
+局部代码块，可以用来限定变量的使用范围；
+成员代码块（根据是否使用static关键字修饰再分类） 静态代码块：静态代码块直接写在类里面，使用static关键字修饰。
+构造代码块：也是直接写在类中，但是不需要static关键字修饰。
+1.4 类加载顺序 1.5 对象创建过程 2、单例设计 2.1 概念：
+单例设计模式：解决的就是在程序运行过程中，一个类最多只能创建一个对象的问题；
+2.2 步骤：
+1.私有化构造函数；
+2.在本类中创建唯一实例对象，使用一个私有静态的成员变量保存
+3.对外提供一个公开的静态的函数获供别人获取这个唯一实例对象
+2.3 代码实现
+饿汉式 class Single{ //1.私有化构造函数 private Single(){} //2.在本类中创建唯一实例对象，使用一个静态私有成员变量保存 private static Single single = new Single(); //3.对外提供一个公开的静态函数 public static Single getInstance(){ return single; } } 懒汉式 class Single{ //1.私有化构造函数 private Single(){} //2.在本类中创建唯一实例对象，使用一个静态私有成员变量保存 private static Single single = null; //3.对外提供一个公开的静态函数 public static Single getInstance(){ if(single == null){ single = new Single(); } return single; } } 3、继承 3.1 概念：
+java中的继承指的是使用extends关键字在两个类之间建立的一种关系；其中，继承其他类的类，叫做子类（派生类），被其他类继承的类叫做父类（超类、基类）；
+3.2 格式
+class Fu{}//表示被继承的类，是父类 class Zi extends …</content></entry><entry><title>6.Java基础知识：面向对象02</title><url>/post/49/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>面向对象</tag></tags><content type="html"> 1、封装 1.1 概念： 封装，就是包装的意思
+1.2 用法：
+java中的封装： 函数：封装了一段实现功能的代码；
+类：封装了函数和成员变量；
+如果外界需要访问被封装的成员变量，就需要在类中提供公开的get和set方法
+封装的好处：提高代码复用性；隐藏内部实现细节，提高安全性；
+private关键字 一个访问权限修饰符，表示被修饰的成员（成员变量、函数）是私有的，只能在定义它的类中使用，不能被其他地方使用；
+修饰成员变量，直接将private关键字写在成员变量的数据类型前面；
+修饰函数，写在函数最前面；
+public关键字 一个访问权限修饰符，表示被修饰的成员是公开的，所有地方都能使用；
+public可以修饰成员变量、函数和类；如果修饰类，这个类的类名必须和java的文件名一致；所以一个java文件中可以写多个类，但最多只能由一个public的类；
+set和get函数 格式：
+set的方法名：set + 变量名（变量名首字母大写）
+get的方法名：get + 变量名（变量名首字母大写）
+2、构造函数 2.1 概念和作用
+概念：构造函数，又叫做构造器，就是在对象创建的时候由JVM自动调用的函数；
+作用：构造函数就是用来在创建对象的时候给对象的成员变量赋值用的
+2.2 写法
+修饰符： 可以使用访问权限修饰符，不能使用static关键字修饰；
+返回值类型： 构造函数没有返回值类型；void都不能写；（要区分普通函数和构造函数，就看有没有返回值类型）
+函数名： 构造函数的函数名，必须和类名完全一致；
+参数列表： 构造函数可以重载，参数列表根据需求，需要怎么写就怎么写；
+return语句： 有return语句，也是通过return语句结束出栈；一般都不需要写；
+2.3 过程
+1.JVM执行时遇到new关键字，首先要到堆内存中开辟对象空间，然后将类中的成员变量加载到对象空间中，分配变量空间，赋默认值；
+2.根据new关键字后面的代码，调用相应的构造函数进栈执行；
+3.构造函数进栈执行，先执行隐藏步，然后执行构造函数中的代码，等构造函数结束出栈，对象创建完成
+隐藏步：
+1.执行super()语句，调用父类构造函数；
+2.给对象空间中的成员变量显示赋值；
+3.如果有构造代码块，要执行构造代码块；
+默认构造函数 实际上，在java中，每一个类都至少有一个构造函数；一个类要创建对象， …</content></entry><entry><title>5.Java基础知识：面向对象01</title><url>/post/48/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>面向对象</tag></tags><content type="html"> 1、面向过程和面向对象 1.1 面向过程
+按照这种思想写程序，我们就要先分析整个程序有哪些功能组成，然后分别写函数实现每一个功能，最后按顺序调用这些函数，实现整个功能；
+1.2 面向对象
+是一种解决问题的思想；按照这种思想解决问题，我们关心的是事情中有哪些参与者
+1.3 举例：
+例如：吃饺子 面向过程的方法： 1、包饺子：买菜、洗菜，买面粉；先剁馅，再和面；包饺子； 2、煮饺子：烧开水，下饺子； 3、吃饺子： 4、收拾：收拾碗筷； 面向对象的方法： 1、有饺子：找个饺子馆，告诉老板要吃什么馅，多少个饺子，然后等； 2、吃饺子：服务员端上饺子，开吃； 按照面向过程的方式写程序，我们要亲自写函数实现每一步功能 而按照面向对象的方式写程序，我们一般都是在使用别人已经写好的 1.4 区别：
+关注点不同： 面向过程：关心的是事件中的每一步功能怎么做；
+面向对象：关心的是事件中的每一步功能有没有什么对象已经实现好了，然后直接拿来使用；
+效率不同： 面向过程：因为自己要参与每一步的实现，所以效率比较慢；
+面向对象：因为大多数都是调用别人已经实现好的功能，所以效率比较高；
+开发质量： 面向过程：因为是自己一步步实现的，大多数情况会有地方会出问题；
+面向对象：因为大多数都是调用别人写好的功能，而这些功能一般都经过大量的验证，质量有保证；
+使用范围不同： 面向过程：适合解决需求简单的问题；
+面向对象：更适合解决复杂的需求；
+注意：面向对象里面也有过程存在；面向对象是基于过程的，二者并不排斥；
+2、对象在需求中的使用 使用伪代码描述 人吃饺子 场景：
+1.找对象 名词： 人 饺子 对象： 人 饺子 2.描述对象： 人｛ 吃（饺子）｛｝ ｝ 饺子｛｝ 3.模拟场景： // 创建人和饺子的对象 人 小明 = new 人（）； 饺子 东北饺子 = new 饺子（）； //模拟场景 小明.吃（东北饺子）； 3、对象在代码中的体现 /** 1.找对象 名词： 人 饺子 对象： 人 饺子 2.描述对象： 人｛ 吃（饺子）｛｝ ｝ 饺子｛｝ 3.模拟场景： // 创建人和饺子的对象 人 小明 = new 人（）； 饺子 东北饺子 = new 饺子（）； //模拟场景 小明.吃（东北饺子）； */ // 使用面向对象思想，用伪代码描述一个场景； class Person{ void …</content></entry><entry><title>轻量级Docker图形页面管理之Portainer搭建</title><url>/post/64/</url><categories><category>Docker</category></categories><tags><tag>Portainer搭建</tag></tags><content type="html"> 1、docker搜索 [root@hangzhi ~]# docker search portainer 2、选择 docker.io/portainer/portainer 下载最新版 [root@hangzhi ~]# docker pull docker.io/portainer/portainer 3、新建挂载目录 [root@hangzhi ~]# mkdir -p /opt/all_data/portainer/data 4、启动容器命令 docker run -d -p 19000:9000 --restart=always \ --name portainer \ -v /var/run/docker.sock:/var/run/docker.sock \ -v /opt/all_data/portainer/data:/data \ --hostname portainer portainer/portainer:latest 参数说明：
 -v /var/run/docker.sock:/var/run/docker.sock:把宿主机的Docker守护进程(Docker daemon)默认监听的Unix域套接字挂载到容器中 -v /opt/all_data/portainer/data:/data:把宿主机/opt/all_data/portainer/data数据卷挂载到容器/data目录 5、web界面 1.登陆 http://ip:19000，设置管理员账号和密码。
-2.单机版在新页面选择 Local 即可完成安装，集群选择Remote然后输入SWARM的IP地址，点击Connect完成安装。</content></entry><entry><title>Linux下安装jupyter</title><url>/post/1/</url><categories><category>Linux</category></categories><tags><tag>jupyter</tag><tag>Linux</tag></tags><content type="html"><![CDATA[  1.安装jupyter # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install jupyter 2.生成jupyter配置文件 # root用户： jupyter notebook –generate-config –allow-root # 非root用户 jupyter notebook –generate-config #输出信息：Writing default config to: /root/.jupyter/jupyter_notebook_config.py # 配置文件地址： /root/.jupyter/jupyter_notebook_config.py 3.打开ipython,生成密码 [root@hangzhi ~]# ipython In [1]: from notebook.auth import passwd In [2]: passwd() Enter password: #此处输入密码 Verify password: #此处输入之前输入的密码 Out[2]: &#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; #这个秘钥要copy备用 4.修改配置文件 [root@hangzhi ~]# vi /root/.jupyter/jupyter_notebook_config.py # notebook服务会监听的IP地址 c.NotebookApp.ip = &#39;&#39; #工作目录，自己选定 c.NotebookApp.notebook_dir = &#39;/opt/jupyter/jupyter_work&#39; c.NotebookApp.open_browser = False c.NotebookApp.port = 8888 #上面生成的秘钥 c.NotebookApp.password = u&#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; 5.启动jupyter # root用户 jupyter notebook –allow-root # 非root用户 jupyter notebook 后台启动脚本 # root用户 nohup jupyter notebook --allow-root &gt; /opt/logs/jupyter.log 2&gt;&amp;1 &amp; 停止脚本 #!/bin/bash #停止服务名称 SERVER_NAME=jupyter-notebook PIDS=`ps -ef | grep jupyter |awk &#39;{print $2}&#39;` if [ -z &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The $SERVER_NAME does not started!&#34; exit 1 fi echo -e &#34;&gt;&gt;&gt; Stopping the $SERVER_NAME ...\c&#34; for PID in $PIDS ; do kill $PID &gt; /dev/null 2&gt;&amp;1 done COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=1 for PID in $PIDS ; do PID_EXIST=`ps -f -p $PID | grep jupyter` if [ -n &#34;$PID_EXIST&#34; ]; then COUNT=0 break fi done done echo &#34;OK! --&gt;&gt;&gt; PID: $PIDS&#34; 6.浏览器访问 ip:8888 即可访问了，需输入密码就可以   ]]></content></entry><entry><title>1.Java基础概述</title><url>/post/44/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、简介 Java 是由 Sun Microsystems 公司于 1995 年 5 月推出的 Java 面向对象程序设计语言和 Java 平台的总称。由 James Gosling和同事们共同研发，并在 1995 年正式推出。
+2.单机版在新页面选择 Local 即可完成安装，集群选择Remote然后输入SWARM的IP地址，点击Connect完成安装。</content></entry><entry><title>docker安装Redis（单机版）</title><url>/post/71/</url><categories><category>Docker</category></categories><tags><tag>Redis</tag></tags><content type="html"> 1、拉取最新镜像 docker pull redis:latest 2、创建外挂配置和数据文件夹 mkdir -p /opt/redis/config mkdir -p /opt/redis/data 官网redis.conf下载 在/opt/redis/config目录下，下载官网配置文件再修改，修改内容如下：
+bind 0.0.0.0 # 这是redis可以任何ip都可以访问， port 6379 #访问端口，最好不要使用默认端口 requirepass 123456 #设置密码，不要太简单 maxmemory 157286400 #设置内存，默认单位bytes ，如果maxmemory值为0，表示不做限制 其他配置请参考官方 3、启动命令 docker run -p 16379:16379 --name redis \ -v /opt/redis/conf/redis.conf:/etc/redis/redis.conf \ -v /opt/redis/data:/data \ -d --hostname redis redis:latest redis-server /etc/redis/redis.conf --appendonly yes</content></entry><entry><title>4.Java基础知识：数组</title><url>/post/47/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>数组</tag></tags><content type="html"><![CDATA[  1、数组 1.1 介绍：
+把具有相同类型的若干变量按有序的形式组织起来,这些按序排列的同类数据元素的集合称为数组。
+1.2 格式一：
+元素类型[] 数组名 = new 元素类型[元素个数或数组长度]; 示例 : int[] arr = new int[5]; 如何存储数据到数组之中： 语法 :数组名[元素的下标] = 数据;
+如何去取存储在数组之中的数据： 语法 : 数组名[元素的下标];
+如何遍历数组的元素: public class Demo { public static void main(String[] args) { // 1. 元素类型[] 数组名 = new 元素类型[元素个数或数组长度]; int[] arr = new int[5]; //存数据 arr[0] = 98; arr[1] = 88; arr[2] = 100; arr[3] = 80; arr[4] = 99; //取数据 System.out.println(&amp;#34;arr[0]=&amp;#34; + arr[0]); System.out.println(&amp;#34;arr[1]=&amp;#34; + arr[1]); System.out.println(&amp;#34;arr[2]=&amp;#34; + arr[2]); System.out.println(&amp;#34;arr[3]=&amp;#34; + arr[3]); System.out.println(&amp;#34;arr[4]=&amp;#34; + arr[4]); System.out.println(&amp;#34;arr.length=&amp;#34; + arr.length); //遍历 for (int i = 0; i &amp;lt; arr.length; i++) { System.out.println(arr[i]); } } } 1.3 格式二：
+元素类型[] 数组名 = new 元素类型[] {元素, 元素, ......}; 示例 : int[] arr = new int[]{1, 3, 5, 7, 9}; int[] arr = {1, 3, 5, 7, 9}; 1.4 总结
+数组是用来干嘛的？ 数组是用来存储多个相同类型的数据。
+什么时候使用数组？ 当有一组数据， 并且这组数据的意义是相同的， 意义相同，肯定类型就是一样的。
+如何创建数 …  ]]></content></entry><entry><title>Linux下安装jupyter</title><url>/post/1/</url><categories><category>Linux</category></categories><tags><tag>jupyter</tag><tag>Linux</tag></tags><content type="html"><![CDATA[  1.安装jupyter # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install jupyter 2.生成jupyter配置文件 # root用户： jupyter notebook –generate-config –allow-root # 非root用户 jupyter notebook –generate-config #输出信息：Writing default config to: /root/.jupyter/jupyter_notebook_config.py # 配置文件地址： /root/.jupyter/jupyter_notebook_config.py 3.打开ipython,生成密码 [root@hangzhi ~]# ipython In [1]: from notebook.auth import passwd In [2]: passwd() Enter password: #此处输入密码 Verify password: #此处输入之前输入的密码 Out[2]: &#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; #这个秘钥要copy备用 4.修改配置文件 [root@hangzhi ~]# vi /root/.jupyter/jupyter_notebook_config.py # notebook服务会监听的IP地址 c.NotebookApp.ip = &#39;&#39; #工作目录，自己选定 c.NotebookApp.notebook_dir = &#39;/opt/jupyter/jupyter_work&#39; c.NotebookApp.open_browser = False c.NotebookApp.port = 8888 #上面生成的秘钥 c.NotebookApp.password = u&#39;sha1:f8b5f5dbeca8:d1f5b93d5e787e4bf1bf4ad2c48c177ba79f55dd&#39; 5.启动jupyter # root用户 jupyter notebook –allow-root # 非root用户 jupyter notebook 后台启动脚本 # root用户 nohup jupyter notebook --allow-root &gt; /opt/logs/jupyter.log 2&gt;&amp;1 &amp; 停止脚本 #!/bin/bash #停止服务名称 SERVER_NAME=jupyter-notebook PIDS=`ps -ef | grep jupyter |awk &#39;{print $2}&#39;` if [ -z &#34;$PIDS&#34; ]; then echo &#34;&gt;&gt;&gt; ERROR: The $SERVER_NAME does not started!&#34; exit 1 fi echo -e &#34;&gt;&gt;&gt; Stopping the $SERVER_NAME ...\c&#34; for PID in $PIDS ; do kill $PID &gt; /dev/null 2&gt;&amp;1 done COUNT=0 while [ $COUNT -lt 1 ]; do echo -e &#34;.\c&#34; sleep 1 COUNT=1 for PID in $PIDS ; do PID_EXIST=`ps -f -p $PID | grep jupyter` if [ -n &#34;$PID_EXIST&#34; ]; then COUNT=0 break fi done done echo &#34;OK! --&gt;&gt;&gt; PID: $PIDS&#34; 6.浏览器访问 ip:8888 即可访问了，需输入密码就可以   ]]></content></entry><entry><title>3.Java基础知识：函数</title><url>/post/46/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>函数</tag></tags><content type="html"><![CDATA[  1、函数 1.1 介绍：
+就是定义在 类中 的 具有特定功能 的一段 独立小程序，与main函数同级别。
+1.2 语法：
+修饰符 返回值类型 函数名(参数类型 形式参数1, 参数类型 形式参数2, ...) { 执行语句; return 返回值; } 返回值类型 : 函数运行后结果的数据类型。 参数类型 : 是形式参数的数据类型。 形式参数 : 是一个变量,用于存储调用函数时传递给函数的实际参数。 实际参数 : 传递给形式参数的具体数值。 return : 用于结束函数。
+注意 : 如果函数返回值类型为 void, 默认可以不写 return; 但,系统会默认在结束处自动添加 return 关键字。 返回值 : 该函数运算后的结果.该结果会返回给调用者。 1.3 函数的作用 :
+将一段需要被重用的代码封装在函数之中, 什么时候想要执行这段代码, 只需要调用这个函数就可以了.并且函数可以实现在调用时传入参数信息,并且在运算完成之后返回结果信息给调用者.
+1.4 带一个参数的函数
+public class Demo { public static void main(String[] args) { oddOrEven(9); oddOrEven(10); } // 判断奇偶数 public static void oddOrEven(int num) { // 判断思路 : 用这个额数模以2,等于0,就是偶数,否则就是奇数 if (num % 2 == 0) { System.out.println(&amp;#34;num:&amp;#34; + num + &amp;#34;是一个偶数&amp;#34;); } else { System.out.println(&amp;#34;num:&amp;#34; + num + &amp;#34;是一个奇数&amp;#34;); } } } 1.5 带多个参数的函数
+public class Demo { public static void main(String[] args) { // 调用自定义函数 oddAndEven(131); int r = getSum(10, 20); System.out.println(&amp;#34;r=&amp;#34; + r); int max = getMax(40, 20); System.out.println(&amp;#34;max=&amp;#34; …  ]]></content></entry><entry><title>1.Java基础概述</title><url>/post/44/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、简介 Java 是由 Sun Microsystems 公司于 1995 年 5 月推出的 Java 面向对象程序设计语言和 Java 平台的总称。由 James Gosling和同事们共同研发，并在 1995 年正式推出。
 后来 Sun 公司被 Oracle （甲骨文）公司收购，Java 也随之成为 Oracle 公司的产品。
 2005 年 6 月，JavaOne 大会召开，SUN 公司公开 Java SE 6。此时，Java 的各种版本已经更名，以取消其中的数字 &amp;amp;ldquo;2&amp;amp;rdquo;：J2EE 更名为 Java EE，J2SE 更名为Java SE，J2ME 更名为 Java ME。
 2、Java 三个体系： Java SE（Java 2 Platform Standard Edition）标准版【J2SE】 支持面向桌面级应用（如Windows下的应用程序）的Java平台，提供了完整的Java核心API，此版本以前称为J2SE，是其它两者的基础。
@@ -275,7 +498,7 @@ Java EE（Java 2 Platform Enterprise Edition）企业版【J2EE】 是为开发�
 三种技术的关系： 3、Java语言的特性 简单性（简洁有效、易学） Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java语言不使用指针，而是引用。并提供了自动的废料收集，使得程序员不必为内存管理而担忧。
 面向对象（强制面向对象） Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制。
 Java语言全面支持动态绑定，而C++语言只对虚函数使用动态绑定。
-分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>2.Java基础知识：语法</title><url>/post/45/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag></tags><content type="html"> 1、Java中的关键字 关键字 说明 abstract 表明类或者成员方法具有抽象属性 assert 用来进行程序调试 boolean 基本数据类型之一，布尔类型 break 提前跳出一个块 byte 基本数据类型之一，字节类型 case 用在switch语句之中，表示其中的一个分支 catch 用在异常处理中，用来捕捉异常 char 基本数据类型之一，字符类型 class 类 const 保留关键字，没有具体含义 continue 回到一个块的开始处 default 默认，例如，用在switch语句中，表明一个默认的分支 do 用在do-while循环结构中 double 基本数据类型之一，双精度浮点数类型 else 用在条件语句中，表明当条件不成立时的分支 enum 枚举 extends 表明一个类型是另一个类型的子类型，这里常见的类型有类和接口 final 用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变 finally 用于处理异常情况，用来声明一个基本肯定会被执行到的语句块 float 基本数据类型之一，单精度浮点数类型 for 一种循环结构的引导词 goto 保留关键字，没有具体含义 if 条件语句的引导词 implements 表明一个类实现了给定的接口 import 表明要访问指定的类或包 instanceof 用来测试一个对象是否是指定类型的实例对象 int 基本数据类型之一，整数类型 interface 接口 long 基本数据类型之一，长整数类型 native 用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的 new 用来创建新实例对象 package 包 private 一种访问控制方式：私用模式 protected 一种访问控制方式：保护模式 public 一种访问控制方式：共用模式 return 从成员方法中返回数据 short 基本数据类型之一,短整数类型 static 表明具有静态属性 strictfp 用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 super 表明当前对象的父类型的引用或者父类型的构造方法 switch 分支语句结构的引导词 synchronized 表明一段代码需要同步执行 this 指向当前实例对象 …</content></entry><entry><title>13.Python处理高级数据结构和数据分析常用扩展库：Pandas</title><url>/post/43/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、Pandas介绍 Pandas是一个用于处理高级数据结构和数据分析的Python库。基于Numpy构建的一种工具，纳入了大量模块和库一些标准的数据模型，提高python处理大数据的性能。广泛应用于金融、经济、数据分析、统计等商业领域，为从业者提供了便捷。
+分布式处理（适合分布式计算） Java语言支持Internet应用的开发，在基本的Java应用编程接口中有 …</content></entry><entry><title>2.Java基础知识：语法</title><url>/post/45/</url><categories><category>Java</category></categories><tags><tag>Java基础</tag><tag>语法</tag></tags><content type="html"> 1、Java中的关键字 关键字 说明 abstract 表明类或者成员方法具有抽象属性 assert 用来进行程序调试 boolean 基本数据类型之一，布尔类型 break 提前跳出一个块 byte 基本数据类型之一，字节类型 case 用在switch语句之中，表示其中的一个分支 catch 用在异常处理中，用来捕捉异常 char 基本数据类型之一，字符类型 class 类 const 保留关键字，没有具体含义 continue 回到一个块的开始处 default 默认，例如，用在switch语句中，表明一个默认的分支 do 用在do-while循环结构中 double 基本数据类型之一，双精度浮点数类型 else 用在条件语句中，表明当条件不成立时的分支 enum 枚举 extends 表明一个类型是另一个类型的子类型，这里常见的类型有类和接口 final 用来说明最终属性，表明一个类不能派生出子类，或者成员方法不能被覆盖，或者成员域的值不能被改变 finally 用于处理异常情况，用来声明一个基本肯定会被执行到的语句块 float 基本数据类型之一，单精度浮点数类型 for 一种循环结构的引导词 goto 保留关键字，没有具体含义 if 条件语句的引导词 implements 表明一个类实现了给定的接口 import 表明要访问指定的类或包 instanceof 用来测试一个对象是否是指定类型的实例对象 int 基本数据类型之一，整数类型 interface 接口 long 基本数据类型之一，长整数类型 native 用来声明一个方法是由与计算机相关的语言（如C/C++/FORTRAN语言）实现的 new 用来创建新实例对象 package 包 private 一种访问控制方式：私用模式 protected 一种访问控制方式：保护模式 public 一种访问控制方式：共用模式 return 从成员方法中返回数据 short 基本数据类型之一,短整数类型 static 表明具有静态属性 strictfp 用来声明FP_strict（单精度或双精度浮点数）表达式遵循IEEE 754算术规范 super 表明当前对象的父类型的引用或者父类型的构造方法 switch 分支语句结构的引导词 synchronized 表明一段代码需要同步执行 this 指向当前实例对象 …</content></entry><entry><title>13.Python处理高级数据结构和数据分析常用扩展库：Pandas</title><url>/post/43/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、Pandas介绍 Pandas是一个用于处理高级数据结构和数据分析的Python库。基于Numpy构建的一种工具，纳入了大量模块和库一些标准的数据模型，提高python处理大数据的性能。广泛应用于金融、经济、数据分析、统计等商业领域，为从业者提供了便捷。
 特点：
 支持Dataframe格式，自定义索引，Dataframe是一种高效快速的数据结构对象 可以将不同格式的数据文件加载到内存中 可处理时间序列或非时间序列数据 可基于标签来切片索引，获得大数据集子集 可进行高性能数据分组、聚合、添加、删除 未对齐及索引方式不同的数据可按轴自动对齐 灵活处理数据缺失、重组、空格 2、Pandas安装 # python -m pip会使用您指定为python的Python解释器来执行pip python -m pip install pandas 3、Series数据结构 Series类似一维数组，数组由数据与其索引标签组成，索引在左侧，值在右侧。
 3.1、创建Series数组
@@ -291,7 +514,7 @@ n表示数组的长度，数组是二维数组，返回值是(n1,n2) ，n1表示
 # shape print(&amp;#34;arr1 shape: &amp;#34;, arr1.shape) print(&amp;#34;arr2 shape: &amp;#34;, arr2.shape) 3.4、reshape函数
 reshape函数可以更改数组的结构，原数组的shape仍然保持不变，原数组与新数组是共享同一数据储存内存区域，
 所以对其中一个数组元素修改，都会同时引起另一个数组内容的改变
-# reshape arr2_reshape = arr2.reshape(3,2) …  ]]></content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>Linux</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
+# reshape arr2_reshape = arr2.reshape(3,2) …  ]]></content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>工具</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
 2、frp下载及介绍 (1) frp下载：https://github.com/fatedier/frp/releases 下载最新版，根据自己的服务器下载对应版本（我的是linux64系统）
 wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz (2) 解压压缩包
 tar -zxvf frp_0.34.3_linux_amd64.tar.gz mv frp_0.34.3_linux_amd64 frpServer 包结构介绍：
@@ -309,8 +532,13 @@ frpc ：客户端服务启动文件 frpc_full.ini ：启动配置文件（全版
 Last failed login: Tue Dec 29 21:06:17 CST 2020 from 182.78.163.21 on ssh:notty There were 6751 failed login attempts since the last successful login. Last login: Sat Dec 26 01:17:59 2020 from 120.230.83.193 1.3 解决办法：
 使用密钥登录可以解决
 1.4 步骤如下：
-1.生成ssh密钥： [root@hangzhi ~]# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/root/.ssh/id_rsa): #此处直接回车就可以 Enter passphrase (empty for no passphrase): #设置解密钥密码 Enter same passphrase again: #再此输入一样密码确认 Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is: SHA256:9vRVtZ9uUUinLq+0byUMYDo8XZpZQ/t2iDbrGjcjMNc root@hangzhi The key&amp;#39;s randomart image is: +---[RSA 2048]----+ | .. . o| | o +o +o| | . + B..o.o| | = =..+ o+| | Soo Eo*oo| | . * o B+.o| | + B .= | | * =o | | ..+o. | +----[SHA256]-----+ 2.查看生成的密钥： [root@hangzhi ~]# cd /root/.ssh/ [root@hangzhi .ssh]# ll total 12 -rw-r--r--. 1 root root 0 Mar 7 2018 authorized_keys -rw------- 1 root root 1766 Dec 29 21:13 id_rsa #私钥 -rw-r--r-- 1 root root 394 Dec 29 21:13 id_rsa.pub #公钥 -rw-r--r-- 1 root root 176 Jan 6 2019 known_hosts 3.将公钥追加到authorized_keys文件中： [root@hangzhi .ssh]# cat id_rsa.pub &amp;gt;&amp;gt; /root/.ssh/authorized_keys 4.将权限改为只有当前用户可读可写，保证安全： [root@hangzhi .ssh]# chmod 600 authorized_keys 5.打开ssh的密钥登录功能： [root@hangzhi .ssh]# vim /etc/ssh/sshd_config #PubkeyAuthentication yes #AuthorizedKeysFile .ssh/authorized_keys #将上面2行前面的注释去掉，然后保存 # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service 6.然后使用客户端配置密钥登录，如果成功接着下一步，不成功重复上面步骤
-7.关闭ssh密码登录（注意：只有配置成功后才操作这个步，不然没成功关闭这个会导致不能登录服务器 ）
+（1）生成ssh密钥：
+[root@hangzhi ~]# ssh-keygen Generating public/private rsa key pair. Enter file in which to save the key (/root/.ssh/id_rsa): #此处直接回车就可以 Enter passphrase (empty for no passphrase): #设置解密钥密码 Enter same passphrase again: #再此输入一样密码确认 Your identification has been saved in /root/.ssh/id_rsa. Your public key has been saved in /root/.ssh/id_rsa.pub. The key fingerprint is: SHA256:9vRVtZ9uUUinLq+0byUMYDo8XZpZQ/t2iDbrGjcjMNc root@hangzhi The key&amp;#39;s randomart image is: +---[RSA 2048]----+ | .. . o| | o +o +o| | . + B..o.o| | = =..+ o+| | Soo Eo*oo| | . * o B+.o| | + B .= | | * =o | | ..+o. | +----[SHA256]-----+ （2）查看生成的密钥：
+[root@hangzhi ~]# cd /root/.ssh/ [root@hangzhi .ssh]# ll total 12 -rw-r--r--. 1 root root 0 Mar 7 2018 authorized_keys -rw------- 1 root root 1766 Dec 29 21:13 id_rsa #私钥 -rw-r--r-- 1 root root 394 Dec 29 21:13 id_rsa.pub #公钥 -rw-r--r-- 1 root root 176 Jan 6 2019 known_hosts （3）将公钥追加到authorized_keys文件中：
+[root@hangzhi .ssh]# cat id_rsa.pub &amp;gt;&amp;gt; /root/.ssh/authorized_keys （4）将权限改为只有当前用户可读可写，保证安全：
+[root@hangzhi .ssh]# chmod 600 authorized_keys （5）打开ssh的密钥登录功能：
+[root@hangzhi .ssh]# vim /etc/ssh/sshd_config #PubkeyAuthentication yes #AuthorizedKeysFile .ssh/authorized_keys #将上面2行前面的注释去掉，然后保存 # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service （6）然后使用客户端配置密钥登录，如果成功接着下一步，不成功重复上面步骤
+（7）关闭ssh密码登录（注意：只有配置成功后才操作这个步，不然没成功关闭这个会导致不能登录服务器 ）
 [root@hangzhi .ssh]# vim /etc/ssh/sshd_config PasswordAuthentication yes 修改为: PasswordAuthentication no # 重启ssh服务 [root@hangzhi .ssh]# systemctl restart sshd.service</content></entry><entry><title>11.Python爬虫必学的网络编程知识</title><url>/post/41/</url><categories><category>Python</category></categories><tags><tag>自学记录</tag></tags><content type="html"><![CDATA[  1、基础知识 HTTP：（HyperText Transport Protocol）是超文本传输协议缩写
 URL：（Uniform Resource Locator）是统一资源定位符的缩写
 HTTP请求方式
@@ -322,7 +550,7 @@ url：目标URL访问地址
 data：默认是None，表示GET方式发送请求，data有值，表示POST方式发送请求
 timeout：访问超时时间
 GET请求
-import urllib.request #data没值是GET res = urllib.request.urlopen(&amp;#34;http://www.baidu.com&amp;#34;) print(res.read().decode(&amp;#34;utf8&amp;#34;)) POST请求 import urllib.request # 请求数据 param_dict = {&amp;#34;key&amp;#34;:&amp;#34;hello world&amp;#34;} # 调用urlencode函数将字典类型数据转成字符串 param_str = urllib.parse.urlencode(param_dict) #将传输数据封装成一个bytes对象 param_datas=bytes(param_str,encoding=&amp;#34;utf8&amp;#34;) #data有值 …  ]]></content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
+import urllib.request #data没值是GET res = urllib.request.urlopen(&amp;#34;http://www.baidu.com&amp;#34;) print(res.read().decode(&amp;#34;utf8&amp;#34;)) POST请求 import urllib.request # 请求数据 param_dict = {&amp;#34;key&amp;#34;:&amp;#34;hello world&amp;#34;} # 调用urlencode函数将字典类型数据转成字符串 param_str = urllib.parse.urlencode(param_dict) #将传输数据封装成一个bytes对象 param_datas=bytes(param_str,encoding=&amp;#34;utf8&amp;#34;) #data有值 …  ]]></content></entry><entry><title>VirtualBox虚拟机导出及磁盘扩展</title><url>/post/4/</url><categories><category>Linux</category><category>虚拟机</category></categories><tags><tag>VirtualBox虚拟机</tag><tag>磁盘扩展</tag></tags><content type="html"> VirtualBox虚拟机导出 VirtualBox虚拟机的迁移除了复制还有一种通用方式是导出
 复制的方式可以看之前写的：VirtualBox虚拟机迁移/复制（带快照）
 简单方便的导出方式(推荐)，因为适用其他虚拟机,如:VMWare
 VirtualBox虚拟机磁盘扩展 1.创建磁盘和添加磁盘
@@ -334,7 +562,13 @@ fdisk -l 查看 能看到/dev/sdb1了就ok 5.对分区好磁盘格式化
 mkfs.ext4 /dev/sdb1 对这个分区进行格式化 格式化成ext4格式，如果你想其他格式就自己改 6.创建磁盘挂载的文件夹
 mkdir /mnt/sdb1 （这个是要将硬盘挂载的地方，位置随意） 7.将挂载文件夹与磁盘关联
 mount /dev/sdb1 /mnt/sdb1 （挂载这个硬盘到这个位置上） df -h就能看到硬盘了 8.设置开机自动挂载磁盘
-vi /etc/fstab 让系统可以开机后自动将硬盘挂载上去 最后一行添加：/dev/sdb1 /mnt/sdb1 ext4 defaults 0 0 然后保存退出</content></entry><entry><title>VirtualBox虚拟机迁移/复制（带快照）</title><url>/post/3/</url><categories><category>Linux</category></categories><tags><tag>VirtualBox虚拟机</tag></tags><content type="html"> 本次虚拟机迁移是基于VirtualBox虚拟机，如果要尝试安装和创建虚拟机可以去搜索：virtualbox的安装与使用、安装镜像创建虚拟机
+vi /etc/fstab 让系统可以开机后自动将硬盘挂载上去 最后一行添加：/dev/sdb1 /mnt/sdb1 ext4 defaults 0 0 然后保存退出</content></entry><entry><title>docker搭建maven私服--nexus</title><url>/post/68/</url><categories><category>Docker</category></categories><tags><tag>nexus</tag></tags><content type="html"><![CDATA[  1、准备 一台可以上网的服务器（或者虚拟机、个人电脑等）并安装有docker
+2、查找镜像 docker search nexus 3、选取第一个镜像拉取 docker pull sonatype/nexus3 4、查看拉取的镜像 docker images 5、启动nexus镜像 docker run -p 5000:5000 -p 8081:8081 --name nexus \ --restart=always \ -v /opt/nexus-data:/nexus-data \ -d --hostname nexus sonatype/nexus3 默认密码： admin/admin123
+参数解释：
+5000：是用于镜像仓库的服务端口 8081：是nexus的访问端口 -v：将nexus镜像的数据挂载到主机的目录下 6、查看容器日志 docker logs nexus 7、Nexus 3.x 镜像权限问题 问题：
+[root@localhost opt]# docker logs nexus mkdir: cannot create directory &#39;../sonatype-work/nexus3/log&#39;: Permission denied mkdir: cannot create directory &#39;../sonatype-work/nexus3/tmp&#39;: Permission denied Java HotSpot(TM) 64-Bit Server VM warning: Cannot open file ../sonatype-work/nexus3/log/jvm.log due to No such file or directory Warning: Cannot open log file: ../sonatype-work/nexus3/log/jvm.log Warning: Forcing option -XX:LogFile=/tmp/jvm.log Unable to update instance pid: Unable to create directory /nexus-data/instances /nexus-data/log/karaf.log (No such file or directory) Unable to update instance pid: Unable to create directory /nexus-data/instances 解决方法：
+#将目录权限归属设定为 200 chown -R 200 /opt/nexus-data/ 最新的Nexus 3.x还支持Docker仓库
+  ]]></content></entry><entry><title>VirtualBox虚拟机迁移/复制（带快照）</title><url>/post/3/</url><categories><category>Linux</category><category>虚拟机</category></categories><tags><tag>VirtualBox虚拟机</tag></tags><content type="html"> 本次虚拟机迁移是基于VirtualBox虚拟机，如果要尝试安装和创建虚拟机可以去搜索：virtualbox的安装与使用、安装镜像创建虚拟机
 1、VirtualBox的结构介绍 xxx.vdi : 这个文件是磁盘映像，创建虚拟机的时候创建的
 xxx.vbox 和 xxx.vbox-prev：这个两文件虚拟机的配置文件，记录了所以配置信息，如快照，虚拟磁盘等，核心文件是.vbox文件
 xxx.vmdk : 这个文件是虚拟机磁盘，是用来扩展机器存储空间，创建虚拟机一般是没有次文件的
