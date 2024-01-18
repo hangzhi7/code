@@ -5,9 +5,10 @@
 pyinstaller通过分析Python脚本中的导入语句来确定程序需要的所有依赖项，并将这些依赖项以及脚本本身打包成一个或多个文件。
 3、pyinstaller常用参数 命令查看参数：pyinstaller --help
 常用参数：
-pyinstaller常用参数 说明 -F(&ndash;onefile) 将程序打包成一个单独的可执行文件 -D(&ndash;add-data) 默认参数，与-F相反，将打包的结果放到一个文件夹中，文件夹里可以看到很多依赖文件 -w(&ndash;windowed) 隐藏命令行窗口 -c(&ndash;console) 显示命令行窗口 -p(&ndash;paths) 自己定义需要加载的路径，比如项目中有多个自建模块时需要加上这个参数，
+pyinstaller常用参数 说明 -F(&ndash;onefile) 将程序打包成一个单独的可执行文件 -D(&ndash;onedir) 默认参数，与-F相反，将打包的结果放到一个文件夹中，文件夹里可以看到很多依赖文件 -w(&ndash;windowed) 隐藏命令行窗口 -c(&ndash;console) 显示命令行窗口 -p(&ndash;paths) 自己定义需要加载的路径，比如项目中有多个自建模块时需要加上这个参数，
 多个文件可以使用:分割，也可以多次使用这个参数 -i(&ndash;icon) 程序图标，macos下图标文件为 icns 格式， windows 为ico 格式 -n(&ndash;name) 程序名称，不加该参数时，默认 .py 的文件名 &ndash;hidden-import 需要导入的隐藏模块 &ndash;add-data 将额外的数据文件添加到打包的应用程序中。 注：-F与-D参数不能同时使用，它们互斥。-w与-c参数不能同时使用，它们互斥。
-4、打包 pyinstaller -w -p imgToWebp.py -p libwebpDesc.py -i &#39;app.icns&#39; -n &#39;ImageC&#39; --add-data &#39;resources:resources&#39; main.py 注意事项 （1）macos下打包时不建议使用-F参数，我是没打包成功，所以使用-D参数打包。
+4、打包 mac系统打包命令示例：
+pyinstaller -w -p imgToWebp.py -p libwebpDesc.py -i &#39;app.icns&#39; -n &#39;ImageC&#39; --add-data &#39;resources:resources&#39; main.py 注意事项 （1）macos下打包时不建议使用-F参数，我是没打包成功，所以使用-D参数打包，默认参数可以不用写。
 （2）使用--add-data 'resources:resources'表示将resources文件夹下内容，添加到应用中的resources文件夹下。
 代码中获取资源路径需要修改，代码如下：
 # 获取资源文件路径 def resources_path(relative_path): if getattr(sys,&#39;frozen&#39;,False): base_path = sys._MEIPASS else: base_path = os.path.abspath(&#34;.&#34;) return os.path.join(base_path,relative_path) 我的资源文件在resources文件夹下，使用时resources_path(&quot;resources&quot;)获取到了打包后资源文件夹的路径。
