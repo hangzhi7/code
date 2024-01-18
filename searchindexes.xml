@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>PyQt5入门,Python的GUI应用程序开发利器</title><url>/post/73/</url><categories><category>Python</category></categories><tags><tag>PyQt5</tag><tag>GUI库</tag></tags><content type="html"><![CDATA[  在众多的Python GUI库中，PyQt5无疑是其中的佼佼者。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>MacOS下使用pyinstaller打包PyQt5程序</title><url>/post/76/</url><categories><category>Python</category></categories><tags><tag>pyinstaller</tag><tag>PyQt5</tag><tag>MacOS</tag></tags><content type="html"><![CDATA[  1、准备 （1）PyQt5开发的程序
+（2）使用该项目单独的虚拟环境，必免将一些不必要的依赖打包到应用中
+# 1、创建python虚拟环境 python -m venv venv # 2、安装程序依赖，这个开发时都已安装 # 3、虚拟环境安装pyinstaller pip install pyinstaller 2、pyinstaller介绍 pyinstaller是一个开源工具，用于将Python程序转换为独立的可执行文件。
+这些可执行文件可以在没有Python环境的情况下在Windows、Linux和macOS上运行。
+pyinstaller通过分析Python脚本中的导入语句来确定程序需要的所有依赖项，并将这些依赖项以及脚本本身打包成一个或多个文件。
+3、pyinstaller常用参数 命令查看参数：pyinstaller --help
+常用参数：
+pyinstaller常用参数 说明 -F(&ndash;onefile) 将程序打包成一个单独的可执行文件 -D(&ndash;add-data) 默认参数，与-F相反，将打包的结果放到一个文件夹中，文件夹里可以看到很多依赖文件 -w(&ndash;windowed) 隐藏命令行窗口 -c(&ndash;console) 显示命令行窗口 -p(&ndash;paths) 自己定义需要加载的路径，比如项目中有多个自建模块时需要加上这个参数，
+多个文件可以使用:分割，也可以多次使用这个参数 -i(&ndash;icon) 程序图标，macos下图标文件为 icns 格式， windows 为ico 格式 -n(&ndash;name) 程序名称，不加该参数时，默认 .py 的文件名 &ndash;hidden-import 需要导入的隐藏模块 &ndash;add-data 将额外的数据文件添加到打包的应用程序中。 注：-F与-D参数不能同时使用，它们互斥。-w与-c参数不能同时使用，它们互斥。
+4、打包 pyinstaller -w -p imgToWebp.py -p libwebpDesc.py -i &#39;app.icns&#39; -n &#39;ImageC&#39; --add-data &#39;resources:resources&#39; main.py 注意事项 （1）macos下打包时不建议使用-F参数，我是没打包成功，所以使用-D参数打包。
+（2）使用--add-data 'resources:resources'表示将resources文件夹下内容，添加到应用中的resources文件夹下。
+代码中获取资源路径需要修改，代码如下：
+# 获取资源文件路径 def resources_path(relative_path): if getattr(sys,&#39;frozen&#39;,False): base_path = sys._MEIPASS else: base_path = os.path.abspath(&#34;.&#34;) return os.path.join(base_path,relative_path) 我的资源文件在resources文件夹下，使用时resources_path(&quot;resources&quot;)获取到了打包后资源文件夹的路径。
+（3）mac下图标文件为icns格式，windows为ico格式
+  ]]></content></entry><entry><title>PyQt5开发简单的图片转换器，将图片格式转换为webp格式</title><url>/post/75/</url><categories><category>Python</category></categories><tags><tag>PyQt5开发</tag><tag>图片转换器</tag><tag>webp格式</tag></tags><content type="html"><![CDATA[  1、准备 （1）在项目下创建python虚拟环境及安装PyQt5：
+# 创建python虚拟环境 python -m venv venv # 在虚拟环境中安装PyQt5 pip install PyQt5 （2）Webp工具下载： webp下载地址 2、Webp介绍 WebP 是 Google 开发的图片格式，其设计目标是提高图片质量，降低图片大小。
+3、简单图片转换器开发 （1）开发这个工具的原因：
+个人博客网站经常使用图片，在博客网站上，图片的大小和格式都比较重要。
+与其他格式图片对比发现，Webp格式图片的压缩率高，图片质量高，图片大小小，所以使用Webp格式图片。
+其他格式图片转换为webp格式需要使用Webp转换工具，这个工具只是命令行操作，需要经常手动复制路径，很麻烦。
+所以我就使用PyQt5简单的封装下制作一个简单的界面操作小工具，方便自己操作。
+（2）项目结构
+（3）界面设计 使用QtDesigner设计的界面虽然有点Low，但是可以满足基本需求的界面化操作，不必总是在命令行里复制、粘贴输入和输出路径参数。
+（4）文件转换
+ui文件转换为python文件： 这步操作是最简单的，只需之前配置好的辅助工具Pyuic，点几下就可以，每次ui文件修改了只需这么简单操作一下，就可以完成python文件的转换，使用方法如下：
+qrc文件转换为python文件： 项目中暂时没有资源文件，这个就无需操作了，使用方法与ui文件转换一样。
+（5）启动程序
+启动方式有两种：一种是直接加载ui文件启动，另一种是将ui文件转换为python文件启动。
+因为我使用了辅助工具Pyuic，每次修改ui文件后再编译为python文件非常方便，基本上我都采用将ui文件转换为python文件启动。
+启动方式一：直接加载ui文件启动 import sys from PyQt5 import uic from PyQt5.QtWidgets import QApplication, QWidget class ImgWidget(QWidget): def __init__(self): super().__init__() uic.loadUi(&amp;#34;imgToWebp.ui&amp;#34;, self) if __name__ == &amp;#39;__main__&amp;#39;: app = …  ]]></content></entry><entry><title>PyCharm配置PyQt5的3个超级好用插件</title><url>/post/74/</url><categories><category>Python</category></categories><tags><tag>QtDesigner</tag><tag>Pyuic</tag><tag>Pyrcc</tag></tags><content type="html"> 1、环境准备 （1）创建python虚拟环境使用：python -m venv 虚拟环境名称
+（2）激活并进入虚拟环境：
+在MacOS或Linux系统下使用：source 虚拟环境的名称/bin/activate 在windows系统下使用：虚拟环境的名称/Scripts/activate （3）在终端或命令提示符中输入以下命令即可安装PyQt5及Qt工具包：
+pip install PyQt5 pip install pyqt5-tools 注：如果虚拟环境经常使用可以使用固定路径，不必要建在项目目录下。我自己的配置是一个基础的环境（路径是固定的），所有项目都可以使用，另一种就是单独项目配置的环境（虚拟环境路径在项目下）。
+以下配置我都是MacOS系统下的配置，其他系统请根据实际情况进行修改。
+如上两张图所示，在PyCharm中，有两种路径进入External Tools添加工具。
+使用pip安装好PyQt5依赖库和Qt工具包后，相应的QtDesigner、Pyuic、Pyrcc三个工具都会自动安装。我们只需要找路径配置就可以
+2、PyCharm配置QtDesigner Name：QtDesigner // 扩展工具名称 Group：External Tools Description：通过Qt语言进行UI设计（支持拖拽式的UI设计）。 // 扩展工具功能描述 Program： 虚拟环境的路径/lib/python3.7/site-packages/qt5_applications/Qt/bin/Designer.app //扩展工具执行文件路径 Working directory：$FileDir$ //扩展工具工作目录为当前python工程的路径 如何使用： 在PyCharm中的工具栏Tools——&amp;amp;gt;External Tools——&amp;amp;gt;点击QtDesigner 就可以打开QtDesigner进行UI设计了。
+3、PyCharm配置Pyuic Name：Pyuic // 扩展工具名称 Group：External Tools Description：将QtDesigner设计的ui文件转化成Python代码文件。 // 扩展工具功能描述 Program： 虚拟环境的路径/bin/pyuic5 // …</content></entry><entry><title>PyQt5入门,Python的GUI应用程序开发利器</title><url>/post/73/</url><categories><category>Python</category></categories><tags><tag>PyQt5</tag><tag>GUI库</tag></tags><content type="html"><![CDATA[  在众多的Python GUI库中，PyQt5无疑是其中的佼佼者。
 通过简单的示例让大家快速上手PyQt5。
 1、PyQt5介绍 PyQt5是一个用于创建图形用户界面（GUI）应用程序的Python库，它是基于Qt框架的。
 PyQt5将Qt库的强大功能带到了Python编程语言中，使得开发者能够利用Python的简洁语法来构建美观且功能强大的GUI应用。
