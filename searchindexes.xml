@@ -217,7 +217,16 @@ dependencies { implementation &amp;#39;com.google.guava:guava:31.0.1-jre&amp;#39
 (1).增强java集合功能
 Guava库向我们提供了一些更加丰富的集合类，比如诸如ImmutableSet、ImmutableList、ImmutableSortedSet、ImmutableMap以及更为泛化和强大的Multiset（可以存储相同元素的集合）、BiMap（可以将两个键映射到一个值）、Table（可以将一个键映射到另一个键的值）等。
 (2).字符串处理
-Guava库提供 …  ]]></content></entry><entry><title>关于我</title><url>/about.html</url><categories/><tags/><content type="html"> 编程之路 一枚不起眼有着梦想爱读书的程序猿，记录自己的编程小技巧分享。
+Guava库提供 …  ]]></content></entry><entry><title>spring事件</title><url>/post/79/</url><categories><category>Java</category></categories><tags/><content type="html"><![CDATA[  1、Spring简单事件使用步骤: 1、自定义事件 并继承 ApplicationEvent
+2、定义事件的监听器类
+3、发布事件
+2、代码示例: Demo实体 package com.hh; @Data public class Demo { private String demoMsg; } 事件类 package com.hh; import org.springframework.context.ApplicationEvent; public class DemoEvent extends ApplicationEvent { private Demo demo; public Demo getDemo() { return demo; } public DemoEvent(Object source, Demo demo) { super(source); this.demo=demo; } } 监听器类 package com.hh; import org.springframework.context.event.EventListener; import org.springframework.scheduling.annotation.Async; import org.springframework.stereotype.Component; @Component public class DemoListener { @EventListener @Async public void sendMsg(DemoEvent demoEvent){ Demo demo = demoEvent.getDemo(); System.out.println(&#34;DemoListener接受到了EventPublisher发布的消息: &#34;+demo.getDemoMsg()); } } 发布类 package com.hh; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.ApplicationContext; import org.springframework.context.ApplicationEvent; import org.springframework.stereotype.Component; @Component public class EventPublisher&lt;T extends ApplicationEvent&gt; { @Autowired private ApplicationContext applicationContext; public void eventPublish(T event){ System.out.println(&#34;发布event事件: &#34;+event); applicationContext.publishEvent(event); } } 测试 package com.hh; import org.junit.Test; import org.junit.runner.RunWith; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.boot.test.context.SpringBootTest; import org.springframework.test.context.junit4.SpringRunner; @RunWith(SpringRunner.class) @SpringBootTest public class DemoTest { @Autowired EventPublisher&lt;DemoEvent&gt; eventPublisher; @Test public void eventTest(){ Demo demo=new Demo(); demo.setDemoMsg(&#34;event测试事件!!&#34;); DemoEvent demoEvent = new DemoEvent(this,demo); eventPublisher.eventPublish(demoEvent); } }   ]]></content></entry><entry><title>创建非root用户</title><url>/post/80/</url><categories><category>Java</category></categories><tags/><content type="html"> 示例：创建一个名为elk的用户，该用户属于elk用户组，密码为111111
+1、创建用户组elk
+groupadd elk 2、创建用户elk并设置密码
+useradd elk -g elk -p 111111 3、参数解释:
+-g elk 设置其用户组为 elk -p 111111 设置其密码6个1 4、更改权限
+# 更改 /opt 文件夹及内部文件的所属用户及组为 elk:elk chown -R elk:elk /opt 5、切换到非root用户elk
+su elk</content></entry><entry><title>关于我</title><url>/about.html</url><categories/><tags/><content type="html"> 编程之路 一枚不起眼有着梦想爱读书的程序猿，记录自己的编程小技巧分享。
 编程之路，探索智慧的无尽旅程。
 在这条路上，小猿编程秘籍解锁创新，磨砺思维，不断超越。
 编程，开启你的未来可能。
@@ -592,7 +601,16 @@ n表示数组的长度，数组是二维数组，返回值是(n1,n2) ，n1表示
 # shape print(&amp;#34;arr1 shape: &amp;#34;, arr1.shape) print(&amp;#34;arr2 shape: &amp;#34;, arr2.shape) 3.4、reshape函数
 reshape函数可以更改数组的结构，原数组的shape仍然保持不变，原数组与新数组是共享同一数据储存内存区域，
 所以对其中一个数组元素修改，都会同时引起另一个数组内容的改变
-# reshape arr2_reshape = arr2.reshape(3,2) …  ]]></content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>工具</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
+# reshape arr2_reshape = arr2.reshape(3,2) …  ]]></content></entry><entry><title>gitlab的fork派生使用</title><url>/post/78/</url><categories><category>工具</category></categories><tags><tag>gitlab</tag><tag>fork使用</tag></tags><content type="html"> 1、从原库Fork（派生）到自己的仓库
+2、将Fork（派生）库Clone到到本地
+git clone Fork(派生)库的地址 3、添加对原库的远程仓库，使Clone的本地库与远程库相关联
+查看当前远程仓库： git remote -v 然后会显示，Fork的两个链接
+添加原库的远程仓库： git remote add 原库的别名 原库的地址 再查看一下当前远程仓库,就会多了两个远程仓库
+4、本地库获取原库的更新
+下面介绍fetch+merge的方法： （1）步骤一
+# 获取 `原库的别名` 下的 `原库的分支名` 的更新内容。 git fetch 原库的别名 原库的分支名 （2）步骤二
+# 将更新的 `原库的别名` 下的 `原库的分支名` 合并到当前的本地的分支上 git merge 原库的别名/原库的分支名 5、将更新后的本地库通过add，commit，push，一条龙服务上传到自己的Fork（派生）库，实现对Fork（派生）库的更新
+6、将本地库的更新到Fork库后，合并到原库，实现提交自己的代码到原库</content></entry><entry><title>frp实现内网穿透详细配置</title><url>/post/8/</url><categories><category>工具</category></categories><tags><tag>frp</tag><tag>内网穿透</tag></tags><content type="html"> 1、条件 需要一个有公网IP的云服务器（我的是腾讯云）
 2、frp下载及介绍 (1) frp下载：https://github.com/fatedier/frp/releases 下载最新版，根据自己的服务器下载对应版本（我的是linux64系统）
 wget https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz (2) 解压压缩包
 tar -zxvf frp_0.34.3_linux_amd64.tar.gz mv frp_0.34.3_linux_amd64 frpServer 包结构介绍：
