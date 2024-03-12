@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>MacOS下使用pyinstaller打包PyQt5程序</title><url>/post/76/</url><categories><category>Python</category></categories><tags><tag>pyinstaller</tag><tag>PyQt5</tag><tag>MacOS</tag></tags><content type="html"><![CDATA[  1、准备 （1）PyQt5开发的程序
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的医护人员排班系统</title><url>/design/82/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 医护人员排班系统：基于B/S架构使管理人员从繁重的工作中解脱出来，实现无纸化办公，能够有效的提高医护人员排班系统管理效率。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，医院信息管理，医护信息管理，医护类型管理，排班信息管理，排班类型管理，科室信息管理，投诉信息管理。 用户角色：首页、个人中心、查看自己的排班信息，查看我的收藏信息。 2、前台首页：
+首页、医院信息、医护信息、科室信息、投诉信息、论坛、个人中心、后台管理等功能。 本站是一个B/S模式系统，采用Spring Boot框架，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得医护人员排班系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、后台医院信息管理 04、后台医护信息管理 05、后台医护类型管理 06、后台排班信息管理 07、后台排班类型管理 08、后台科室信息管理 09、后台投诉信息管理 10、前台页面</content></entry><entry><title>毕业设计：基于SpringBoot的在线拍卖系统</title><url>/design/81/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统简单介绍 在线拍卖系统：一个在线的拍卖网站，用户可以发布商品，进行拍卖，管理员可以对商品进行管理，对商品进行上架、下架、删除、修改等操作。
+本系统的开发使获取在线拍卖系统信息能够更加方便快捷，同时也使在线拍卖系统信息变的更加系统化、有序化。系统界面较友好，易于操作。
+主要的模块包括：
+1、后台功能： 管理员角色：首页、个人中心、用户管理、商品类型管理、拍卖商品管理、历史竞拍管理、竞拍订单管理、留言板管理、系统管理， 用户角色：首页、个人中心、历史竞拍管理、竞拍订单管理、留言板管理， 2、前台首页： 首页、拍卖商品、竞拍公告、留言反馈、个人中心、后台管理等功能。 本文中数据库服务器端采用了Mysql作为后台数据库，使Web与数据库紧密联系起来。
+在设计过程中，充分保证了系统代码的良好可读性、实用性、易扩展性、通用性、便于后期维护、操作方便以及页面简洁等特点。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、后台用户管理 04、后台商品类型管理 05、后台拍卖商品管理 06、后台历史竞拍管理 07、后台竞拍订单管理 08、后台竞拍公告 09、前台页面</content></entry><entry><title>MacOS下使用pyinstaller打包PyQt5程序</title><url>/post/76/</url><categories><category>Python</category></categories><tags><tag>pyinstaller</tag><tag>PyQt5</tag><tag>MacOS</tag></tags><content type="html"><![CDATA[  1、准备 （1）PyQt5开发的程序
 （2）使用该项目单独的虚拟环境，必免将一些不必要的依赖打包到应用中
 # 1、创建python虚拟环境 python -m venv venv # 2、安装程序依赖，这个开发时都已安装 # 3、虚拟环境安装pyinstaller pip install pyinstaller 2、pyinstaller介绍 pyinstaller是一个开源工具，用于将Python程序转换为独立的可执行文件。
 这些可执行文件可以在没有Python环境的情况下在Windows、Linux和macOS上运行。
