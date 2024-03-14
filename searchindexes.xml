@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的医护人员排班系统</title><url>/design/82/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 医护人员排班系统：基于B/S架构使管理人员从繁重的工作中解脱出来，实现无纸化办公，能够有效的提高医护人员排班系统管理效率。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的学生心理咨询评估系统</title><url>/design/84/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学生心理咨询评估系统：可以实现定期给学生进行心理评估，帮助学生了解自己的心理情况，也保护学生尴尬和隐私，解决了管理者处理数据时间很长，数据存在错误不能及时纠正等问题，方便及提高管理者人员的工作效率。
+主要的模块包括：
+1、管理员角色：首页、个人中心，用户管理，试题管理，试卷管理，考试管理。
+2、学生角色：首页、个人中心、考试管理（试卷列表、考试记录）。
+本系统采用主流的JAVA语言开发，后台采用SpringBoot框架，MYSQL数据库设计，访问页面Vue技术开发。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、试题管理 05、试卷管理 06、考试管理_错题本 07、考试管理_试卷列表 08、考试管理_考试记录</content></entry><entry><title>毕业设计：基于SpringBoot的图书个性化推荐系统</title><url>/design/83/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 图书个性化推荐系统：可以实现图书个性化推荐，方便学生知道自己的喜好，也可以方便管理员进行更加方便快捷的管理书籍和学生方便借还书籍，还可以提高管理人员的工作效率。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、学生管理、图书分类管理、图书信息管理、图书预约管理、退换图书管理、管理员管理、留言板管理、系统管理。 学生角色：首页、个人中心、图书预约管理、退换图书管理、我的收藏管理。 2、前台首页：
+首页、图书信息、好书推荐、留言反馈、个人中心、后台管理等功能。 本系统使用JAVA语言开发，采用SpringBoot框架，MYSQL数据库设计开发，代码简洁，小白可以快速上手。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、后台学生管理 04、后台图书分类管理 05、后台图书信息管理 06、后台图书预约管理 07、后台退还图书管理 08、留言板管理 09、好书推荐功能 10、前台页面</content></entry><entry><title>毕业设计：基于SpringBoot的医护人员排班系统</title><url>/design/82/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 医护人员排班系统：基于B/S架构使管理人员从繁重的工作中解脱出来，实现无纸化办公，能够有效的提高医护人员排班系统管理效率。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，医院信息管理，医护信息管理，医护类型管理，排班信息管理，排班类型管理，科室信息管理，投诉信息管理。 用户角色：首页、个人中心、查看自己的排班信息，查看我的收藏信息。 2、前台首页：
