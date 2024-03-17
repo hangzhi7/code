@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的大学生租房平台系统</title><url>/design/85/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 大学生租房平台系统：是一个集中管理房东和用户，使信息管理能够更加科学和规范，可以解决大学生租房信息管理混乱，出错率高，信息安全性差，劳动强度大，费时费力等问题。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的学生读书笔记共享系统</title><url>/design/86/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学生读书笔记共享系统：是一款方便、快捷、实用的系统，让用户更有针对性的获取到更多信息和详细，了解最新读书笔记共享信息。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、用户管理、笔记分享管理、个人笔记管理、管理员管理、交流互动、系统管理。 用户角色：首页、个人中心、笔记分享管理、个人笔记管理、我的收藏管理。 2、前台功能：
+首页、笔记分享、交流信息、个人中心、后台管理。 使用Java语言进行开发，采用B/S架构，后台使用SpringBoot框架，MYSQL数据库设计，新手上手更加简单，快速。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、笔记分享管理 05、个人笔记管理 06、交流互动 07、公告信息 08、前台首页</content></entry><entry><title>毕业设计：基于SpringBoot的大学生租房平台系统</title><url>/design/85/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 大学生租房平台系统：是一个集中管理房东和用户，使信息管理能够更加科学和规范，可以解决大学生租房信息管理混乱，出错率高，信息安全性差，劳动强度大，费时费力等问题。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、房东管理、信息审批管理、房源信息管理、订单信息管理、系统管理。 学生角色：首页、个人中心，房源收藏管理、订单信息管理。 房东角色：首页、个人中心、信息审批管理、房源信息管理、订单信息管理。 2、前台功能：
