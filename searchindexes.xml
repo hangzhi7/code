@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的学生读书笔记共享系统</title><url>/design/86/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学生读书笔记共享系统：是一款方便、快捷、实用的系统，让用户更有针对性的获取到更多信息和详细，了解最新读书笔记共享信息。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的在线文档管理系统</title><url>/design/88/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 在线文档管理系统: 一款针对文档无纸化办公系统，减少传统的纸质作为信息管理工具，能及时查询、修改、了解文档信息，解决获取信息便捷化、全面化的问题，提高效率。
+主要的模块包括：
+1、管理员角色：首页、个人中心、公告信息管理、部门信息管理、岗位管理、员工管理、文档信息管理。
+2、员工角色：首页、个人中心、公告信息管理、文档信息管理。
+使用Java语言进行编码，后台使用SpringBoot框架，MYSQL数据库设计。
+本系统根据需求可以进行在线添加，删除或修改文档信息，这样既能节省时间，不用再像传统的方式耽误时间，提高管理员的工作效率，减少原有不必要的工作量
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、公告信息管理 04、部门信息管理 05、岗位管理 06、员工管理 07、文档信息管理</content></entry><entry><title>毕业设计：基于SpringBoot的学生宿舍管理系统</title><url>/design/87/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学生宿舍管理系统: 无纸化办公系统，搭配信息管理工具可以很好为学生服务，也可以解决学生宿舍信息管理混乱，出错率高，信息安全性差，劳动强度大，费时费力等问题，同时降低信息管理成本，实现信息管理计算机化。
+主要的模块包括：
+1、宿管员角色：首页、个人中心、学生管理、学生信息管理、公寓资产管理、资产损坏管理、资产新增管理、缴费信息管理、清理公共场所管理、日常事务管理、日常事务管理。
+2、学生角色：首页、个人中心、学生信息管理、公寓资产管理、缴费信息管理、清理公共场所管理、日常事务管理、日常事务管理。
+使用Java语言进行开发，采用SpringBoot框架，MYSQL数据库设计。
+本系统不仅可以实时完成信息处理，还缩短学生宿舍信息管理流程，使其系统化和规范化。
+同时还可以减少工作量，节约学生宿舍信息管理需要的人力和资金。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、学生信息管理 05、公寓资产管理 06、资产损坏管理 07、资产新增管理 08、缴费信息管理 09、清理公共场所管理 10、日常事物管理 11、床位安排管理</content></entry><entry><title>毕业设计：基于SpringBoot的学生读书笔记共享系统</title><url>/design/86/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学生读书笔记共享系统：是一款方便、快捷、实用的系统，让用户更有针对性的获取到更多信息和详细，了解最新读书笔记共享信息。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、笔记分享管理、个人笔记管理、管理员管理、交流互动、系统管理。 用户角色：首页、个人中心、笔记分享管理、个人笔记管理、我的收藏管理。 2、前台功能：
