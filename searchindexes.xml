@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的社区医院信息系统</title><url>/design/90/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 社区医院信息系统: 可以方便管理人员对信息管理更先进、更高效、更科学，提高信息管理工作效率及查询效率，有利于更好的为人们服务。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的美容院管理系统</title><url>/design/91/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 美容院管理系统: 通过电子的方式进行保存，让信息系统化，流程化，规范化，无论是管理人员检索美容院信息，维护美容院信息都可以便利化操作，真正缩短信息处理时间，节省人力和信息管理的成本。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，普通用户管理、会员管理、技师管理、前台管理、美容用品管理、美容项目管理、用户预约信息管理、会员预约信息管理、美容部位管理、销售信息管理、库存信息管理、业绩统计管理、消费信息管理、订单信息管理。 技师角色：首页、个人中心、美容用品管理、美容项目管理、用户预约信息管理、会员预约信息管理、技师月业绩统计管理、技师年业绩统计管理。 前台角色：首页、个人中心、普通用户管理、会员管理、用户预约信息管理、会员预约信息管理、前台月业绩统计管理、前台年业绩统计管理。 2、前台功能：
+首页、个人中心、 美容用品、美容项目、用户预约信息、会员预约信息、后台管理、购物车。 本系统使用Java语言进行开发，采用Spring Boot框架，MYSQL数据库设计，充分保证系统的稳定性，系统具有界面清晰、操作简单，功能齐全。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 以技师角色功能为例：
+01、登录页面 02、后台首页 03、美容用品管理 04、美容项目管理 05、用户预约信息管理 06、会员预约信息管理 07、技师月业绩统计管理 07、技师年业绩统计管理 08、前台页面 项目源码地址：https://gitee.com/hangzhi7/beauty-salon-management-system</content></entry><entry><title>毕业设计：基于SpringBoot的社区医院信息系统</title><url>/design/90/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 社区医院信息系统: 可以方便管理人员对信息管理更先进、更高效、更科学，提高信息管理工作效率及查询效率，有利于更好的为人们服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，患者管理、护士管理、医生管理、药品管理员管理。 医生角色：首页、个人中心、患者管理、检查结果管理、诊断信息管理。 护士角色：首页、个人中心、患者管理、待检查列表管理、检查结果管理、注射列表管理、完成注射列表管理、注射取药列表管理。 药品管理员角色：首页、个人中心、诊断信息管理、药品信息管理、药品进价管理、取药列表管理、注射列表管理、药费结算管理。 患者角色：首页、个人中心、检查结果管理、诊断信息管理、取药列表管理、药费结算管理。 2、前台功能：
