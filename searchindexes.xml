@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>毕业设计：基于SpringBoot的新闻推荐系统</title><url>/design/92/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 新闻推荐系统: 将互联网与信息技术应用于经营与管理，使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的校园资料分享系统</title><url>/design/94/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 校园资料分享系统: 适合校园内的资料分享系统，让信息的交换和信息流通显得特别重要，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，学生管理、资料分享管理、资料分类管理、举报反馈管理、系统管理等。 学生角色：首页、个人中心，资料分享管理、资料评价、我的收藏管理。 2、前台功能：
+首页、个人中心、 资料分享、公告资讯、后台管理、在线客服。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得校园资料分享系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、资料分享管理 05、资料分类管理 06、举报反馈管理 07、在线客服 08、公告资讯 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/data-sharing-system</content></entry><entry><title>基于SpringBoot的大学生就业招聘系统</title><url>/design/93/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 大学生就业招聘系统: 适合大学生就业招聘流程的系统，将互联网与信息技术应用于经营与管理，使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，用户管理、企业管理、岗位分类管理、招聘信息管理、岗位申请管理、在线留言管理、求职信息管理、邀请面试管理、系统管理。 用户角色：首页、个人中心，岗位申请管理、在线留言管理、求职信息管理、邀请面试管理。 企业角色：首页、个人中心、招聘信息管理、岗位申请管理、在线留言管理、邀请面试管理。 2、前台功能：
+首页、个人中心、 招聘信息、求职信息、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得大学生就业招聘系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、企业管理 05、岗位分类管理 06、招聘信息管理 07、岗位申请管理 08、在线留言管理 09、求职信息管理 10、邀请面试管理 11、前台页面 项目源码地址：https://gitee.com/hangzhi7/graduate-job-system</content></entry><entry><title>毕业设计：基于SpringBoot的新闻推荐系统</title><url>/design/92/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 新闻推荐系统: 将互联网与信息技术应用于经营与管理，使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，用户管理、排行榜管理、新闻管理、我的收藏管理、系统管理。 用户角色：首页、个人中心，我的收藏管理。 2、前台功能：
@@ -7,7 +25,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、美容用品管理 04、美容项目管理 05、用户预约信息管理 06、会员预约信息管理 07、技师月业绩统计管理 08、前台页面 项目源码地址：https://gitee.com/hangzhi7/news-recommendation-system</content></entry><entry><title>毕业设计：基于SpringBoot的美容院管理系统</title><url>/design/91/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 美容院管理系统: 通过电子的方式进行保存，让信息系统化，流程化，规范化，无论是管理人员检索美容院信息，维护美容院信息都可以便利化操作，真正缩短信息处理时间，节省人力和信息管理的成本。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、排行榜管理 05、新闻管理 06、我的收藏管理 07、轮播图管理 08、前台页面 项目源码地址：https://gitee.com/hangzhi7/news-recommendation-system</content></entry><entry><title>毕业设计：基于SpringBoot的美容院管理系统</title><url>/design/91/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 美容院管理系统: 通过电子的方式进行保存，让信息系统化，流程化，规范化，无论是管理人员检索美容院信息，维护美容院信息都可以便利化操作，真正缩短信息处理时间，节省人力和信息管理的成本。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，普通用户管理、会员管理、技师管理、前台管理、美容用品管理、美容项目管理、用户预约信息管理、会员预约信息管理、美容部位管理、销售信息管理、库存信息管理、业绩统计管理、消费信息管理、订单信息管理。 技师角色：首页、个人中心、美容用品管理、美容项目管理、用户预约信息管理、会员预约信息管理、技师月业绩统计管理、技师年业绩统计管理。 前台角色：首页、个人中心、普通用户管理、会员管理、用户预约信息管理、会员预约信息管理、前台月业绩统计管理、前台年业绩统计管理。 2、前台功能：
