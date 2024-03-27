@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的校园资料分享系统</title><url>/design/94/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 校园资料分享系统: 适合校园内的资料分享系统，让信息的交换和信息流通显得特别重要，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的宠物咖啡馆系统</title><url>/design/96/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 宠物咖啡馆系统: 提高信息管理工作效率及查询效率，有利于更好的为人们服务，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、用户管理、看护师管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、互动项目管理、看护服务管理、咖啡菜品管理、菜品类型管理、菜品订单管理、周边商品管理、商品类型管理、商品购买管理、商品入库管理、系统管理等。 用户角色：首页、个人中心、咖啡菜品管理、菜品订单管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、看护服务管理、周边商品管理、商品购买管理、我的收藏管理等。 看护师角色：首页、个人中心、宠物体验管理、宠物寄养管理、健康状况管理、看护服务管理等。 2、前台功能：
+首页、个人中心、 咖啡菜品、宠物信息、周边商品、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得宠物咖啡馆系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、看护师管理 05、宠物信息管理 06、宠物体验管理 07、宠物订单管理 08、宠物寄养管理 09、健康状况管理 10、互动项目管理 11、看护服务管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/pet-coffee-shop-system</content></entry><entry><title>基于SpringBoot的旅游管理系统</title><url>/design/95/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 旅游管理系统: 适合部份景点的管理系统，力求创造好的用户体验，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，用户管理、景点信息管理、订票信息管理、用户评价管理、系统管理等。 用户角色：首页、个人中心，订票信息管理、用户评价管理。 2、前台功能：
+首页、个人中心、 景点信息、景点资讯、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得旅游管理系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、景点信息管理 05、订票信息管理 06、用户评价管理 07、景点资讯 08、轮播图管理 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/tourism-management-system</content></entry><entry><title>基于SpringBoot的校园资料分享系统</title><url>/design/94/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 校园资料分享系统: 适合校园内的资料分享系统，让信息的交换和信息流通显得特别重要，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，学生管理、资料分享管理、资料分类管理、举报反馈管理、系统管理等。 学生角色：首页、个人中心，资料分享管理、资料评价、我的收藏管理。 2、前台功能：
