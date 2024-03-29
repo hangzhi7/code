@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的洗衣店管理系统</title><url>/design/98/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 洗衣店管理系统: 方便管理人员对洗衣店管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的课程答疑系统</title><url>/design/99/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 课程答疑系统: 使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。方便管理人员对课程答疑系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、学生管理、老师过来、科目类型管理、学生问题管理、老师回答管理、老师信息管理、关注列表管理、交流区、系统管理。 学生角色：首页、个人中心、科目类型管理、学生问题管理、老师回答管理、老师信息管理、关注列表管理、我的收藏管理。 老师角色：首页、个人中心、老师回答管理、老师信息管理、关注列表管理、我的收藏管理。 2、前台功能：
+首页、个人中心、 学生问题、老师回答、老师信息、交流区、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得课程答疑系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、老师管理 05、科目类型管理 06、学生问题管理 07、老师回答管理 08、老师信息管理 09、关注列表管理 10、交流区 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/course-qa-system</content></entry><entry><title>基于SpringBoot的洗衣店管理系统</title><url>/design/98/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 洗衣店管理系统: 方便管理人员对洗衣店管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、顾客管理、店家管理、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理、交流区、系统管理等。 顾客角色：首页、个人中心、店铺信息管理、洗衣信息管理、订单信息管理、订单进度管理等。 店家角色：首页、个人中心、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理等。 2、前台功能：
