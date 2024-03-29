@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的宠物咖啡馆系统</title><url>/design/96/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 宠物咖啡馆系统: 提高信息管理工作效率及查询效率，有利于更好的为人们服务，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的洗衣店管理系统</title><url>/design/98/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 洗衣店管理系统: 方便管理人员对洗衣店管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、顾客管理、店家管理、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理、交流区、系统管理等。 顾客角色：首页、个人中心、店铺信息管理、洗衣信息管理、订单信息管理、订单进度管理等。 店家角色：首页、个人中心、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理等。 2、前台功能：
+首页、个人中心、 店铺信息、交流区、系统公告、后台管理、在线客服。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得洗衣店管理系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、顾客管理 04、店家管理 05、店铺信息管理 06、衣服类型管理 07、洗衣信息管理 08、订单信息管理 09、订单进度管理 10、交流区 11、系统公告 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/laundry-management-system</content></entry><entry><title>基于SpringBoot的服装生产管理系统</title><url>/design/97/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 服装生产管理系统: 提高信息管理工作效率及查询效率，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、用户管理、样板管理、成品检验管理、原料仓库管理、原料入库管理、原料出库管理、成衣仓库管理、成衣出库管理、订单管理、人事安排管理、考勤管理、工资管理、系统管理等。 用户角色：首页、个人中心、样板管理、考勤管理、工资管理、系统管理等。 2、前台功能：
+首页、个人中心、 人事安排、样板、系统公告、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得服装生产管理系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、样板管理 05、成品检验管理 06、原料仓库管理 07、原料入库管理 08、原料出库管理 09、成衣仓库管理 10、成衣出库管理 11、订单管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/clothing-production-management-system</content></entry><entry><title>基于SpringBoot的宠物咖啡馆系统</title><url>/design/96/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 宠物咖啡馆系统: 提高信息管理工作效率及查询效率，有利于更好的为人们服务，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、看护师管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、互动项目管理、看护服务管理、咖啡菜品管理、菜品类型管理、菜品订单管理、周边商品管理、商品类型管理、商品购买管理、商品入库管理、系统管理等。 用户角色：首页、个人中心、咖啡菜品管理、菜品订单管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、看护服务管理、周边商品管理、商品购买管理、我的收藏管理等。 看护师角色：首页、个人中心、宠物体验管理、宠物寄养管理、健康状况管理、看护服务管理等。 2、前台功能：
