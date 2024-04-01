@@ -1,9 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的病历交互系统</title><url>/design/100/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 病历交互系统: 将IT技术用于医疗病历信息的管理, 它能够收集与存储用户病历的档案信息，提供更新与检索病历信息档案的接口；提高工作效率。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的知识管理系统</title><url>/design/101/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 知识管理系统: 可以方便管理人员对知识管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、用户管理、文章分类管理、文章信息管理、资料分类管理、资料下载管理、问答管理、论坛交流、留言板管理、系统管理等。 用户角色：首页、个人中心、文章信息管理、资料下载管理、问答管理、我的收藏管理。 2、前台功能：
+首页、个人中心、 文章信息、资料下载、问答、论坛交流、留言反馈、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得知识管理系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、文章分类管理 05、文章信息管理 06、资料分类管理 07、资料下载管理 08、问答管理 09、论坛交流 10、留言板管理 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/knowledge-management-system</content></entry><entry><title>基于SpringBoot的病历交互系统</title><url>/design/100/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 病历交互系统: 将IT技术用于医疗病历信息的管理, 它能够收集与存储用户病历的档案信息，提供更新与检索病历信息档案的接口；提高工作效率。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、医院管理、医院列表管理、院区展示管理、医院科室管理、科室预约管理、医生管理、病历管理、医疗管理、医院公告、医院文章管理、系统管理。 用户角色：首页、个人中心、科室预约管理、病历管理、医疗管理。 医生角色：首页、个人中心、病历管理、医疗管理、医院文章管理。 2、前台功能：
 首页、个人中心、 院区展示、医院文章、医院科室、医生展示、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
-系统具有界面清晰、操作简单，功能齐全的特点，使得课程答疑系统管理工作系统化、规范化。
+系统具有界面清晰、操作简单，功能齐全的特点，使得病历交互系统管理工作系统化、规范化。
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
