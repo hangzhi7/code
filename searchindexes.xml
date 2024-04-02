@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的知识管理系统</title><url>/design/101/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 知识管理系统: 可以方便管理人员对知识管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的学科竞赛系统</title><url>/design/102/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学科竞赛系统: 可以方便管理人员对学科竞赛系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心、教师管理、学生管理、领队教师管理、竞赛类型管理、竞赛信息管理、学院管理、专业管理、获奖情况管理、系统管理等。 教师角色：首页、个人中心、题目类型管理、竞赛题库管理、竞赛类型管理、竞赛信息管理、报名信息管理、竞赛评分管理、参赛名单管理、晋级名单管理、获奖名单管理、竞赛总结管理、报销清单管理、成绩申诉管理、参赛信息管理、参赛信息管理、往年成绩管理、获奖情况管理。 学生角色：首页、个人中心、竞赛题库管理、竞赛类型管理、竞赛信息管理、报名信息管理、竞赛评分管理、参赛名单管理、晋级名单管理、获奖名单管理、竞赛总结管理、报销清单管理、成绩申诉管理、参赛信息管理、参赛信息管理、往年成绩管理、获奖情况管理。 2、前台功能：
+首页、个人中心、 竞赛信息、竞赛资讯、后台管理。 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得学科竞赛系统管理工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、教师管理 04、学生管理 05、领队教师管理 06、竞赛类型管理 07、竞赛信息管理 08、学院管理 09、专业管理 10、获奖情况管理 11、竞赛资讯 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/subject-competition-system</content></entry><entry><title>基于SpringBoot的知识管理系统</title><url>/design/101/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 知识管理系统: 可以方便管理人员对知识管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、文章分类管理、文章信息管理、资料分类管理、资料下载管理、问答管理、论坛交流、留言板管理、系统管理等。 用户角色：首页、个人中心、文章信息管理、资料下载管理、问答管理、我的收藏管理。 2、前台功能：
