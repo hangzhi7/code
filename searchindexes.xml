@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的旅游景点导游系统</title><url>/design/104/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 旅游景点导游系统: 可以方便管理人员对旅游景点导游系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的视频网站系统</title><url>/design/105/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 视频网站系统: 可以方便管理人员对视频网站系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，用户管理，视频分享管理，视频排名管理，平台公告管理，视频类型管理，交流论坛管理，留言板管理，系统管理等。 用户角色：首页、个人中心、视频分享管理、留言板管理、交流论坛管理。 2、前台功能：
+首页、个人中心、视频分享、视频排名、交流论坛、留言反馈、后台管理 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得视频网站系统工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面
+02、后台首页
+03、用户管理
+04、视频分享管理
+05、视频排名管理
+06、平台公告管理
+07、视频类型管理
+08、交流论坛
+09、留言板管理
+10、轮播图管理
+11、前台页面
+项目源码地址：https://gitee.com/hangzhi7/video-website-system</content></entry><entry><title>基于SpringBoot的旅游景点导游系统</title><url>/design/104/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 旅游景点导游系统: 可以方便管理人员对旅游景点导游系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、景点类型管理、景点信息管理、线路推荐管理、预定信息管理、论坛交流、系统管理等。 用户角色：首页、个人中心、景点信息管理、预定信息管理、线路推荐管理。 2、前台功能：
@@ -17,7 +37,7 @@
 08、论坛交流
 09、新闻资讯
 10、前台页面
-项目源码地址：https://gitee.com/hangzhi7/scenic-spot-tour-guide-system</content></entry><entry><title>基于SpringBoot的人事管理系统</title><url>/design/103/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 人事管理系统: 可以方便管理人员对人事系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+项目源码地址：https://gitee.com/hangzhi7/scenic-spot-tour-guide-system</content></entry><entry><title>基于SpringBoot的人事管理系统</title><url>/design/103/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 人事管理系统: 可以方便管理人员对人事系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、部门信息管理、员工信息管理、考勤信息管理、上班记录管理、下班记录管理、加班记录管理、员工薪酬管理等。 员工角色：首页、个人中心、考勤信息管理、上班记录管理、下班记录管理、加班记录管理、员工薪酬管理等。 2、前台功能：
@@ -35,7 +55,7 @@
 07、下班记录管理
 08、加班记录管理
 09、员工薪酬管理
-项目源码地址：https://gitee.com/hangzhi7/personnel-system</content></entry><entry><title>基于SpringBoot的学科竞赛系统</title><url>/design/102/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学科竞赛系统: 可以方便管理人员对学科竞赛系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+项目源码地址：https://gitee.com/hangzhi7/personnel-system</content></entry><entry><title>基于SpringBoot的学科竞赛系统</title><url>/design/102/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 学科竞赛系统: 可以方便管理人员对学科竞赛系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、教师管理、学生管理、领队教师管理、竞赛类型管理、竞赛信息管理、学院管理、专业管理、获奖情况管理、系统管理等。 教师角色：首页、个人中心、题目类型管理、竞赛题库管理、竞赛类型管理、竞赛信息管理、报名信息管理、竞赛评分管理、参赛名单管理、晋级名单管理、获奖名单管理、竞赛总结管理、报销清单管理、成绩申诉管理、参赛信息管理、参赛信息管理、往年成绩管理、获奖情况管理。 学生角色：首页、个人中心、竞赛题库管理、竞赛类型管理、竞赛信息管理、报名信息管理、竞赛评分管理、参赛名单管理、晋级名单管理、获奖名单管理、竞赛总结管理、报销清单管理、成绩申诉管理、参赛信息管理、参赛信息管理、往年成绩管理、获奖情况管理。 2、前台功能：
@@ -44,7 +64,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、教师管理 04、学生管理 05、领队教师管理 06、竞赛类型管理 07、竞赛信息管理 08、学院管理 09、专业管理 10、获奖情况管理 11、竞赛资讯 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/subject-competition-system</content></entry><entry><title>基于SpringBoot的知识管理系统</title><url>/design/101/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 知识管理系统: 可以方便管理人员对知识管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、教师管理 04、学生管理 05、领队教师管理 06、竞赛类型管理 07、竞赛信息管理 08、学院管理 09、专业管理 10、获奖情况管理 11、竞赛资讯 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/subject-competition-system</content></entry><entry><title>基于SpringBoot的知识管理系统</title><url>/design/101/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 知识管理系统: 可以方便管理人员对知识管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、文章分类管理、文章信息管理、资料分类管理、资料下载管理、问答管理、论坛交流、留言板管理、系统管理等。 用户角色：首页、个人中心、文章信息管理、资料下载管理、问答管理、我的收藏管理。 2、前台功能：
@@ -53,7 +73,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、文章分类管理 05、文章信息管理 06、资料分类管理 07、资料下载管理 08、问答管理 09、论坛交流 10、留言板管理 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/knowledge-management-system</content></entry><entry><title>基于SpringBoot的病历交互系统</title><url>/design/100/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 病历交互系统: 将IT技术用于医疗病历信息的管理, 它能够收集与存储用户病历的档案信息，提供更新与检索病历信息档案的接口；提高工作效率。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、文章分类管理 05、文章信息管理 06、资料分类管理 07、资料下载管理 08、问答管理 09、论坛交流 10、留言板管理 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/knowledge-management-system</content></entry><entry><title>基于SpringBoot的病历交互系统</title><url>/design/100/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 病历交互系统: 将IT技术用于医疗病历信息的管理, 它能够收集与存储用户病历的档案信息，提供更新与检索病历信息档案的接口；提高工作效率。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、医院管理、医院列表管理、院区展示管理、医院科室管理、科室预约管理、医生管理、病历管理、医疗管理、医院公告、医院文章管理、系统管理。 用户角色：首页、个人中心、科室预约管理、病历管理、医疗管理。 医生角色：首页、个人中心、病历管理、医疗管理、医院文章管理。 2、前台功能：
@@ -62,7 +82,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、医院管理 05、医院列表管理 06、院区展示管理 07、医院科室管理 08、科室预约管理 09、医生管理 10、病历管理 11、医疗管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/medical-record-system</content></entry><entry><title>基于SpringBoot的课程答疑系统</title><url>/design/99/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 课程答疑系统: 方便管理人员对课程答疑系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、医院管理 05、医院列表管理 06、院区展示管理 07、医院科室管理 08、科室预约管理 09、医生管理 10、病历管理 11、医疗管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/medical-record-system</content></entry><entry><title>基于SpringBoot的课程答疑系统</title><url>/design/99/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 课程答疑系统: 方便管理人员对课程答疑系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、学生管理、老师管理、科目类型管理、学生问题管理、老师回答管理、老师信息管理、关注列表管理、交流区、系统管理。 学生角色：首页、个人中心、科目类型管理、学生问题管理、老师回答管理、老师信息管理、关注列表管理、我的收藏管理。 老师角色：首页、个人中心、老师回答管理、老师信息管理、关注列表管理、我的收藏管理。 2、前台功能：
@@ -71,7 +91,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、老师管理 05、科目类型管理 06、学生问题管理 07、老师回答管理 08、老师信息管理 09、关注列表管理 10、交流区 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/course-qa-system</content></entry><entry><title>基于SpringBoot的洗衣店管理系统</title><url>/design/98/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 洗衣店管理系统: 方便管理人员对洗衣店管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、老师管理 05、科目类型管理 06、学生问题管理 07、老师回答管理 08、老师信息管理 09、关注列表管理 10、交流区 11、轮播图管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/course-qa-system</content></entry><entry><title>基于SpringBoot的洗衣店管理系统</title><url>/design/98/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 洗衣店管理系统: 方便管理人员对洗衣店管理系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、顾客管理、店家管理、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理、交流区、系统管理等。 顾客角色：首页、个人中心、店铺信息管理、洗衣信息管理、订单信息管理、订单进度管理等。 店家角色：首页、个人中心、店铺信息管理、衣服类型管理、洗衣信息管理、订单信息管理、订单进度管理等。 2、前台功能：
@@ -80,7 +100,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、顾客管理 04、店家管理 05、店铺信息管理 06、衣服类型管理 07、洗衣信息管理 08、订单信息管理 09、订单进度管理 10、交流区 11、系统公告 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/laundry-management-system</content></entry><entry><title>基于SpringBoot的服装生产管理系统</title><url>/design/97/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 服装生产管理系统: 提高信息管理工作效率及查询效率，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、顾客管理 04、店家管理 05、店铺信息管理 06、衣服类型管理 07、洗衣信息管理 08、订单信息管理 09、订单进度管理 10、交流区 11、系统公告 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/laundry-management-system</content></entry><entry><title>基于SpringBoot的服装生产管理系统</title><url>/design/97/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 服装生产管理系统: 提高信息管理工作效率及查询效率，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、样板管理、成品检验管理、原料仓库管理、原料入库管理、原料出库管理、成衣仓库管理、成衣出库管理、订单管理、人事安排管理、考勤管理、工资管理、系统管理等。 用户角色：首页、个人中心、样板管理、考勤管理、工资管理、系统管理等。 2、前台功能：
@@ -89,7 +109,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、样板管理 05、成品检验管理 06、原料仓库管理 07、原料入库管理 08、原料出库管理 09、成衣仓库管理 10、成衣出库管理 11、订单管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/clothing-production-management-system</content></entry><entry><title>基于SpringBoot的宠物咖啡馆系统</title><url>/design/96/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 宠物咖啡馆系统: 提高信息管理工作效率及查询效率，有利于更好的为人们服务，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、样板管理 05、成品检验管理 06、原料仓库管理 07、原料入库管理 08、原料出库管理 09、成衣仓库管理 10、成衣出库管理 11、订单管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/clothing-production-management-system</content></entry><entry><title>基于SpringBoot的宠物咖啡馆系统</title><url>/design/96/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 宠物咖啡馆系统: 提高信息管理工作效率及查询效率，有利于更好的为人们服务，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心、用户管理、看护师管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、互动项目管理、看护服务管理、咖啡菜品管理、菜品类型管理、菜品订单管理、周边商品管理、商品类型管理、商品购买管理、商品入库管理、系统管理等。 用户角色：首页、个人中心、咖啡菜品管理、菜品订单管理、宠物信息管理、宠物体验管理、宠物订单管理、宠物寄养管理、健康状况管理、看护服务管理、周边商品管理、商品购买管理、我的收藏管理等。 看护师角色：首页、个人中心、宠物体验管理、宠物寄养管理、健康状况管理、看护服务管理等。 2、前台功能：
@@ -98,7 +118,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、看护师管理 05、宠物信息管理 06、宠物体验管理 07、宠物订单管理 08、宠物寄养管理 09、健康状况管理 10、互动项目管理 11、看护服务管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/pet-coffee-shop-system</content></entry><entry><title>基于SpringBoot的旅游管理系统</title><url>/design/95/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 旅游管理系统: 适合部份景点的管理系统，力求创造好的用户体验，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、看护师管理 05、宠物信息管理 06、宠物体验管理 07、宠物订单管理 08、宠物寄养管理 09、健康状况管理 10、互动项目管理 11、看护服务管理 12、前台页面 项目源码地址：https://gitee.com/hangzhi7/pet-coffee-shop-system</content></entry><entry><title>基于SpringBoot的旅游管理系统</title><url>/design/95/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 旅游管理系统: 适合部份景点的管理系统，力求创造好的用户体验，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，用户管理、景点信息管理、订票信息管理、用户评价管理、系统管理等。 用户角色：首页、个人中心，订票信息管理、用户评价管理。 2、前台功能：
@@ -107,7 +127,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、景点信息管理 05、订票信息管理 06、用户评价管理 07、景点资讯 08、轮播图管理 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/tourism-management-system</content></entry><entry><title>基于SpringBoot的校园资料分享系统</title><url>/design/94/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 校园资料分享系统: 适合校园内的资料分享系统，让信息的交换和信息流通显得特别重要，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、用户管理 04、景点信息管理 05、订票信息管理 06、用户评价管理 07、景点资讯 08、轮播图管理 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/tourism-management-system</content></entry><entry><title>基于SpringBoot的校园资料分享系统</title><url>/design/94/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 校园资料分享系统: 适合校园内的资料分享系统，让信息的交换和信息流通显得特别重要，将互联网与信息技术应用于经营与管理，以现代化工具代替传统手工作业。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，学生管理、资料分享管理、资料分类管理、举报反馈管理、系统管理等。 学生角色：首页、个人中心，资料分享管理、资料评价、我的收藏管理。 2、前台功能：
@@ -116,7 +136,7 @@
 二、系统架构 前端：html | js | css | jquery | vue
 后端：springboot | mybatis
 环境：jdk1.8+ | mysql | maven
-数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、资料分享管理 05、资料分类管理 06、举报反馈管理 07、在线客服 08、公告资讯 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/data-sharing-system</content></entry><entry><title>基于SpringBoot的大学生就业招聘系统</title><url>/design/93/</url><categories><category>毕业设计</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 大学生就业招聘系统: 适合大学生就业招聘流程的系统，将互联网与信息技术应用于经营与管理，使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。
+数据库表结构 代码运行 三、系统各功能 01、登录页面 02、后台首页 03、学生管理 04、资料分享管理 05、资料分类管理 06、举报反馈管理 07、在线客服 08、公告资讯 09、前台页面 项目源码地址：https://gitee.com/hangzhi7/data-sharing-system</content></entry><entry><title>基于SpringBoot的大学生就业招聘系统</title><url>/design/93/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 大学生就业招聘系统: 适合大学生就业招聘流程的系统，将互联网与信息技术应用于经营与管理，使用网络信息化管理使信息管理更先进、更高效、更科学，信息交流更迅速。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，用户管理、企业管理、岗位分类管理、招聘信息管理、岗位申请管理、在线留言管理、求职信息管理、邀请面试管理、系统管理。 用户角色：首页、个人中心，岗位申请管理、在线留言管理、求职信息管理、邀请面试管理。 企业角色：首页、个人中心、招聘信息管理、岗位申请管理、在线留言管理、邀请面试管理。 2、前台功能：
