@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SpringBoot的视频网站系统</title><url>/design/105/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 视频网站系统: 可以方便管理人员对视频网站系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>基于SSM的新生报到系统</title><url>/design/107/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SSM</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 新生报到系统: 可以方便管理人员对新生报到系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，学院信息，专业信息、班级信息、消息通知、宿舍信息、缴费信息、学生管理、管理员管理等。 学生角色：首页、个人中心、缴费信息，消息通知等。 本系统是一个B/S模式系统，采用SSM框架作为后台开发技术，前端框架是JSP，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得新生报到系统工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | jsp
+后端：spring | springmvc | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面
+02、后台首页
+03、学院信息
+04、专业信息
+05、班级信息
+06、宿舍管理
+07、缴费信息
+08、学生管理
+09、管理员信息</content></entry><entry><title>基于SpringBoot的在线考试系统</title><url>/design/106/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 在线考试系统: 可以方便管理人员对在线考试系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
+主要的模块包括：
+1、后台功能：
+管理员角色：首页、个人中心，用户管理，试卷管理、试题管理、考试管理、考试评分管理、考试统计管理、考试规则管理、专业列表管理、专业类型管理、系统管理等。 用户角色：首页、个人中心、考试规则，试卷列表，考试资讯，参加考试，考试记录，错题本，考试评分等 2、前台功能：
+首页、个人中心、考试规则、试卷列表、考试资讯、后台管理 本系统是一个B/S模式系统，采用SpringBoot框架作为后台开发技术，前端框架是VUE，MYSQL数据库设计开发，充分保证系统的稳定性。
+系统具有界面清晰、操作简单，功能齐全的特点，使得在线考试系统工作系统化、规范化。
+二、系统架构 前端：html | js | css | jquery | vue
+后端：springboot | mybatis
+环境：jdk1.8+ | mysql | maven
+数据库表结构 代码运行 三、系统各功能 01、登录页面
+02、后台首页
+03、用户管理
+04、试卷管理
+05、试题管理
+06、考试管理
+07、考试评分管理
+08、考试统计管理
+09、考试规则管理
+10、专业列表管理
+11、专业类型管理
+12、前台页面</content></entry><entry><title>基于SpringBoot的视频网站系统</title><url>/design/105/</url><categories><category>项目源码</category></categories><tags><tag>毕业设计</tag><tag>课程设计</tag><tag>SpringBoot</tag><tag>Java</tag></tags><content type="html"> 一、系统介绍 视频网站系统: 可以方便管理人员对视频网站系统的管理，提高信息管理工作效率及查询效率，有利于更好的为用户提供服务。
 主要的模块包括：
 1、后台功能：
 管理员角色：首页、个人中心，用户管理，视频分享管理，视频排名管理，平台公告管理，视频类型管理，交流论坛管理，留言板管理，系统管理等。 用户角色：首页、个人中心、视频分享管理、留言板管理、交流论坛管理。 2、前台功能：
